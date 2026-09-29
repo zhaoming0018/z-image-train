@@ -1,0 +1,19 @@
+# 富老大（大名 富强）— 数据集构建规格（scripts/build_dataset.py 读取）
+# 拍板 2026-09-29（视觉质检 + 用户确认）；源：output/liulaoliu_story/audition/fu6lao/
+# caption = "<appearance>, <pose>"，风格对齐 l6liu/he6tou（短句，逗号分隔）
+audition_dir: fu6lao
+appearance: "fu6lao, a stocky middle-aged chinese man, round fleshy face, thin mustache strips, dark shirt"
+picks:
+- {src: fu6lao_01.png, pose: "portrait close-up, neutral, plain wall"}
+- {src: fu6lao_02.png, pose: "portrait close-up, scowl, dim light"}
+- {src: fu6lao_03.png, pose: "filter-holder cigarette, portrait close-up, warm light"}
+- {src: fu6lao_05.png, pose: "half body, arms crossed, restaurant doorway"}
+- {src: fu6lao_06.png, pose: "half body, sitting at banquet table, commanding, warm light"}
+- {src: fu6lao_09.png, pose: "work clothes, full body, scrap yard"}
+- {src: fu6lao_12.png, pose: "shiny suit, gold chain, cigar, half body, office"}
+- {src: fu6lao_13.png, pose: "side profile close-up, dark background"}
+- {src: fu6lao_14.png, pose: "three-quarter view, portrait, street"}
+- {src: fu6lao_15.png, pose: "night, neon, smoking, half body"}
+- {src: fu6lao_16.png, pose: "full body, restaurant front at dusk"}
+- {src: fu6lao_17.png, pose: "three-quarter profile, smoking, portrait close-up"}
+- {src: fu6lao_19.png, pose: "full body, walking street, hands in pockets"}

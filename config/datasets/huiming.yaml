@@ -1,0 +1,19 @@
+# 刘慧铭 — 数据集构建规格（scripts/build_dataset.py 读取）
+# 拍板 2026-09-29（用户确认：默认无眼镜版＝定版；戴镜版仅在「高度近视」强调场景用）；源：output/liulaoliu_story/audition/huiming_bare/
+audition_dir: huiming_bare
+appearance: "huiming, a skinny young chinese pretty-boy, fair face, curly black hair, old oversized dark suit"
+picks:
+- {src: huiming_bare_01.png, pose: "portrait close-up, neutral, plain wall"}
+- {src: huiming_bare_02.png, pose: "portrait close-up, smug smile, street"}
+- {src: huiming_bare_03.png, pose: "portrait close-up, slight frown, dim light"}
+- {src: huiming_bare_04.png, pose: "adjusting collar, portrait close-up, three-quarter view"}
+- {src: huiming_bare_05.png, pose: "half body, arms crossed, street"}
+- {src: huiming_bare_08.png, pose: "half body, leaning on wall, hands in pockets"}
+- {src: huiming_bare_09.png, pose: "full body, walking, oversized jacket, street"}
+- {src: huiming_bare_10.png, pose: "full body, slouched, alley"}
+- {src: huiming_bare_13.png, pose: "side profile close-up, dark background"}
+- {src: huiming_bare_14.png, pose: "three-quarter view, portrait, street"}
+- {src: huiming_bare_15.png, pose: "half body, night, street lamp"}
+- {src: huiming_bare_17.png, pose: "slight smile, portrait close-up, plain wall"}
+- {src: huiming_bare_18.png, pose: "half body, leaning in, hands clasped, dim room"}
+- {src: huiming_bare_20.png, pose: "half body, sitting sideways on chair, internet cafe"}

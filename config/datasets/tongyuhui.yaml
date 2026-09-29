@@ -1,0 +1,20 @@
+# 佟御辉（胖头陀·右白虎）— 数据集构建规格（scripts/build_dataset.py 读取）
+# 拍板 2026-09-29 夜（视觉质检 + 用户确认）；源：output/liulaoliu_story/audition/tongyuhui/
+# 发色取「灰白灰白」稳定态（七巧板多色为第 11 章一次性过场，不入训练）
+audition_dir: tongyuhui
+appearance: "tongyuhui, a short stocky 19-year-old chinese youth, round simple face, messy short hair dyed murky grey-white, plain ill-fitting dark jacket"
+picks:
+- {src: tongyuhui_01.png, pose: "portrait close-up, neutral, plain wall"}
+- {src: tongyuhui_02.png, pose: "portrait close-up, puzzled head tilt"}
+- {src: tongyuhui_03.png, pose: "portrait close-up, big simple grin"}
+- {src: tongyuhui_04.png, pose: "three-quarter view, small-town street"}
+- {src: tongyuhui_05.png, pose: "side profile close-up, dark background"}
+- {src: tongyuhui_06.png, pose: "half body, hands clasped in front"}
+- {src: tongyuhui_07.png, pose: "half body, scratching his head"}
+- {src: tongyuhui_08.png, pose: "half body, waving hello, dopey grin"}
+- {src: tongyuhui_09.png, pose: "full body, standing street"}
+- {src: tongyuhui_10.png, pose: "full body, walking street"}
+- {src: tongyuhui_11.png, pose: "sitting hunched on a hotel bed"}
+- {src: tongyuhui_13.png, pose: "full body, green bell-bottom trousers, ill-fitting jacket"}
+- {src: tongyuhui_14.png, pose: "half body, night, street lamp"}
+- {src: tongyuhui_16.png, pose: "portrait, laughing, eyes squeezed shut"}

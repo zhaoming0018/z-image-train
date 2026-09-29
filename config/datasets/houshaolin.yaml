@@ -1,0 +1,18 @@
+# 侯少麟（瘦头陀·左青龙）— 数据集构建规格（scripts/build_dataset.py 读取）
+# 拍板 2026-09-29 夜（视觉质检 + 用户确认）；源：output/liulaoliu_story/audition/houshaolin/
+audition_dir: houshaolin
+appearance: "houshaolin, a very tall lean 20-year-old chinese young man, skinny lanky build, receding hairline with balding crown, short messy black hair on the sides, hip-hop streetwear, oversized tee, white sneakers"
+picks:
+- {src: houshaolin_01.png, pose: "portrait close-up, neutral, plain wall"}
+- {src: houshaolin_02.png, pose: "portrait close-up, excited animated talking, hand raised"}
+- {src: houshaolin_03.png, pose: "portrait close-up, cheeky smirk, street"}
+- {src: houshaolin_04.png, pose: "three-quarter view, small-town street"}
+- {src: houshaolin_05.png, pose: "side profile close-up, balding crown visible, dark background"}
+- {src: houshaolin_06.png, pose: "half body, hands in pockets, slouched, street"}
+- {src: houshaolin_07.png, pose: "half body, arms crossed, leaning on wall"}
+- {src: houshaolin_10.png, pose: "full body, walking street, oversized tee"}
+- {src: houshaolin_11.png, pose: "sitting on a stool, shabby hotel room, nervous"}
+- {src: houshaolin_12.png, pose: "sitting on floor with phone, hoodie, warm lamp light"}
+- {src: houshaolin_13.png, pose: "half body, barging through doorway"}
+- {src: houshaolin_15.png, pose: "crouching on curb, gesturing excitedly"}
+- {src: houshaolin_16.png, pose: "portrait, laughing, head tilted back, street"}

@@ -5,8 +5,8 @@ Z-Image Turbo 角色 LoRA 训练 + 《刘老六传奇》章节配图工作台（
 ## 入库内容速览
 
 - `scripts/` — 工具链（typer CLI + loguru）：队列出图 `queuectl`、训练监控 `monitor_train`、GPU 汇总 `gpu_summary`、A/B 套件 `ab_suite.sh` 等 12 个现行脚本
-- `config/` — 出图配置（`illustration.yaml` + `scenes/chN.yaml`）；**`config/train/` — ai-toolkit 训练配置**（2026-09-29 从 ai-toolkit/config 迁出；A/B 实验配置在 `config/train/ab/`）
-- `datasets/` — 角色训练数据集（`ds_*.png` + 同名 `.txt` caption + `_manifest.json` 选取清单；ai-toolkit 缓存目录不入库）
+- `config/` — 出图配置（`illustration.yaml` + `scenes/chN.yaml`）；**`config/train/` — ai-toolkit 训练配置**（2026-09-29 从 ai-toolkit/config 迁出；A/B 实验配置在 `config/train/ab/`）；`config/datasets/` — 数据集构建规格（`build_dataset.py` 读取：audition_dir / appearance / picks）
+- `datasets/` — 角色训练数据集（`ds_*.png` + 同名 `.txt` caption；选择清单见 `config/datasets/`，早期 liu/h6tou 有目录内 `_manifest.json`；ai-toolkit 缓存目录不入库）
 - `output/` — 产物目录（图片/LoRA 不入库；`output/liulaoliu_story/` 的 `*.md` 文档与 `index/` 入库）
 - `queue/` — 出图队列 Redis 的 docker-compose
 - `run_train.sh` — 训练启动器：释放 ComfyUI 显存 → `ai-toolkit/run.py config/train/<名>.yaml`
