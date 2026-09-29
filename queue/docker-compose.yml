@@ -1,0 +1,18 @@
+# Z-Image 出图队列（Redis）· docker-compose v1 独立版（/usr/local/bin/docker-compose）
+# 用途：章节出图任务队列（queuectl.py enqueue/worker 消费）。
+# 注意：无持久化（--save "" --appendonly no）——队列为瞬时数据，重启后重新入队即可；
+#       maxmemory-policy=noeviction 保证任务条目永不因内存淘汰。
+version: "3"
+services:
+  redis:
+    image: redis:7
+    container_name: zimage-redis
+    restart: unless-stopped
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "256mb", "--maxmemory-policy", "noeviction"]
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 3s
+      retries: 3

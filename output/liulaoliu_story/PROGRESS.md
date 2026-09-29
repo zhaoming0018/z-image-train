@@ -1,0 +1,99 @@
+# 《刘老六传奇》全本配图 · 进度与队列（PROGRESS.md）
+
+> 总排程：`~/.hermes/plans/2026-09-29_122313-liulaoliu-illustration-lora-program.md`  
+> 更新：2026-09-29 22:00 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）
+
+## 章节进度
+
+| # | 章 | 状态 | 张数 | 备注 |
+|---|----|------|-----|------|
+| 1 | 第一章 我叫刘老六 | ✅ 已交付 | 5 | 黑老头镜头 = 无 LoRA 时代（见「待标记」） |
+| 2 | 第二章 乾坤烧鹅富老大 | ✅ 已交付 | 6 | 富老大/慧铭 = 无 LoRA 时代（见「待标记」） |
+| 3 | 第三章 出头 | ✅ 已交付 | 7 | 全 LoRA；重拍 4 景（v2×3+v3×1）|
+| 4 | 第四章 来包大中华！！！ | ✅ 已交付 | 6 | 全 LoRA；重拍 3 景（s3_dogs 收敛至 v6）|
+| 5 | 第五章 六爷的队伍 | ✅ 已交付 | 6 | 全 LoRA（含 he6tou 秧歌队）；重拍 4 景 |
+| 6 | 第六章 神仙？ | ✅ 已交付 | 7 | 全 LoRA；重拍 3 景 |
+| 7 | 第七章 蛋疼的仙气儿 | ✅ 已交付 | 5 | 全 LoRA；重拍 3 景（s3_shout 收敛至 v6）|
+| 8 | 第8章 (失败) | ⏭ 跳过 | — | 正文仅 42 字存根 |
+| 9+ | 第九章 起…… | 待排 | — | 索引：`index/chapters.json`（238 段） |
+
+## 执行队列（滚动，由上至下）
+
+1. ✅ **[完成 09-29 13:25] 首批定妆 + 数据集**
+   - 定妆候选：富老大 16+2 补拍、慧铭 A（戴镜）16、B（无镜）16+4 补拍 → `audition/`（用户已拍板：**慧铭 = 无眼镜 B 版定版**（强调"高度近视"场景才用眼镜版）；**富老大通过**）
+   - 质检淘汰：fu10（身份漂移）/fu18（手崩）；hb19（脸崩）；fu19 弱胡子但保留
+   - 数据集：**fu6lao 13 张**、**huiming 14 张**（`datasets/`，caption 已写；脚本 `scripts/build_dataset.py`）
+2. ✅ **[完成 09-29 16:21] 富老大 LoRA**：2500/2500（3h02m，4.05 s/it，末 loss 0.42）→ `output/fu6lao_zimage_lora_v1/fu6lao_zimage_lora_v1.safetensors`（85MB，已拷 ComfyUI `models/loras/`）
+   - 验收：**完整角色块成色合格**（中年/横肉/小胡子/过滤嘴烟全命中；⚠️ 弱提示会年轻化漂移 = 与 l6liu 同特性，出图必须带完整块）；胡子偏弱，v2 优化候选（不阻塞）
+   - 受影响旧镜头（ch2）：`s2_boss`/`s3_flatter`，已于 **09-29 18:15 评估** → 见「待标记」（待用户重新规划）
+3. ✅ **[完成 09-29 19:24] 刘慧铭 LoRA**：2500/2500（2h49m，4.05 s/it，末 loss 0.366）→ `output/huiming_zimage_lora_v1/huiming_zimage_lora_v1.safetensors`（85MB，已拷 ComfyUI `models/loras/`）
+   - 验收：末档样图（街景 ✅ / 肖像勉强 = 弱提示漂移）→ **全块提示词冒烟 ×2 = 合格**（16s/14s；卷发/无镜/旧西装命中；小注：卷发偏湿感）→ 出图必带完整角色块
+   - ch2 `s5_cafe`/`s6_drag` 受影响评估完成 → 见「待标记」（两镜均**建议重拍**）
+4. ✅ **[完成 09-29 20:10] ch3~7 批出图（5 章 31 张）· 首批「全 LoRA」批（l6liu/huiming/fu6lao/he6tou 链式）**
+   - 产出：`ch3/`7 + `ch4/`6 + `ch5/`6 + `ch6/`7 + `ch7/`5 = **31 张定版**（备选 `_vN` 留档；总出图 59 = 31 主 + 28 重拍）
+   - 质检重拍：17/31 需重拍（动作/接触类镜头为主）→ v2×17 → v3×5 → v4/v5×4 → v6×2 收敛（钉子户 `ch4_s3_dogs`、`ch7_s3_shout` 各 6 次尝试）；每张过 vision 复检
+   - 交付：5 条 QQ 逐章分组推送（`hermes send`，多图 MEDIA，exit=0）；终版大图 `sheets/sheet_ch3~7.png`
+   - 脚本：`run_ch3_7_batch.py`（批拍）＋`retake_ch3_7.py`/`retake_v3.py`/`retake_v4.py`（重拍轮）
+   - 踩坑：多 LoRA 链脚本内「LoRA 文件名常量」与「角色块变量」**严禁重名**（变量遮蔽 → lora_name 传成描述文本 → 400 校验失败，node_errors 点名）
+5. **[排队] 侯少麟 + 佟御辉**（左青龙/右白虎；第 11 章起登场；**同批定妆+训练**）
+6. **[排队] 二批**：马王爷 / 安吉丽娜 / 辰君 / 大金牙 / 吕明（太上老君待核）；边际新增：张擂
+7. **[持续]** 每训成新 LoRA → 产出「受影响旧镜头清单」交用户；ch8+ 巡航
+8. ✅ **[完成 09-29 18:45·只读调研] 「配图 → 视频」方案调研** → 详见 `VIDEO_OPTIONS.md`
+   - 关键发现：本机 8/22~9/2 **实测出过 18 条 MiniMax H3 视频**（5.2s/15.1s、864×480@24fps、AAC 立体声；9/2 更新 i2v 工作流当晚有出片、R2V 两条）→ 本地出片管线现成
+   - 路线结论：**H3 = 零下载首选** / Wan2.2 = 补 ~21GB 双专家 / LTX-2.3 = 速度+音频；云端参考：可灵 2.6 ¥0.3/秒起
+   - 未做任何实操；等用户拍板形态与下一步（冒烟测试 / 实施计划 / 云试片）
+9. ✅ **[完成 09-29 20:30] 出图管线工程化改造（队列化 + 配置外置 + GPU 指标走 Prometheus）**
+   - 指标：GPU 汇总不再自采写 CSV——`scripts/gpu_summary.py` 直查 obs Prometheus（nvidia_gpu_*，5s 采样/15d 保留）；`monitor_train.py`、`ab_parse.py`、`ab_suite.sh` 同步改造（`--gpu-csv` 已删）
+   - 出图：提示词/参数外置 → `config/illustration.yaml`（角色块 {占位符}/LoRA 注册表）+ `config/scenes/chN.yaml`（ch3~7 已迁移，31 场景）；执行改队列 → `zimage-redis` 容器 + `scripts/queuectl.py`（enqueue/run/worker/status/retry-failed）；按需服务 `systemctl --user start zimage-queue-worker`
+   - 实测：GPU 汇总两窗口对照 ✓｜monitor 仿真冒烟 ✓｜队列 E2E 真渲染 1 张（14.1s，跳过后清理）✓｜全程无残留
+   - 用法备忘：`cd ~/z-image-train/scripts && /usr/bin/python3 queuectl.py enqueue 8 9 …` → `… worker`；重拍 = `enqueue <章> --only <景> --suffix _v2 --seed N`
+10. ✅ **[完成 09-29 20:55] scripts 命令行工具 CLI 迁移 typer（9 个脚本）**
+   - 范围：`gpu_summary` / `queuectl` / `monitor_train` / `ab_parse` / `gen_with_lora` / `qc_montage` / `gen_audition` / `build_dataset` / `make_ab_config`；**接口/输出逐一对齐**（ab_suite.sh 与 systemd 单元零改动，全部 `--help` 可用）
+   - 环境：系统 `/usr/bin/python3` 已装 `python3-typer 0.9.0 + python3-rich`（apt 清华源）；`qc_montage` 继续走 aitk python（typer 0.27.2）
+   - 验收：ab_parse 复跑输出与迁移前**逐字一致**（vram_peak_mb=8520）；队列 E2E 真渲染 1 张（14.1s）+ purge 清理；monitor 冒烟双向（默认 + `--proc-pattern` 风格）；qc_montage 拼图 / gen_with_lora 真渲染 / systemd 单元全部通过
+   - 未动：gen_dataset / migrate_scenes / guard_probe（无 CLI 参数）；run_ch* / retake_*（历史批拍，已被队列取代）；*.sh；queue_lib.py（库）
+11. ✅ **[完成 09-29 21:00] scripts 日志统一 loguru（9 个文件）**
+   - 新增 `scripts/zlog.py`：统一格式 `MM-DD HH:mm:ss | LEVEL | 消息`（非 TTY 自动去色、`ZLOG_LEVEL` 覆盖级别）；**诊断/进度 → stderr，数据产出保持 stdout**（ab_parse 单行、queuectl status/enqueue、monitor 摘要均不变）
+   - 转换：monitor_train（events.log 文件格式原样保留）、queuectl（worker 运行日志）、gen_audition、gen_with_lora、build_dataset、make_ab_config、queue_lib（fail() 失败日志 + 提交重试 DEBUG）、ab_parse（异常补 DEBUG）；不动 gpu_summary（无日志）/ qc_montage（单行产出，免 aitk 新依赖）
+   - 验收：ab_parse 输出逐字不变（8520/4.24/176.2）✓ ｜ 队列 E2E 真渲染 14.2s→done ✓ ｜ 失败路径（伪造 LoRA）400 快速拒绝 → 3×DEBUG 重试 + `[FAIL]` 错误日志 ✓ ｜ gen_with_lora 真渲染 14s ✓ ｜ `queue_worker.log` 新行带「时间戳 | 级别」✓ ｜ 无残留
+   - 环境：`python3-loguru 0.7.2`（apt 清华源，装进 `/usr/bin/python3`）；**脚本一律 `/usr/bin/python3` 跑**（Hermes 终端裸 `python3` = 工具自带 3.14、缺依赖）
+12. ✅ **[完成 09-29 21:25] gpu_summary 改用 prometheus-api-client（查询/解析交给库）**
+   - 选型：`custom_query_range`（query_range 正语义、库负责请求构造/状态检查/重试）+ `Metric` 类解析（时间/数值全自动）；**不用** `get_metric_range_data`（其语义为 instant+range-selector 原始采样，与现行 15s 步长网格不同，会改变聚合样本）
+   - 验收：**5 组窗口输出与重构前逐字节一致**（fu6lao 8.32GiB@15:44:30/721 · huiming 5.72/641 · 10h 15.07/2401 · 空窗口 · JSON 对比）；ab_parse 复测 8520/4.24/176.2 不变；monitor 冒烟正常；死代理下仍直连成功（trust_env=False ≈ 旧 ProxyHandler({})）
+   - 修坑：WSL 未监听端口 = **连接超时**（非拒绝）→ 库默认重试把死端点拖到 60s+；已限界（超时拆 3s 连接/15s 读取 + Retry total=2/connect=1/read=0）→ **6.3s 内降级**出「汇总不可用」、exit 0
+   - 环境：apt `python3-pandas 2.1.4` / `dateutil` / `tz` + pip `prometheus-api-client 0.7.2`（清华源，装进 `/usr/bin/python3`）
+13. ✅ **[完成 09-29 21:30] 统计计算库化：numpy / scipy（pandas 用于解析层）**
+   - `ab_parse`：手写最小二乘回归（mx/my/den 全套手算）→ `scipy.stats.linregress`（斜率倒数 = s/it）；`steps_done` → `np.max`
+   - `gpu_summary`：手写 max/sum/sorted 聚合 → numpy（`argmax`/`median`/`mean`/`max`）；中位语义 = **标准中位数**（偶数样本取中间两值均值；已知验收窗口全为奇数，输出不变）
+   - `monitor_train`：loss 最低值 → `np.argmin`；**另修自匹配坑**——显式 `--proc-pattern` 出现在监控器自身命令行 → pgrep 假命中自己、监控永不退出 → 结束判定改为**排除自身 PID**（按 ab_suite 调用结构仿真实测 1s 退出；不再依赖"只能用默认探测"的人肉纪律）
+   - 验收：fu6lao 复测 `4.24/8520/176.2` 不变（stderr 0 字节）；合成线性数据（60s/10 步）→ `6.0 s/it` 精确、短数据留空；gpu_summary 三窗口（8.32/5.72/15.07）+ `--json` 原生类型；monitor 双路冒烟过
+   - 环境：numpy 1.26.4 / scipy 1.11.4 / pandas 2.1.4（系统 `/usr/bin/python3`，apt 已有）
+14. ✅ **[完成 09-29 21:40] scripts 目录整理：历史脚本归档（项目外）**
+   - 归档至 `~/archive/z-image-train-legacy-20260929/`（11 个文件 1371 行 + `SHA256SUMS.txt` + `MANIFEST.md`）：run_ch2_batch/run_ch3_7_batch（→ `queuectl` 队列 + `config/scenes` 取代）· retake_ch3_7/v3/v4（→ `enqueue --only --suffix --seed` 取代）· gen_dataset（→ `gen_audition`+`build_dataset` 取代）· migrate_scenes_ch3_7（一次性迁移已完成）· guard_probe(.py/_cases.txt)（→ wsl-system-admin 技能维护版取代）· huiming_notify.sh / switch_torch.sh（一次性任务完成）
+   - 清理：`scripts/__pycache__` 删除；保留 12 个现行脚本（ab_parse / ab_suite / build_dataset / gen_audition / gen_with_lora / gpu_summary / make_ab_config / monitor_train / qc_montage / queue_lib / queuectl / zlog）
+   - 校验：移动前后 sha256 全 OK ｜ 引用扫描（scripts + config + systemd + hermes cron）零残留 ｜ 12 脚本 py_compile 全过 ｜ 冒烟（redis healthy / queue status / gpu_summary）全过
+15. ✅ **[完成 09-29 22:00] git 初始化 + ai-toolkit 外部依赖化（训练配置迁出）**
+   - 仓库：`~/z-image-train` 已 `git init`（main；首提交 = 脚本/配置/数据集/文档，提交消息中文）；`ai-toolkit/` 整体不入库 = **外部依赖**（pin `ecee894ed2b1f3716d9d7326693061ec1a3105bb`；还原说明见根 `README.md`）
+   - 迁出：11 个训练配置 `ai-toolkit/config/` → `config/train/`（l6liu / he6tou / fu6lao / huiming + run4×2；ab_e0/e1/e3/e4/e5 → `config/train/ab/`）；ai-toolkit 恢复纯净（`git status` 除 `__pycache__` 外零文件）
+   - 适配：`run_train.sh`（配置绝对路径 + 缺失即报错）· `ab_suite.sh`（CFGD → `config/train/ab`、monitor 特征串 `.*config/train/ab/$cfg`、守护 pgrep 通配）· `make_ab_config.py`（BASE → `config/train/`）· `monitor_train.py`（默认 --proc-pattern → `run.py .*config/train/`）；AB_RUN_PLAN / characters.md 引用同步
+   - 入库范围：脚本 / 出图与训练配置 / 数据集（56 图 72.5 MiB + caption + `_manifest.json`）/ 文档（PROGRESS、characters、AB_RUN_PLAN、README）；忽略：ai-toolkit、output 图片与 LoRA、models/wheels/logs/scratch/output_ab、数据集缓存（`_latent_cache` / `_t_e_cache` / `.aitk_size.json`）
+   - 验收：7 配置经 ai-toolkit loader 加载 ALL_OK（数据/输出目录存在性）｜ make_ab_config 真实生成 ✓ ｜ `bash -n` ✓ ｜ 迁出 sha256 11/11 OK ｜ 残留引用扫描清零
+   - GitHub：SSH 认证可用（zhaoming0018），但 gh token 失效 & 远程仓库未创建 → 推送待用户重建授权或先建空仓库（届时一条命令即推）
+
+## 待标记：无 LoRA 时代镜头（⚑ 用户已拍板：新 LoRA 训成后标记，用户重新规划）
+
+- **ch1**：黑老头戏份镜头（可用 he6tou 重拍评估）
+- **ch2 · 富老大（fu6lao）【已评 09-29 18:15】**：`s2_boss`（富老大在背景、中年/小胡子特征弱 → **建议优先重拍**）、`s3_flatter`（中年/横肉/小胡子已命中 → 可保留、重拍可选）→ 已通知用户，待重新规划（**不自动重拍**）
+- **ch2 · 慧铭（huiming）【已评 09-29 19:40】**：`s5_cafe`（旧口径：戴眼镜+刺猬头+成色崩坏 → **建议重拍**）、`s6_drag`（戴眼镜+发型不符定版、成色尚可 → **建议重拍**；桥段=网吧"往外拉慧铭"）→ 待用户重新规划（**不自动重拍**）
+- （新 LoRA 每训成一个，在此追加对应清单并通知用户）
+- 【09-29 20:20】fu6lao/huiming 已全面投用（ch3~7 全批实战）；ch2 三镜 `s2_boss`/`s5_cafe`/`s6_drag` **随时可一键重拍**（脚本/角色块就绪）——待用户一句话
+
+## 规则
+
+- 单卡纪律：**训练与出图绝不并发**；出图前 `nvidia-smi` 查空闲；**训练窗口（unit `zimage-train-*` active）= 出图任务一律推迟**，cron 只需汇报状态
+- 出图角色**已有 LoRA 必用**（l6liu @0.9、he6tou @0.9、fu6lao/huiming 训成后同样）；未训角色用独立完整文字块（防同脸）
+- 重 token 任务优先排 **DeepSeek 谷时**（工作日 18:00 后 / 12–14 / 周末与节假日全天）
+- cron 批跑：**工作日 18:10、周末 10:05** 自动检查队列并执行（用户喊「暂停批跑」即停）
+- 交付 = 图片（无音频）；备选图留在 `chN/` 存档目录
+- 重拍规程：判重拍 → 改提示词 + 新 seed（101+ 递增）出 v2；动作/接触类顽固镜头一次出 2 变体择优；≤3 轮收敛；定版规范化 = 原图→`_v1`、定版→主名
+- 脚本：`gen_audition.py`（定妆候选，幂等）、`build_dataset.py`（数据集构建）、`qc_montage.py`（拼图，用 aitk python）、`gen_with_lora.py`（LoRA 出图）、`run_train.sh`（训练启动器）；统计/统计量计算统一走 numpy/scipy/pandas（项 13）

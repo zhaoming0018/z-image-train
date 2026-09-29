@@ -1,0 +1,40 @@
+# 刘老六传奇 ch4 出图场景（迁移生成；可直接手改，queuectl 以本文件为准）
+chapter: 4
+scenes:
+- name: s1_cot
+  seed: 0
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {l6liu} lying on a military cot in a bare rented room, staring at his open left palm, a faint golden mark on the skin, cigarette smoke drifting, dim grey morning light through a small window, {style}'
+- name: s2_door
+  seed: 0
+  loras:
+  - l6liu
+  - huiming
+  prompt: 'Photorealistic cinematic film still: {l6liu} pulling open the door of a shabby rented apartment, {huiming} standing in the doorway with a serious expression, dim stairwell, overcast daylight, {style}'
+- name: s3_dogs
+  seed: 320
+  loras:
+  - l6liu
+  - huiming
+  prompt: 'Photorealistic cinematic film still: two Tibetan mastiffs with thick manes rearing up side by side, their front paws planted against the bars of a tall iron gate, fangs bared, snarling ferociously, a pair of young men watching from just outside the gate in the lower part of the frame, stacked scrap metal behind the fence, warm golden afternoon light, {style}'
+- name: s4_boss
+  seed: 106
+  loras:
+  - l6liu
+  - huiming
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: inside a cluttered small office, {fu6lao_bandaged} with two thin pencil mustache strips laughing heartily behind a big executive desk, both fists slamming thick stacks of banknotes down onto the desk, bills scattering, {l6liu} and {huiming} standing before him startled, warm tungsten light, cigarette haze, {style}'
+- name: s5_noodles
+  seed: 107
+  loras:
+  - l6liu
+  - huiming
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: comedy moment, an upturned bowl resting over {l6liu}''s head, noodles and broth draped down over his face and shoulders, {l6liu} sitting dazed with arms splayed out, {fu6lao} with his hand still raised after upturning the bowl, {huiming} stifling laughter nearby, small office, warm tungsten light, cigarette haze, {style}'
+- name: s6_store
+  seed: 0
+  loras:
+  - l6liu
+  - huiming
+  prompt: 'Photorealistic cinematic film still: {l6liu} leaning on the checkout counter of a small supermarket with a cocky smile, one hand pointing at the cigarette cabinet, the shopkeeper staring in disbelief, {huiming} standing behind him, shelves of goods, warm interior light, {style}'

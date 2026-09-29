@@ -1,0 +1,43 @@
+# 刘老六传奇 ch3 出图场景（迁移生成；可直接手改，queuectl 以本文件为准）
+chapter: 3
+scenes:
+- name: s1_cafe_out
+  seed: 0
+  loras:
+  - l6liu
+  - huiming
+  prompt: 'Photorealistic cinematic film still: {huiming}, stepping out of a shabby small-town internet cafe and squinting hard against the bright morning sun, {l6liu} beside him grabbing his arm and hurrying him along a small-town street, run-down storefronts, harsh bright morning light, {style}'
+- name: s2_chaos
+  seed: 201
+  loras:
+  - l6liu
+  - huiming
+  prompt: 'Photorealistic cinematic film still: at the doorway of a shabby mutton hotpot restaurant, a bald middle-aged manager in a dark waistcoat and tie bursts out clutching his head in terror, {l6liu} and {huiming} each grabbing one of his arms to stop him, startled passersby on a small-town street, warm golden afternoon light, {style}'
+- name: s3_peek
+  seed: 102
+  loras:
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: seen past a doorway frame in the foreground, inside a private dining room {fu6lao} sitting upright in a chair at the center with blood dripping down his forehead, a ring of seated older men around him, two young thugs standing behind his chair holding liquor bottles, broken glass covering the floor, warm tungsten light, cigarette haze, {style}'
+- name: s4_knife
+  seed: 103
+  loras:
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: in the foreground, a fat shirtless middle-aged man with rolls of glistening belly fat snarls as he brandishes a big flat rectangular cleaver-style watermelon knife, {fu6lao} seated bloodied in the blurred background of a private dining room, warm tungsten light, cigarette haze, {style}'
+- name: s5_slap
+  seed: 104
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: in a chaotic private dining room, {street_tough} mid-swing slapping {l6liu} hard across the face, palm striking Liu''s cheek, {l6liu}''s head whipped to the side, cheeks rippling from the impact, diners watching from around a round table, warm tungsten light, cigarette haze, {style}'
+- name: s6_kick
+  seed: 0
+  loras:
+  - l6liu
+  - huiming
+  prompt: 'Photorealistic cinematic film still: {huiming} lunging with a flying kick into the belly of {street_tough}, who doubles over howling in pain, {l6liu} shouting behind, wrecked private dining room, warm tungsten light, cigarette haze, {style}'
+- name: s7_wall
+  seed: 0
+  loras:
+  - l6liu
+  - huiming
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: wrecked private dining room aftermath, a huge hole smashed through the wall with steam pouring in through it, the fat shirtless man lying amid broken bricks, shocked men staring, {l6liu} in the foreground staring at his own left fist in disbelief, white steam mixed with warm tungsten light, {style}'

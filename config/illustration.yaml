@@ -1,0 +1,30 @@
+# Z-Image 章节出图全局配置（bridge/路径/LoRA 注册表/角色描述块）
+# 角色块被场景 prompt 以 {键名} 占位符引用；改块文本全章生效。
+bridge: http://127.0.0.1:8199
+workflow: /home/zhaoyiming/z-image-train/config/z_image_api.json
+comfy_output_dir: /mnt/d/minimax-h3-demo/ComfyUI/output
+story_root: /home/zhaoyiming/z-image-train/output/liulaoliu_story
+redis:
+  host: 127.0.0.1
+  port: 6379
+  db: 0
+render:
+  strength: 0.9
+  submit_retries: 3
+  poll_interval_s: 2
+  poll_timeout_s: 300
+loras:
+  l6liu: l6liu_zimage_lora_v1.safetensors
+  he6tou: he6tou_zimage_lora_v1.safetensors
+  fu6lao: fu6lao_zimage_lora_v1.safetensors
+  huiming: huiming_zimage_lora_v1.safetensors
+blocks:
+  l6liu: l6liu, a chubby 23-year-old Chinese street punk with a round face, short messy black hair, small squinting triangular eyes, puffy cheeks, wearing a plain white ribbed tank top, dark knee-length shorts and black flip-flops, a cigarette in his mouth, small pot belly
+  l6liu_new: l6liu, a chubby 23-year-old Chinese street punk with a round face, short messy black hair, small squinting triangular eyes, puffy cheeks, wearing a crisp white dress shirt, black dress pants and shiny black leather shoes, large dark sunglasses, a cigarette in his mouth, small pot belly
+  huiming: huiming, a skinny young Chinese pretty-boy, fair face, natural curly black hair, old oversized dark suit, shabby faded style
+  huiming_new: huiming, a skinny young Chinese pretty-boy, fair face, natural curly black hair, wearing a crisp white dress shirt, black dress pants and shiny black leather shoes, large dark sunglasses
+  fu6lao: fu6lao, a stocky Chinese man in his forties, about 1.7m tall, heavy fleshy brutal face with jowls, two thin pencil mustache strips, dark short-sleeved shirt, smoking a cigarette held in a filter holder
+  fu6lao_bandaged: fu6lao, a stocky Chinese man in his forties, about 1.7m tall, heavy fleshy brutal face with jowls, two thin pencil mustache strips, dark short-sleeved shirt, smoking a cigarette held in a filter holder, white bandages wrapped around his head
+  he6tou: he6tou, an elderly dark-skinned Chinese fortune-teller, grey-white messy hair, deep wrinkles, shabby grey-brown old jacket, beaded bracelet
+  street_tough: a lean young street tough in his early twenties, short buzz-cut black hair, cold sharp eyes, dark jacket
+  style: shallow depth of field, 35mm film grain

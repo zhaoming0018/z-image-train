@@ -1,0 +1,63 @@
+job: extension
+config:
+  name: "he6tou_zimage_lora_v1"
+  process:
+    - type: 'sd_trainer'
+      training_folder: "/home/zhaoyiming/z-image-train/output"
+      performance_log_every: 100
+      device: cuda:0
+      network:
+        type: "lora"
+        linear: 16
+        linear_alpha: 16
+      save:
+        dtype: float16
+        save_every: 250
+        max_step_saves_to_keep: 6
+      datasets:
+        - folder_path: "/home/zhaoyiming/z-image-train/datasets/h6tou"
+          caption_ext: "txt"
+          caption_dropout_rate: 0.05
+          shuffle_tokens: false
+          cache_latents_to_disk: true
+          resolution: [ 768, 1024 ]
+      train:
+        batch_size: 1
+        cache_text_embeddings: true
+        steps: 2500
+        gradient_accumulation: 1
+        train_unet: true
+        train_text_encoder: false
+        gradient_checkpointing: true
+        noise_scheduler: "flowmatch"
+        timestep_type: "weighted"
+        optimizer: "adamw8bit"
+        lr: 1e-4
+        dtype: bf16
+      model:
+        name_or_path: "/mnt/d/minimax-h3-demo/ComfyUI/models/diffusion_models/z_image_turbo_bf16.safetensors"
+        extras_name_or_path: "Tongyi-MAI/Z-Image-Turbo"
+        arch: "zimage"
+        quantize: true
+        qtype: "qfloat8"
+        quantize_te: true
+        low_vram: true
+        layer_offloading: true
+        assistant_lora_path: "/home/zhaoyiming/z-image-train/models/zimage_turbo_training_adapter/zimage_turbo_training_adapter_v2.safetensors"
+      sample:
+        sampler: "flowmatch"
+        sample_every: 250
+        sample_start_step: 0
+        width: 1024
+        height: 1024
+        prompts:
+          - "he6tou, an elderly dark-skinned chinese fortune-teller, grey-white messy hair, deep wrinkles, shabby grey-brown jacket, squatting at a street stall, daylight, film grain"
+          - "he6tou, portrait close-up, sly grin, natural light, film grain"
+        neg: ""
+        seed: 42
+        walk_seed: true
+        guidance_scale: 1
+        sample_steps: 9
+meta:
+  name: "[name]"
+  version: '1.0'

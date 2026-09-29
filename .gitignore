@@ -1,0 +1,28 @@
+# ============ 外部依赖（本机另行 clone，不入库；还原说明见 README）============
+ai-toolkit/
+
+# ============ 大体积产物 / 运行数据 ============
+output/*
+!output/liulaoliu_story/
+output/liulaoliu_story/*
+!output/liulaoliu_story/*.md
+!output/liulaoliu_story/index/
+output/liulaoliu_story/index/*
+!output/liulaoliu_story/index/*.json
+output_ab/
+models/
+wheels/
+logs/
+scratch/
+
+# ============ 数据集缓存（ai-toolkit 生成，可重建）============
+datasets/**/_latent_cache/
+datasets/**/_t_e_cache/
+datasets/**/.aitk_size.json
+
+# ============ Python / 系统 / 临时 ============
+__pycache__/
+*.py[cod]
+.env
+*.log
+.DS_Store
