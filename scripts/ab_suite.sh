@@ -30,22 +30,20 @@ gen() { # $1=out.yaml，其余参数透传给 make_ab_config.py
 run_exp() { # $1=name $2=cfg $3=steps
   local name="$1" cfg="$2" steps="$3"
   local log="$LOGD/${name}_train.log"
-  local mout="$LOGD/${name}_monitor.out"
   say "EXP START: $name (cfg=$cfg steps=$steps)"
   curl -s --noproxy '*' -X POST http://127.0.0.1:8199/free \
     -H "Content-Type: application/json" \
     -d '{"unload_models":true,"free_memory":true}' >/dev/null 2>&1 || true
   sleep 4
-  # 监控器按实验专属模式匹配；训练进程一结束它会自行退出（无需手动干预）
-  python3 "$ROOT/scripts/monitor_train.py" --log "$log" --prefix "$name" \
-    --interval 10 --proc-pattern "run\\.py .*config/train/ab/$cfg" > "$mout" 2>&1 &
+  # 解析直接读训练日志（tqdm 行回归）；窗口时间戳传给 ab_parse 查显存/墙钟——无监控进程
+  local t0 t1 rc res
+  t0=$(date +%s)
   ( cd "$ROOT/ai-toolkit" && "$PY" -u run.py "$CFGD/$cfg" ) > "$log" 2>&1
-  local rc=$?
-  sleep 2
-  local res
+  rc=$?
+  t1=$(date +%s)
   res=$(python3 "$ROOT/scripts/ab_parse.py" --log "$log" \
-    --metrics-csv "$LOGD/${name}_metrics.csv" \
-    --name "$name" --rc "$rc" --expect "$steps")
+    --name "$name" --rc "$rc" --expect "$steps" \
+    --window-start "$t0" --window-end "$t1")
   say "RESULT $res"
   echo "$res" >> "$SUMMARY"
   echo "$res"

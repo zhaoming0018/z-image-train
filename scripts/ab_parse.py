@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 """解析单个 A/B 实验的结果：稳定 s/it、步数、显存峰值(Prometheus)、墙钟、OOM/异常标志
 输出单行: name=... ok=1 rc=0 steps_done=60 expect=60 steady_s_it=3.21 vram_peak_mb=12456 ...
-显存峰值与墙钟时长均取自 <metrics-csv> 首末时间窗口 → 该窗口内查询 Prometheus（obs 栈）。
+数据源：训练日志（steps/loss/OOM/异常 + tqdm 行 (elapsed, step) 回归 → steady s/it）；
+--metrics-csv 为 monitor 时代旧数据的可选回退（存在时优先）。
+显存峰值与墙钟：--window-start/--window-end（epoch 秒，ab_suite 直接传入）；缺省回退 metrics CSV 首末时间。
 统计量计算走 numpy/scipy（步数-时间最小二乘回归 → s/it）。
 CLI 基于 typer（`--help` 查看选项）；stdout 仅输出上述单行（被 ab_suite.sh 捕获）。
 诊断信息走 loguru → stderr（ZLOG_LEVEL=DEBUG 可见细节）。
@@ -12,7 +14,7 @@ import os
 import re
 import sys
 from datetime import datetime, timedelta
-from typing import Annotated
+from typing import Annotated, Optional
 
 import numpy as np
 import typer
@@ -37,15 +39,55 @@ def _epoch(dt):
     return int(cand.timestamp())
 
 
+def _elapsed_sec(s):
+    """tqdm 耗时串（mm:ss 或 hh:mm:ss）→ 秒。"""
+    sec = 0
+    for part in s.split(":"):
+        sec = sec * 60 + int(part)
+    return sec
+
+
+def _pts_from_log(text):
+    """训练日志 → [(elapsed 秒, step)]；仅取含 loss 的 tqdm 行（排除 Loading weights 等无关进度条）。"""
+    pts = []
+    for seg in re.split(r"[\r\n]", text):
+        if "loss" not in seg:
+            continue
+        m = re.search(r"(\d+)/(\d+) \[(\d+:\d+(?::\d+)?)<", seg)
+        if m:
+            pts.append((float(_elapsed_sec(m.group(3))), int(m.group(1))))
+    return pts
+
+
+def _steady(pts):
+    """(时间秒, 步数) 序列 → 稳定 s/it（step>=10 段最小二乘回归，斜率倒数；库：scipy）。"""
+    if len(pts) < 4:
+        return ""
+    seen = {}
+    for t, st in pts:
+        seen[t] = st  # 同一时间保留最新
+    xs = sorted(seen.keys())
+    ys = [seen[x] for x in xs]
+    sel = [(x, y) for x, y in zip(xs, ys) if y >= 10]
+    if len(sel) < 3:
+        return ""
+    x = np.array([t - sel[0][0] for t, _ in sel], dtype=float)
+    y = np.array([s for _, s in sel], dtype=float)
+    slope = linregress(x, y).slope
+    return round(1.0 / slope, 2) if slope > 0 else ""
+
+
 @app.command()
 def main(
     log: Annotated[str, typer.Option("--log", help="训练日志路径")],
     name: Annotated[str, typer.Option("--name", help="实验名")],
-    metrics_csv: Annotated[str, typer.Option("--metrics-csv", help="monitor 产出的 metrics csv")] = "",
+    metrics_csv: Annotated[str, typer.Option("--metrics-csv", help="（可选，兼容旧数据）monitor 时代 metrics csv；存在时优先")] = "",
     rc: Annotated[int, typer.Option("--rc", help="训练进程退出码")] = 0,
     expect: Annotated[int, typer.Option("--expect", help="期望步数（0=不校验）")] = 0,
+    window_start: Annotated[Optional[int], typer.Option("--window-start", help="窗口起（epoch 秒；显存/墙钟用，缺省回退 csv 首末）")] = None,
+    window_end: Annotated[Optional[int], typer.Option("--window-end", help="窗口止（epoch 秒）")] = None,
 ):
-    """解析日志 + metrics csv，输出单行结果摘要。"""
+    """解析训练日志（可选 metrics csv 回退），输出单行结果摘要。"""
     setup_logging()
     out = {
         "name": name, "ok": 0, "rc": rc,
@@ -73,7 +115,8 @@ def main(
         out["loss_last"] = m[-1]
 
     # 2) 稳定速度：对 (时间, 步数) 做最小二乘线性回归求斜率（step>=10 的尾段）
-    pts = []
+    #    数据源：metrics csv（旧数据，存在时优先）或训练日志 tqdm 行
+    csv_pts, pts = [], []
     if metrics_csv and os.path.exists(metrics_csv):
         with open(metrics_csv, newline="") as f:
             for row in csv.DictReader(f):
@@ -87,32 +130,31 @@ def main(
                     t0 = datetime.strptime(row.get("time") or "", "%m-%d %H:%M:%S")
                 except ValueError:
                     continue
-                pts.append((t0, st))
-        if len(pts) >= 4:
-            seen = {}
-            for t0, st in pts:
-                seen[t0.timestamp()] = st  # 同一秒保留最新
-            xs = sorted(seen.keys())
-            ys = [seen[x] for x in xs]
-            sel = [(x, y) for x, y in zip(xs, ys) if y >= 10]
-            if len(sel) >= 3:
-                # 最小二乘回归（scipy）：斜率 = steps/s → s/it = 1/斜率
-                x = np.array([t - sel[0][0] for t, _ in sel], dtype=float)
-                y = np.array([s for _, s in sel], dtype=float)
-                slope = linregress(x, y).slope
-                if slope > 0:
-                    out["steady_s_it"] = round(1.0 / slope, 2)
+                csv_pts.append((t0, st))
+        pts = [(t.timestamp(), st) for t, st in csv_pts]
+        logger.debug(f"steady 数据源: metrics csv（{len(pts)} 点）")
+    else:
+        pts = _pts_from_log(text)
+        logger.debug(f"steady 数据源: 训练日志 tqdm 行（{len(pts)} 点）")
+    out["steady_s_it"] = _steady(pts)
 
-    # 3) GPU：显存峰值（Prometheus）+ 墙钟时长（窗口=metrics 首末时间）
-    if pts:
-        first_t, last_t = pts[0][0], pts[-1][0]
-        out["wall_min"] = round((last_t - first_t).total_seconds() / 60.0, 1)
+    # 3) 窗口（显存峰值 Prometheus + 墙钟）：显式参数 > metrics csv 首末时间
+    if window_start is not None and window_end is not None:
+        ws, we = int(window_start), int(window_end)
+    elif csv_pts:
+        ws, we = _epoch(csv_pts[0][0]), _epoch(csv_pts[-1][0])
+    else:
+        ws, we = None, None
+    if ws is not None and we is not None:
+        out["wall_min"] = round((we - ws) / 60.0, 1)
         try:
-            s = gpu_summary(_epoch(first_t), _epoch(last_t))
+            s = gpu_summary(ws, we)
             if s.get("mem_max_gib") is not None:
                 out["vram_peak_mb"] = int(round(s["mem_max_gib"] * 1024))
         except Exception as e:  # noqa: BLE001
             logger.debug(f"gpu_summary 查询失败: {e}")
+    elif pts:
+        out["wall_min"] = round(max(t for t, _ in pts) / 60.0, 1)  # 退化：日志 elapsed 尾部
 
     out["ok"] = 1 if (
         rc == 0 and not out["oom"] and not out["err"]

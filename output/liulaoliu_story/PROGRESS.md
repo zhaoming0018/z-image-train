@@ -1,7 +1,7 @@
 # 《刘老六传奇》全本配图 · 进度与队列（PROGRESS.md）
 
 > 总排程：`~/.hermes/plans/2026-09-29_122313-liulaoliu-illustration-lora-program.md`  
-> 更新：2026-09-30 05:58 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **6/6 全齐**（09-30 05:38 侯/佟训成）
+> 更新：2026-09-30 08:10 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **6/6 全齐**（09-30 05:38 侯/佟训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）
 
 ## 章节进度
 
@@ -95,6 +95,11 @@
    - 查看：常驻服务 `tensorboard.service`（`~/miniconda3/envs/aitk/bin/tensorboard --logdir output/.tensorboard --port 6006`）→ Windows 浏览器 `http://localhost:6006`（WSL 转发）；重启：`systemctl --user restart tensorboard.service`
    - 注：缺 `tensorboard-data-server`（仅影响网页端部分功能；不影响 PyTorch 写入/读取）；首验：`houshaolin_zimage_lora_v1_20260929-233411/` 事件文件随训练生成 ✓
 18. ✅ **[完成 09-30 05:39] 侯/佟训练链监控收尾**：单元哨兵 05:39 捕获链完成（rc=0×2）；03:11 中段守卫已投递（cron 原生通道，agent.log 有 `message_id` 记录）；06:21 收尾守卫已改「独立复核」轻量版（不重做、只核对产物）
+19. ✅ **[完成 09-30 08:10] monitor_train.py 退役（A/B 解析改直读训练日志）**
+   - 背景：指标已全面 TensorBoard 化（项 17）；常规训练早已不用 monitor，仅 A/B 套件解析链还依赖它
+   - 改造：`ab_parse.py` 新增「直读训练日志 tqdm 行」路径（(elapsed, step) 回归，scipy 口径不变；`--metrics-csv` 保留为旧数据回退）；`ab_suite.sh` 移除监控进程，改传 `--window-start/--window-end`（显存/墙钟窗口）
+   - 验收：① 兼容路径 4 实验输出**逐字节一致** ② 日志-only 路径与旧值差 ≤0.04 s/it（4.09→4.05 / 11.07→11.1 / 4.04→4.05 / 5.71→5.68）③ 30 步 res768 **真实自测 E2E**：steady 4.07 s/it / vram 5734MB / wall 4.7min（rc=0）④ `bash -n` ✓、TB/单元/产物零残留
+   - 归档：`~/archive/z-image-train-legacy-20260929/monitor_train.py`（SHA256SUMS 12/12 复核 OK）；README / AB_RUN_PLAN / 技能（v1.7.0）同步
 
 ## 训练接力 SOP（跨夜训练守卫/收尾通用）
 

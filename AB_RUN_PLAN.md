@@ -44,7 +44,7 @@ sleep 15; systemctl --user is-active zimage-train-l6liu; tail -5 logs/train_l6li
 
 - 挂完成哨兵（background + notify）：
   `while systemctl --user is-active --quiet zimage-train-l6liu; do sleep 60; done; echo "L6LIU_ENDED $(date +%H:%M)"`
-- 监控器（可选）：`scripts/monitor_train.py`（用法看脚本 --help），服务化运行，勿挂 Hermes 后台。
+- 指标：常规训练 = TensorBoard；A/B = `ab_parse.py` 直读训练日志（tqdm 行回归，窗口时间戳由套件传入）。~~`scripts/monitor_train.py`~~ 已于 2026-09-30 退役归档（原「服务化监控器」方案废弃）。
 - 内存上限依据：量化阶段实测峰值 17.7G RAM + 4.3G swap，18G/12G 为验证过的安全包线。
 
 ## 执行步骤 B：l6liu 完成后 → he6tou
