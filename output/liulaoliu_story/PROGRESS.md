@@ -1,7 +1,7 @@
 # 《刘老六传奇》全本配图 · 进度与队列（PROGRESS.md）
 
 > 总排程：`~/.hermes/plans/2026-09-29_122313-liulaoliu-illustration-lora-program.md`  
-> 更新：2026-09-30 00:20 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）
+> 更新：2026-09-30 05:58 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **6/6 全齐**（09-30 05:38 侯/佟训成）
 
 ## 章节进度
 
@@ -17,7 +17,7 @@
 | 8 | 第8章 (失败) | ⏭ 跳过 | — | 正文仅 42 字存根 |
 | 9 | 第九章 仙器 | ✅ 已交付 | 6 | 全 LoRA；重拍 3 景（s1×5版 / s5×4版 / s6×2版）|
 | 10 | 第十章 揍你全家 | ✅ 已交付 | 6 | 全 LoRA + 宁飞父子（文描块无 LoRA）；重拍 4 景（s2×3 / s3×5 / s4×3 / s5×2；s3 改「意图化」演出）|
-| 11+ | 第十一章 起…… | 待排 | — | **侯少麟/佟御辉登场章——待二人 LoRA 训成后出图**；索引：`index/chapters.json`（238 段） |
+| 11+ | 第十一章 起…… | 🚀 可开拍 | — | **侯少麟/佟御辉登场章——LoRA 已训成（09-30）**；索引：`index/chapters.json`（238 段） |
 
 ## 执行队列（滚动，由上至下）
 
@@ -37,12 +37,11 @@
    - 交付：5 条 QQ 逐章分组推送（`hermes send`，多图 MEDIA，exit=0）；终版大图 `sheets/sheet_ch3~7.png`
    - 脚本：`run_ch3_7_batch.py`（批拍）＋`retake_ch3_7.py`/`retake_v3.py`/`retake_v4.py`（重拍轮）
    - 踩坑：多 LoRA 链脚本内「LoRA 文件名常量」与「角色块变量」**严禁重名**（变量遮蔽 → lora_name 传成描述文本 → 400 校验失败，node_errors 点名）
-5. 🔄 **[进行中 · 09-29 23:34 发射] 侯少麟 + 佟御辉（左青龙/右白虎；第 11 章起登场）**
+5. ✅ **[完成 09-30 05:38] 侯少麟 + 佟御辉 LoRA（左青龙/右白虎；第 11 章起登场）**
    - 定妆：✅ 用户通过（09-29 夜；侯主锚 01/03/11、佟主锚 11/03/16）；发色「稳定态」定版：佟=灰白、侯=谢顶短发；ch11 一次性「七巧板彩发」**不入 LoRA**
-   - 数据集：**侯 13 张 / 佟 14 张**（`datasets/houshaolin`、`datasets/tongyuhui`；`build_dataset.py` 已扩至四角色）
-   - 训练链：systemd 单元 `zimage-train-batch2`（`scripts/train_chain.sh houshaolin_zimage.yaml tongyuhui_zimage.yaml` 串行；MemoryMax=18G/交换 12G）；预计 09-30 ~02:40 / ~05:50 先后完成
-   - 监控：后台哨兵 + 一次性 cron 守卫（**09-30 03:11 中段 / 06:21 收尾**）；指标 = TensorBoard
-   - 后续：训成 → 拷 ComfyUI `models/loras/` → 全块冒烟 → **ch11 出图前试拍**
+   - 数据集：**侯 13 张 / 佟 14 张**；训练链 `zimage-train-batch2`（`train_chain.sh` 串行）——**侯 23:34→02:37（2h51m @4.12 s/it，末 loss 0.378）；佟 02:37→05:38（2h48m @4.05 s/it，末 loss 0.382）；均 rc=0**
+   - 收尾：两 `.safetensors`（85MB）已拷 ComfyUI `models/loras/`；**全块冒烟各 2 张验收合格**（侯：高瘦/谢顶/街头风；佟：矮壮/圆脸/灰白染发；含强化重拍版）；TB 两 run 事件在写；冒烟存档 `output/liulaoliu_story/smoke_hs_tyh/`
+   - 后续：**ch11 起二人主场可开拍**（先试拍再全批）
 6. **[排队] 二批**：马王爷 / 安吉丽娜 / 辰君 / 大金牙 / 吕明（太上老君待核）；边际新增：张擂
 7. **[持续]** 每训成新 LoRA → 产出「受影响旧镜头清单」交用户；ch8+ 巡航
 8. ✅ **[完成 09-29 18:45·只读调研] 「配图 → 视频」方案调研** → 详见 `VIDEO_OPTIONS.md`
@@ -90,12 +89,12 @@
    - ch9 6 张 + ch10 6 张；全批过 vision 质检；重拍 7 景/11 张（v2×11 → v3×3 → s1 外卡 v4b）
    - 钉子户：ch9 `s1_gifts`（道具+身份，共 5 版收敛到 v2a）、ch10 `s3_poke`（「指尖戳」字面画不出 → **改拍「骚扰意图」**：搭肩+指人+老人畏缩，v4a 定型）
    - 定版规范化执行：主图→`_v1`、定版→主名、备选 `_vN` 全留；命名修正（`giftsv2a`→`gifts_v2a`；**enqueue 的 suffix 必须自带下划线**）
-   - 交付：QQ 2 条（每章 6 张，PIL 压缩 jpg q92 ≈ 250~310KB/张；**教训**：PNG 原图 5MB+ 曾推送不达，压缩后必达）
+   - 交付：**踩坑修正**——`hermes send` 通道在 QQ 不可达（上报 sent、日志零记录、零送达）→ 已改为随「对话回复 `MEDIA:` 行」补发（该通道有上传记录、可靠）；交付图仍先压缩 jpg q92
 17. ✅ **[完成 09-30 00:15] 训练指标接入 TensorBoard（替代日志解析）**
    - 机制：ai-toolkit 原生 `setup_tensorboard`（`SummaryWriter`）→ 训练配置 process 块内 `log_dir: output/.tensorboard` + `logging: {log_every: 25}`（默认 100）；loss/lr 标量按步数写 `<name>_<ts>/` 事件文件
    - 查看：常驻服务 `tensorboard.service`（`~/miniconda3/envs/aitk/bin/tensorboard --logdir output/.tensorboard --port 6006`）→ Windows 浏览器 `http://localhost:6006`（WSL 转发）；重启：`systemctl --user restart tensorboard.service`
    - 注：缺 `tensorboard-data-server`（仅影响网页端部分功能；不影响 PyTorch 写入/读取）；首验：`houshaolin_zimage_lora_v1_20260929-233411/` 事件文件随训练生成 ✓
-18. 🔄 **[进行中] 侯/佟训练链监控**（见队列 5；后台哨兵 + 09-30 03:11 / 06:21 两道 cron 守卫）
+18. ✅ **[完成 09-30 05:39] 侯/佟训练链监控收尾**：单元哨兵 05:39 捕获链完成（rc=0×2）；03:11 中段守卫已投递（cron 原生通道，agent.log 有 `message_id` 记录）；06:21 收尾守卫已改「独立复核」轻量版（不重做、只核对产物）
 
 ## 训练接力 SOP（跨夜训练守卫/收尾通用）
 
@@ -111,7 +110,7 @@
 - **ch1**：黑老头戏份镜头（可用 he6tou 重拍评估）
 - **ch2 · 富老大（fu6lao）【已评 09-29 18:15】**：`s2_boss`（富老大在背景、中年/小胡子特征弱 → **建议优先重拍**）、`s3_flatter`（中年/横肉/小胡子已命中 → 可保留、重拍可选）→ 已通知用户，待重新规划（**不自动重拍**）
 - **ch2 · 慧铭（huiming）【已评 09-29 19:40】**：`s5_cafe`（旧口径：戴眼镜+刺猬头+成色崩坏 → **建议重拍**）、`s6_drag`（戴眼镜+发型不符定版、成色尚可 → **建议重拍**；桥段=网吧"往外拉慧铭"）→ 待用户重新规划（**不自动重拍**）
-- 【09-30 00:20】侯少麟/佟御辉：**在训**，ch11 起首次投产——此前章节两人未出场，**无旧镜头需标记**
+- 【09-30 05:40】侯少麟/佟御辉：**已训成**（6/6 全齐）——此前章节两人未出场，**无旧镜头需标记**；ch11 起投产
 - （新 LoRA 每训成一个，在此追加对应清单并通知用户）
 - 【09-29 20:20】fu6lao/huiming 已全面投用（ch3~7 全批实战）；ch2 三镜 `s2_boss`/`s5_cafe`/`s6_drag` **随时可一键重拍**（脚本/角色块就绪）——待用户一句话
 
@@ -123,6 +122,6 @@
 - 跨夜训练 = systemd 单元 + 后台哨兵 + 一次性 cron 守卫（中段/收尾）；链路/接力见「训练接力 SOP」
 - 重 token 任务优先排 **DeepSeek 谷时**（工作日 18:00 后 / 12–14 / 周末与节假日全天）
 - cron 批跑：**工作日 18:10、周末 10:05** 自动检查队列并执行（用户喊「暂停批跑」即停）
-- 交付 = 图片（无音频）；备选图留在 `chN/` 存档目录；**交付图先压缩（jpg q92）再推 QQ**（>5MB 单图有推送失败先例）
+- 交付 = 图片（无音频）；**交付通道 = 对话回复的 `MEDIA:` 行（`hermes send` 在 QQ 不可达，勿用）**；交付图先压缩（jpg q92）；备选图留在 `chN/` 存档目录
 - 重拍规程：判重拍 → 改提示词 + 新 seed（101+ 递增）出 v2；动作/接触类顽固镜头一次出 2 变体择优；≤3 轮收敛；定版规范化 = 原图→`_v1`、定版→主名；`--suffix` 一律**自带下划线**（`_v3a`）
 - 脚本：`gen_audition.py`（定妆候选，幂等）、`build_dataset.py`（数据集构建）、`qc_montage.py`（拼图，用 aitk python）、`gen_with_lora.py`（LoRA 出图）、`run_train.sh`（训练启动器）、`train_chain.sh`（串行训练链）；统计/统计量计算统一走 numpy/scipy/pandas（项 13）

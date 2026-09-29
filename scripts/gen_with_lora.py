@@ -22,7 +22,7 @@ from zlog import logger, setup_logging
 BRIDGE = "http://127.0.0.1:8199"
 OUT_DIR = "/mnt/d/minimax-h3-demo/ComfyUI/output"
 SCRATCH = "/home/zhaoyiming/.hermes/cache/scratch"
-WF = os.path.join(SCRATCH, "z_image_api.json")
+WF = "/home/zhaoyiming/z-image-train/config/z_image_api.json"
 
 app = typer.Typer(add_completion=False, help="带 LoRA 的 Z-Image 出图（对比测试）")
 
