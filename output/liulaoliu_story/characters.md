@@ -1,6 +1,6 @@
 # 《刘老六传奇》角色库（characters.md）
 
-> 更新：2026-09-29 20:25（v2.5：ch3~7 首批全 LoRA 出图已交付；四角色 LoRA 全部投产验证） ｜ LoRA 目录：ComfyUI `models/loras/`（源：`~/z-image-train/output/<角色>_zimage_lora_v1/`）  
+> 更新：2026-09-30 00:20（v2.7：ch9~10 已交付；侯少麟/佟御辉定妆拍板通过、数据集建成、训练链已发射） ｜ LoRA 目录：ComfyUI `models/loras/`（源：`~/z-image-train/output/<角色>_zimage_lora_v1/`）  ｜ 已训成：l6liu / he6tou / fu6lao / huiming；在训：houshaolin / tongyuhui
 > 出图 prompt 规则：**角色块（LoRA 名 + 全描述）＋ 场景动作 ＋ house style**；未训角色用**独立充分文字块**（防同脸）。  
 > 定妆候选存档：`output/liulaoliu_story/audition/<slug>/`（生成脚本 `scripts/gen_audition.py`）
 
@@ -40,21 +40,26 @@
 - **状态**：✅ **训练完成**（09-29 19:24，2500/2500，2h49m，4.05 s/it，末 loss 0.366）→ 已拷 ComfyUI；验收：**全块冒烟 ×2 合格**（卷发/无镜/旧西装命中；卷发偏湿感）；**ch3~7 实拍投产 ✅**（多 LoRA 链）
 - **受影响旧镜头**：ch2 `s5_cafe`/`s6_drag`（09-29 19:40 已评：均**建议重拍**，详见 PROGRESS「待标记」）
 
-### 侯少麟（首批 #3a · 哼哈二将之一）
-- **昵称**：**左青龙**（第 13 章明写）；与佟御辉合称「胖瘦头陀」（谁胖谁瘦定妆时细读 11 章）
-- **外观（第 5~11 章）**：20 岁，**身高 1.93 米大个子**，**谢顶**，追 NBA、张口闭口嘻哈「趟子」（后有理发翻车桥段：剃秃+朋克假发）；纹身「左青龙」
-- **English 块（初稿）**：
-  `hsl, a tall 20-year-old Chinese street guy, 1.93m, balding, buzz cut, hip-hop streetwear`
-- 状态：⏳ 待定妆（与佟御辉同批；定妆前细读 5/11/12/13 章）
+### 侯少麟（首批 #3a · 哼哈二将之一）· 🔄 训练中
+- **昵称**：**左青龙**（第 13 章明写）；与佟御辉合称「胖瘦头陀」（**侯=瘦头陀**）
+- **外观（第 5~11 章）**：20 岁，**身高 1.93 米大个子**，**谢顶**（低发际线+头顶稀疏、两侧短发），瘦削长身；追 NBA、张口闭口嘻哈「趟子」；纹身「左青龙」（个别镜头加 `a 「左青龙」 tattoo on his forearm`）
+- **English 块（定版 · 09-29 拍板）**：
+  `houshaolin, a very tall lean 20-year-old Chinese young man, skinny lanky build, receding hairline with a balding crown, short messy black hair on the sides, hip-hop streetwear, oversized tee, white sneakers`
+- **定妆**：✅ 用户通过（09-29 夜）；候选 16；主锚 01/03/11（11 最标准）；弃 14（金发跑偏）/08/09（偏老相）
+- **数据集**：**13 张**（`datasets/houshaolin/`）｜训练配置 `config/train/houshaolin_zimage.yaml`
+- **状态**：🔄 **训练中**（训练链 09-29 23:34 发射，第一棒；完成后拷 ComfyUI + 全块冒烟）
+- 备注：第 11 章「七巧板多色头发」为一次性桥段 → **不入 LoRA**，需要时在 prompt 内加彩发描述
 
-### 佟御辉（首批 #3b · 哼哈二将之一）
-- **昵称**：**右白虎**；北台老一辈都叫他「**二子**」
-- **外观（第 11~13 章）**：19 岁，**敦实小个子**，**磕巴**（说话「厄厄厄」「嗷嗷嗷」拉长音），憨傻（见谁都蹭一脸、清鼻涕），**力气大**；染过灰白发；纹身「右白虎」
-- **English 块（初稿）**：
-  `tyh, a short stocky 19-year-old Chinese youth, simple-minded, stuttering, messy grey-white dyed hair`
-- 状态：⏳ 待定妆（与侯少麟同批）
+### 佟御辉（首批 #3b · 哼哈二将之一）· 🔄 训练中
+- **昵称**：**右白虎**（**佟=胖头陀**）；北台老一辈都叫他「**二子**」
+- **外观（第 11~13 章）**：19 岁，**敦实小个子**、圆脸憨厚；发色定版 = **灰白灰白（稳定态）**；**磕巴**（「厄厄厄」「嗷嗷嗷」）、憨傻、**力气大**；纹身「右白虎」（个别镜头加 `a 「右白虎」 tattoo on his forearm`）
+- **English 块（定版 · 09-29 拍板）**：
+  `tongyuhui, a short stocky 19-year-old Chinese youth, round simple face, messy short hair dyed murky grey-white, plain ill-fitting dark jacket`
+- **定妆**：✅ 用户通过（09-29 夜）；候选 16；主锚 11（最标准）/03/16；弃 12（手部融合）
+- **数据集**：**14 张**（`datasets/tongyuhui/`）｜训练配置 `config/train/tongyuhui_zimage.yaml`
+- **状态**：🔄 **训练中**（训练链第二棒，紧随侯少麟；完成后拷 ComfyUI + 全块冒烟）
 
-> ⚠️ **搭档纪律**：侯少麟 + 佟御辉是六爷最早的俩「直系小弟」，几乎总同框 → **同批定妆/训练**；同框戏双 LoRA 出场，盯防互相外溢（必要时降强度 / 前后景分离）。
+> ⚠️ **搭档纪律**：侯少麟 + 佟御辉是六爷最早的俩「直系小弟」，几乎总同框 → **同批定妆/训练**（已执行）；同框戏双 LoRA 出场，盯防互相外溢（必要时降强度 / 前后景分离）。
 
 ## ⚪ 二批候选
 
@@ -62,10 +67,10 @@
 
 ## 🎭 龙套（文字块，不上 LoRA）
 
-其余低频角色（如二宝 等）
+其余低频角色（如二宝 等）——含 **ningfei / ningfei_dad / yantouer** 等已在 `config/illustration.yaml` 注册文描块（ch10 起投产）
 
 ## 规范
 
-- 定妆流程：候选 12~20 张（`scripts/gen_audition.py`）→ 拼图质检 → 用户确认 → 数据集 13~16 张 + caption（`scripts/build_dataset.py`）→ 训练（`config/train/<slug>_zimage.yaml`，res768 配方）
+- 定妆流程：候选 12~20 张（`scripts/gen_audition.py`）→ 拼图质检 → 用户确认 → 数据集 13~16 张 + caption（`scripts/build_dataset.py`）→ 训练（`config/train/<slug>_zimage.yaml`，res768 配方；**指标 = TensorBoard `logging.log_dir`**）
 - 新角色外观优先摘原文；无描述则设计并保持全书一致，**回写本文件**
 - 数据集与配置命名：`datasets/<slug>/`、`config/train/<slug>_zimage.yaml`、`output/<slug>_zimage_lora_v1/`

@@ -1,0 +1,42 @@
+# 刘老六传奇 ch9 出图场景（第九章 仙器：老李头酒店房间——功德薄 / 自动铅笔 / 慧眼）
+# 角色：l6liu / he6tou（老李头）/ huiming；placeholders 由 config/illustration.yaml blocks 提供
+chapter: 9
+scenes:
+- name: s1_gifts
+  seed: 421
+  loras:
+  - l6liu
+  - he6tou
+  - huiming
+  prompt: 'Photorealistic cinematic film still: inside a cheap hotel room, {l6liu} standing center-frame, a chubby masculine street punk with a tough grin, holding up two long red cigarette cartons like trophies, {huiming} beside him holding out a smartphone toward {he6tou}, {he6tou} sitting on the sofa in a neat dark formal jacket holding a steaming cup of instant noodles with a smug grin, warm tungsten light, {style}'
+- name: s2_notebook
+  seed: 422
+  loras:
+  - l6liu
+  - he6tou
+  - huiming
+  prompt: 'Photorealistic cinematic film still: {he6tou} reaching deep into his waistband pulling out two small red notebooks, while {l6liu} and {huiming} lean away pinching their noses with disgusted grimaces, hotel room sofa, warm light, {style}'
+- name: s3_fury
+  seed: 423
+  loras:
+  - l6liu
+  - he6tou
+  prompt: 'Photorealistic cinematic film still: {l6liu} shouting furiously while pointing at an open little red notebook in his hand, {he6tou} sitting on the sofa deadpan and unimpressed, hotel room, warm light, {style}'
+- name: s4_zap1
+  seed: 424
+  loras:
+  - l6liu
+  - huiming
+  prompt: 'Photorealistic cinematic film still: {l6liu} reaching out pressing the tip of a mechanical pencil against {huiming}, {huiming} mid-blink with his face going blank and confused, hotel room interior, warm light, {style}'
+- name: s5_zap2
+  seed: 425
+  loras:
+  - l6liu
+  - he6tou
+  prompt: 'Photorealistic cinematic film still: {l6liu} standing behind the sofa, leaning over the backrest and pressing the tip of a mechanical pencil against the back of {he6tou}''s shoulder with a mischievous sneaky grin, {he6tou} seated facing away frozen mid-sip with a blank dazed expression, hotel room, warm light, {style}'
+- name: s6_stamp
+  seed: 426
+  loras:
+  - l6liu
+  - he6tou
+  prompt: 'Photorealistic cinematic film still: close scene on a tea table, two red cigarette cartons stamped with large black Chinese characters 假烟, {l6liu} staring dumbfounded at them, {he6tou} holding one red cigarette carton up in one hand with a sly grin, his other hand resting relaxed on his knee, hotel room, warm light, {style}'

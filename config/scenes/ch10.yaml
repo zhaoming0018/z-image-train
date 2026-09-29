@@ -1,0 +1,38 @@
+# 刘老六传奇 ch10 出图场景（第十章 揍你全家：仙丹后遗症 / 街头找茬 / 宁飞追打 / 躲避）
+# 角色：l6liu / he6tou / huiming / ningfei / ningfei_dad
+# 注：loras 列表只放已注册 LoRA；ningfei / ningfei_dad 为文描块（无 LoRA），仅出现在 prompt 占位符中
+chapter: 10
+scenes:
+- name: s1_pad
+  seed: 431
+  loras:
+  - l6liu
+  - he6tou
+  - huiming
+  prompt: 'Photorealistic cinematic film still: {l6liu} sitting slumped on a hotel bed with a thick white cotton pad taped across his nose, rolls of toilet paper scattered around, {huiming} beside him laughing uncontrollably, {he6tou} in the background carrying a washbasin with a sly grin, warm light, {style}'
+- name: s2_cactus
+  seed: 432
+  loras:
+  - l6liu
+  - he6tou
+  prompt: 'Photorealistic cinematic film still: {he6tou} leaning far out of an upper-floor hotel window above the street, one eye squinting as he aims a potted round ball cactus like a weapon ready to throw, far below {l6liu} scrambles away covering his face, comedic, afternoon light, {style}'
+- name: s3_poke
+  seed: 433
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {l6liu} jabbing his index finger forcefully into the shoulder of {ningfei_dad}, angry aggressive scowl and raised chin, the old man smiling apologetically, small-town shopping street, afternoon light, {style}'
+- name: s4_caught
+  seed: 434
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {l6liu} with his raised palm frozen in mid-air above the old man''s head, terrified wide-eyed face drenched in cold sweat, his other arm hanging stiffly at his side, {ningfei_dad} standing placidly; behind him {ningfei} in torn ragged clothes stares in fury, his big shopping bag fallen open on the ground at his feet, small-town street, {style}'
+- name: s5_sprint
+  seed: 435
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {l6liu} sprinting desperately down a small-town street, elderly passersby scattering and stumbling out of his way in panic, {ningfei} far behind at the end of the street chasing with a small knife, afternoon light, {style}'
+- name: s6_hide
+  seed: 436
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: dim stairwell corner, {l6liu} crouching low pressing a phone to his ear, eyes darting wildly, sweat beads on his face, narrow dark corridor, faint light from above, {style}'

@@ -81,10 +81,60 @@ def huiming_set(H):
      ("20", 320, f"Half-body of {H}, sitting sideways on a swivel chair, arm on the backrest, internet cafe, {STYLE}"),
     ]
 
+# ==== 第二批定妆（2026-09-29 夜）：侯少麟（瘦头陀·左青龙）+ 佟御辉（胖头陀·右白虎）====
+# 原文依据（第 5/11/12/13 章）：侯=20岁/1.93m/瘦削/谢顶/嘻哈青年「吆吆吆」；佟=19岁/敦实小个子/胖墩墩/磕巴憨傻/力气大。
+# 设定：佟发色取「灰白灰白」稳定态（七巧板多色为第 11 章一次过场，不入训练）；侯保留谢顶（低发际线+头顶稀疏）。
+HS = ("a very tall lean 20-year-old Chinese young man, 1.93 meters tall, skinny lanky build, "
+      "early balding with a receding hairline and thinning crown, messy short black hair on the sides, "
+      "youthful cheeky face, hip-hop street fashion, oversized tee and loose pants, white sneakers")
+
+HOU = [
+ ("01", 401, f"Portrait close-up of {HS}, looking at camera, neutral expression, plain wall, soft window light, {STYLE}"),
+ ("02", 402, f"Portrait close-up of {HS}, animated excited grin talking with one hand raised, {STYLE}"),
+ ("03", 403, f"Portrait close-up of {HS}, cheeky smirk, street blurred behind, {STYLE}"),
+ ("04", 404, f"Portrait of {HS}, three-quarter view, small-town street behind, {STYLE}"),
+ ("05", 405, f"Side profile close-up of {HS}, balding crown visible, dark background, rim light, {STYLE}"),
+ ("06", 406, f"Half-body of {HS}, hands in pockets, slouched on a small-town street, {STYLE}"),
+ ("07", 407, f"Half-body of {HS}, arms crossed, leaning against a wall, {STYLE}"),
+ ("08", 408, f"Half-body of {HS}, holding a basketball under one arm, street basketball court behind, {STYLE}"),
+ ("09", 409, f"Full-body of {HS}, standing on a small-town street, very tall and lanky silhouette, {STYLE}"),
+ ("10", 410, f"Full-body of {HS}, walking on a small-town street, oversized tee, hands in pockets, {STYLE}"),
+ ("11", 411, f"Photo of {HS}, sitting on a stool in a shabby hotel room, elbows on knees, nervous fidget, {STYLE}"),
+ ("12", 412, f"Photo of {HS}, sitting on the floor playing with a phone, hoodie, warm lamp light, {STYLE}"),
+ ("13", 413, f"Half-body of {HS}, barging in through a room doorway mid-step, energetic, {STYLE}"),
+ ("14", 414, f"Half-body of {HS} at night under a street lamp, hands in pockets, {STYLE}"),
+ ("15", 415, f"Photo of {HS}, crouching on a curb gesturing excitedly, {STYLE}"),
+ ("16", 416, f"Portrait of {HS}, laughing with head tilted back, street blurred behind, {STYLE}"),
+]
+
+TY = ("a short stocky 19-year-old Chinese youth, round simple good-natured face, messy short hair dyed "
+      "murky grey-white, plain ill-fitting dark jacket and trousers, sneakers")
+
+TYH = [
+ ("01", 501, f"Portrait close-up of {TY}, looking at camera, blank dopey expression, plain wall, soft window light, {STYLE}"),
+ ("02", 502, f"Portrait close-up of {TY}, confused head tilt, frowning slightly, {STYLE}"),
+ ("03", 503, f"Portrait close-up of {TY}, big open-mouth simple grin, {STYLE}"),
+ ("04", 504, f"Portrait of {TY}, three-quarter view, small-town street behind, {STYLE}"),
+ ("05", 505, f"Side profile close-up of {TY}, dark background, rim light, {STYLE}"),
+ ("06", 506, f"Half-body of {TY}, hands clasped in front, obedient stance, {STYLE}"),
+ ("07", 507, f"Half-body of {TY}, scratching his head in confusion, {STYLE}"),
+ ("08", 508, f"Half-body of {TY}, waving hello enthusiastically, dopey grin, {STYLE}"),
+ ("09", 509, f"Full-body of {TY}, standing on a small-town street, short stocky silhouette, {STYLE}"),
+ ("10", 510, f"Full-body of {TY}, walking on a small-town street, slightly clumsy stride, {STYLE}"),
+ ("11", 511, f"Photo of {TY}, sitting hunched on a bed in a shabby hotel room, {STYLE}"),
+ ("12", 512, f"Photo of {TY}, squatting on a curb eating a steamed bun, {STYLE}"),
+ ("13", 513, f"Full-body of {TY}, green bell-bottom trousers and long-sleeve jacket, comical ill-fitting outfit, {STYLE}"),
+ ("14", 514, f"Half-body of {TY} at night under a street lamp, {STYLE}"),
+ ("15", 515, f"Photo of {TY}, peeking out from behind a room doorway, nervous, {STYLE}"),
+ ("16", 516, f"Portrait of {TY}, laughing dumbly with eyes squeezed shut, {STYLE}"),
+]
+
 SETS = {
   "fu6lao": FU6LAO,
   "huiming": huiming_set(HUI_G),
   "huiming_bare": huiming_set(HUI_B),
+  "houshaolin": HOU,
+  "tongyuhui": TYH,
 }
 
 def req(url, data=None):
