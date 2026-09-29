@@ -1,0 +1,54 @@
+# 侯少麟（瘦头陀·左青龙）定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 第二批定妆（2026-09-29 夜）拍板通过；原文依据（第 5/11/12/13 章）：20 岁 / 1.93m / 瘦削 / 谢顶 / 嘻哈青年
+# 设定：保留谢顶（低发际线 + 头顶稀疏）
+appearance: 'a very tall lean 20-year-old Chinese young man, 1.93 meters tall, skinny lanky build, early balding with a receding hairline and thinning crown, messy short black hair on the sides, youthful cheeky face, hip-hop street fashion, oversized tee and loose pants, white sneakers'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 401
+  prompt: 'Portrait close-up of {appearance}, looking at camera, neutral expression, plain wall, soft window light, {style}'
+- name: "02"
+  seed: 402
+  prompt: 'Portrait close-up of {appearance}, animated excited grin talking with one hand raised, {style}'
+- name: "03"
+  seed: 403
+  prompt: 'Portrait close-up of {appearance}, cheeky smirk, street blurred behind, {style}'
+- name: "04"
+  seed: 404
+  prompt: 'Portrait of {appearance}, three-quarter view, small-town street behind, {style}'
+- name: "05"
+  seed: 405
+  prompt: 'Side profile close-up of {appearance}, balding crown visible, dark background, rim light, {style}'
+- name: "06"
+  seed: 406
+  prompt: 'Half-body of {appearance}, hands in pockets, slouched on a small-town street, {style}'
+- name: "07"
+  seed: 407
+  prompt: 'Half-body of {appearance}, arms crossed, leaning against a wall, {style}'
+- name: "08"
+  seed: 408
+  prompt: 'Half-body of {appearance}, holding a basketball under one arm, street basketball court behind, {style}'
+- name: "09"
+  seed: 409
+  prompt: 'Full-body of {appearance}, standing on a small-town street, very tall and lanky silhouette, {style}'
+- name: "10"
+  seed: 410
+  prompt: 'Full-body of {appearance}, walking on a small-town street, oversized tee, hands in pockets, {style}'
+- name: "11"
+  seed: 411
+  prompt: 'Photo of {appearance}, sitting on a stool in a shabby hotel room, elbows on knees, nervous fidget, {style}'
+- name: "12"
+  seed: 412
+  prompt: 'Photo of {appearance}, sitting on the floor playing with a phone, hoodie, warm lamp light, {style}'
+- name: "13"
+  seed: 413
+  prompt: 'Half-body of {appearance}, barging in through a room doorway mid-step, energetic, {style}'
+- name: "14"
+  seed: 414
+  prompt: 'Half-body of {appearance} at night under a street lamp, hands in pockets, {style}'
+- name: "15"
+  seed: 415
+  prompt: 'Photo of {appearance}, crouching on a curb gesturing excitedly, {style}'
+- name: "16"
+  seed: 416
+  prompt: 'Portrait of {appearance}, laughing with head tilted back, street blurred behind, {style}'

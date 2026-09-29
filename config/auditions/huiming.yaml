@@ -1,0 +1,66 @@
+# 刘慧铭 A 套（戴眼镜，scripts/gen_audition.py 读取；集合名 = 文件名）
+# 仅「高度近视」强调场景使用；B 套（无眼镜）为定版，见 huiming_bare.yaml
+# 原文依据：白净小脸 / 自然卷毛 / 旧西装 / 俊俏小白脸 / 高度近视
+appearance: 'a skinny young Chinese man, fair delicate pretty-boy face, natural curly black hair, thick-lensed glasses, wearing an old oversized dark suit, shabby faded style'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 301
+  prompt: 'Portrait close-up of {appearance}, looking at camera, neutral expression, plain wall, soft window light, {style}'
+- name: "02"
+  seed: 302
+  prompt: 'Portrait close-up of {appearance}, faint smug smile, street blurred behind, {style}'
+- name: "03"
+  seed: 303
+  prompt: 'Portrait close-up of {appearance}, slightly frowning, dim light, {style}'
+- name: "04"
+  seed: 304
+  prompt: 'Portrait close-up of {appearance}, three-quarter view, adjusting his collar, {style}'
+- name: "05"
+  seed: 305
+  prompt: 'Half-body of {appearance}, standing with arms crossed on a small-town street, {style}'
+- name: "06"
+  seed: 306
+  prompt: 'Half-body of {appearance}, bent over a computer desk in a smoky internet cafe, monitor glow, {style}'
+- name: "07"
+  seed: 307
+  prompt: 'Half-body of {appearance}, standing on a swivel chair shouting, internet cafe, {style}'
+- name: "08"
+  seed: 308
+  prompt: 'Half-body of {appearance}, leaning against an arcade wall, hands in pockets, {style}'
+- name: "09"
+  seed: 309
+  prompt: 'Full-body of {appearance}, walking with an oversized suit jacket, small-town street, {style}'
+- name: "10"
+  seed: 310
+  prompt: 'Full-body of {appearance}, standing slouched in a shabby alley, {style}'
+- name: "11"
+  seed: 311
+  prompt: 'Photo of {appearance}, sitting on a swivel chair at an internet cafe, leaning back, {style}'
+- name: "12"
+  seed: 312
+  prompt: 'Photo of {appearance}, sitting on a stool reading a book, warm lamp light, {style}'
+- name: "13"
+  seed: 313
+  prompt: 'Side profile close-up of {appearance}, dark background, rim light, {style}'
+- name: "14"
+  seed: 314
+  prompt: 'Portrait of {appearance}, three-quarter view, street blurred behind, {style}'
+- name: "15"
+  seed: 315
+  prompt: 'Half-body of {appearance} at night under a street lamp, {style}'
+- name: "16"
+  seed: 316
+  prompt: 'Half-body of {appearance} at night, internet cafe monitor glow on his face, {style}'
+- name: "17"
+  seed: 317
+  prompt: 'Portrait close-up of {appearance}, slight confident smile, plain wall, soft light, {style}'
+- name: "18"
+  seed: 318
+  prompt: 'Half-body of {appearance}, leaning in conspiratorially with hands clasped, dim room, {style}'
+- name: "19"
+  seed: 319
+  prompt: 'Full-body of {appearance}, walking at night on a small street, hands in pockets, {style}'
+- name: "20"
+  seed: 320
+  prompt: 'Half-body of {appearance}, sitting sideways on a swivel chair, arm on the backrest, internet cafe, {style}'

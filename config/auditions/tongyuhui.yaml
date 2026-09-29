@@ -1,0 +1,54 @@
+# 佟御辉（胖头陀·右白虎）定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 第二批定妆（2026-09-29 夜）拍板通过；原文依据（第 5/11/12/13 章）：19 岁 / 敦实小个子 / 胖墩墩 / 磕巴憨傻 / 力气大
+# 设定：发色取「灰白灰白」稳定态（七巧板多色为第 11 章一次性过场，不入训练）
+appearance: 'a short stocky 19-year-old Chinese youth, round simple good-natured face, messy short hair dyed murky grey-white, plain ill-fitting dark jacket and trousers, sneakers'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 501
+  prompt: 'Portrait close-up of {appearance}, looking at camera, blank dopey expression, plain wall, soft window light, {style}'
+- name: "02"
+  seed: 502
+  prompt: 'Portrait close-up of {appearance}, confused head tilt, frowning slightly, {style}'
+- name: "03"
+  seed: 503
+  prompt: 'Portrait close-up of {appearance}, big open-mouth simple grin, {style}'
+- name: "04"
+  seed: 504
+  prompt: 'Portrait of {appearance}, three-quarter view, small-town street behind, {style}'
+- name: "05"
+  seed: 505
+  prompt: 'Side profile close-up of {appearance}, dark background, rim light, {style}'
+- name: "06"
+  seed: 506
+  prompt: 'Half-body of {appearance}, hands clasped in front, obedient stance, {style}'
+- name: "07"
+  seed: 507
+  prompt: 'Half-body of {appearance}, scratching his head in confusion, {style}'
+- name: "08"
+  seed: 508
+  prompt: 'Half-body of {appearance}, waving hello enthusiastically, dopey grin, {style}'
+- name: "09"
+  seed: 509
+  prompt: 'Full-body of {appearance}, standing on a small-town street, short stocky silhouette, {style}'
+- name: "10"
+  seed: 510
+  prompt: 'Full-body of {appearance}, walking on a small-town street, slightly clumsy stride, {style}'
+- name: "11"
+  seed: 511
+  prompt: 'Photo of {appearance}, sitting hunched on a bed in a shabby hotel room, {style}'
+- name: "12"
+  seed: 512
+  prompt: 'Photo of {appearance}, squatting on a curb eating a steamed bun, {style}'
+- name: "13"
+  seed: 513
+  prompt: 'Full-body of {appearance}, green bell-bottom trousers and long-sleeve jacket, comical ill-fitting outfit, {style}'
+- name: "14"
+  seed: 514
+  prompt: 'Half-body of {appearance} at night under a street lamp, {style}'
+- name: "15"
+  seed: 515
+  prompt: 'Photo of {appearance}, peeking out from behind a room doorway, nervous, {style}'
+- name: "16"
+  seed: 516
+  prompt: 'Portrait of {appearance}, laughing dumbly with eyes squeezed shut, {style}'

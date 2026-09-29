@@ -1,0 +1,63 @@
+# 富老大定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 拍板 2026-09-29：直接通过；17~19 号为补拍（替补质检偏弱：04/08/11）
+# 原文依据：四十多岁 / 约 1.7m / 两撇小胡子 / 一脸横肉 / 套过滤嘴香烟
+appearance: 'a stocky Chinese man in his forties, about 1.7m tall, heavy fleshy brutal face with jowls, two thin pencil mustache strips, dark short-sleeved shirt, smoking a cigarette held in a filter holder'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 201
+  prompt: 'Portrait close-up of {appearance}, looking at camera, neutral expression, plain wall, soft window light, {style}'
+- name: "02"
+  seed: 202
+  prompt: 'Portrait close-up of {appearance}, slight scowl, dim indoor light, {style}'
+- name: "03"
+  seed: 203
+  prompt: 'Portrait close-up of {appearance}, smoking, cigarette in filter holder, warm tungsten light, {style}'
+- name: "04"
+  seed: 204
+  prompt: 'Portrait close-up of {appearance}, greasy smug grin, restaurant blurred behind, {style}'
+- name: "05"
+  seed: 205
+  prompt: 'Half-body of {appearance}, standing with arms crossed at a restaurant doorway, afternoon light, {style}'
+- name: "06"
+  seed: 206
+  prompt: 'Half-body of {appearance}, sitting at a round banquet table full of dishes, one hand raised commanding, warm tungsten, cigarette haze, {style}'
+- name: "07"
+  seed: 207
+  prompt: 'Half-body of {appearance}, counting a thick stack of cash at a desk, office, lamp light, {style}'
+- name: "08"
+  seed: 208
+  prompt: 'Half-body of {appearance}, leaning on a black sedan holding a phone, small-town street, {style}'
+- name: "09"
+  seed: 209
+  prompt: 'Full-body of {appearance}, standing at a scrap collection yard, worn work clothes, daylight, {style}'
+- name: "10"
+  seed: 210
+  prompt: 'Full-body of {appearance}, walking on a small-town street in a dark suit jacket, {style}'
+- name: "11"
+  seed: 211
+  prompt: 'Photo of {appearance}, sitting on a sofa in an office, legs crossed, smoking, {style}'
+- name: "12"
+  seed: 212
+  prompt: 'Half-body of {appearance}, in a shiny suit with a gold chain, cigar, rich boss look, office, {style}'
+- name: "13"
+  seed: 213
+  prompt: 'Side profile close-up of {appearance}, mustache silhouette, dark background, rim light, {style}'
+- name: "14"
+  seed: 214
+  prompt: 'Portrait of {appearance}, three-quarter view, street blurred behind, {style}'
+- name: "15"
+  seed: 215
+  prompt: 'Half-body of {appearance} at night, neon signs, smoking, car lights behind, {style}'
+- name: "16"
+  seed: 216
+  prompt: 'Full-body of {appearance}, standing in front of his restaurant at dusk, hands in pockets, {style}'
+- name: "17"
+  seed: 217
+  prompt: 'Portrait close-up of {appearance}, three-quarter profile, smoking, mustache prominent, warm indoor light, {style}'
+- name: "18"
+  seed: 218
+  prompt: 'Half-body of {appearance}, standing with clasped hands greeting guests at his restaurant door, daytime, {style}'
+- name: "19"
+  seed: 220
+  prompt: 'Full-body of {appearance}, walking on a small-town street, hands in pockets, dark suit jacket, daylight, {style}'
