@@ -1,6 +1,6 @@
 # 《刘老六传奇》角色库（characters.md）
 
-> 更新：2026-09-30 05:58（v2.8：侯少麟/佟御辉训成——**6/6 全齐**；ch9~10 已交付） ｜ LoRA 目录：ComfyUI `models/loras/`（源：`~/z-image-train/output/<角色>_zimage_lora_v1/`）  ｜ 已训成：l6liu / he6tou / fu6lao / huiming / houshaolin / tongyuhui
+> 更新：2026-09-30 18:25（v2.9：曹答补记——**7/7 全齐**；张擂定妆候选 16 张已出，待拍板） ｜ LoRA 目录：ComfyUI `models/loras/`（源：`~/z-image-train/output/<角色>_zimage_lora_v1/`）  ｜ 已训成：l6liu / he6tou / fu6lao / huiming / houshaolin / tongyuhui / caoda
 > 出图 prompt 规则：**角色块（LoRA 名 + 全描述）＋ 场景动作 ＋ house style**；未训角色用**独立充分文字块**（防同脸）。  
 > 定妆候选存档：`output/liulaoliu_story/audition/<slug>/`（生成脚本 `scripts/gen_audition.py`）
 
@@ -61,9 +61,28 @@
 
 > ⚠️ **搭档纪律**：侯少麟 + 佟御辉是六爷最早的俩「直系小弟」，几乎总同框 → **同批定妆/训练**（已执行）；同框戏双 LoRA 出场，盯防互相外溢（必要时降强度 / 前后景分离）。
 
+## 🟢 二批（已启动）：曹答 ✅ · 张擂 ⏳（定妆候选已出）
+
+### 曹答（六爷的司机兼小弟·可乐胖子；第 7 张 LoRA）· ✅ 已训成
+- **昵称**：史莱姆（与张擂「超人」并列）；东盛租赁司机 → 收作小弟·保镖
+- **外观（原文 第15/16/17/19/20 章）**：又高又胖跟堵墙似的 / 眼睛小（像闭眼开车，本人在意）/ 20 来岁 / 2L 可乐不离手
+- **English 块（定版）**：
+  `caoda, a very tall heavily-built young chinese man in his early twenties, hulking broad frame like a wall, fleshy rounded face with small narrow eyes, short black hair, plain dark jacket over a t-shirt, holding a large plastic cola bottle`
+- **定妆**：✅ 用户通过（09-30 晨；推荐 01-14+16，15 号淘汰）；数据集 15 张
+- **状态**：✅ **训练完成**（09-30 11:31；2500/2500，4.12 s/it，末 loss 0.32）→ 已拷 ComfyUI + 注册 illustration.yaml + 全块冒烟 ×2 合格；**ch15 起投产**
+- **受影响旧镜头**：无（ch15 才首见）
+
+### 张擂（顶美装修公司老板·「超人」发型）· ⏳ 定妆候选已出，待拍板
+- **外观（原文 第15~23 章）**：头发自然卷、额前一绺小卷毛跟超人似的（绰号「超人」）；笑容可掬、表面憨厚其实一肚子花花肠子；小挎包 + 连着摄像头的笔记本（当 DV 用、也算账）
+- **English 块（定版；illustration.yaml 已注册）**：
+  `zhanglei, a slim energetic Chinese young man in his mid-twenties, natural curly black hair with a distinctive single curly forelock hanging over his forehead, plain casual work clothes, a small dark messenger bag slung across his shoulder`
+- **定妆候选**：16 张已出（09-30 18:25；`audition/zhanglei/`，拼图 `zhanglei_sheet.png`）→ **待用户拍板**（推荐主锚 01/02/15/16）
+- **路径决策（待拍板）**：① Qwen 参考图免训试点 ② 经典 LoRA 训练（≈3h）；拍板前不建数据集、不开训
+- **弧段**：ch15~39（收弧窗口紧）
+
 ## ⚪ 二批候选
 
-马王爷（星君，第 22 章标题）｜安吉丽娜（星君）｜辰君（星君•黑帮头目）｜吕明｜大金牙｜**宁飞**（早期反派打手，85 次/18 章，首 3）｜**烟头儿**（富老大心腹跟班，157 次/38 章，首 4）｜**张擂**（48 次；自然卷、额前超人式小卷毛）；（太上老君待核：本人 or 药童冒名）
+马王爷（星君，第 22 章标题）｜安吉丽娜（星君）｜辰君（星君•黑帮头目）｜吕明｜大金牙｜**宁飞**（早期反派打手，85 次/18 章，首 3）｜**烟头儿**（富老大心腹跟班，157 次/38 章，首 4）；（太上老君待核：本人 or 药童冒名）
 
 ## 🎭 龙套（文字块，不上 LoRA）
 

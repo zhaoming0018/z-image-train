@@ -1,0 +1,54 @@
+# 张擂（六爷的装修承包商·「超人」发型）定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 原文依据（第 15~23 章）：头发自然卷、额前一绺小卷毛跟超人似的（绰号「超人」，与曹答「史莱姆」并列）/ 笑容可掬、表面憨厚其实一肚子花花肠子 / 小挎包 + 连着摄像头的笔记本（当 DV 用，也用来算账、看设计）/ 顶美装修公司老板（专门搞装修）
+# 设计取舍（原文未明写，可否决）：年龄感取青年（mid-20s）；体型取偏瘦精干；服装取休闲工装；小挎包常备
+appearance: 'zhanglei, a slim energetic Chinese young man in his mid-twenties, natural curly black hair with a distinctive single curly forelock hanging over his forehead, plain casual work clothes, a small dark messenger bag slung across his shoulder'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 701
+  prompt: 'Portrait close-up of {appearance}, looking at camera with a warm cheerful smile, plain wall, soft window light, {style}'
+- name: "02"
+  seed: 702
+  prompt: 'Portrait close-up of {appearance}, laughing brightly, the curly forelock clearly visible over his forehead, street blurred behind, {style}'
+- name: "03"
+  seed: 703
+  prompt: 'Portrait of {appearance}, three-quarter view, a slight knowing smirk, storefront of a shop under renovation blurred behind, {style}'
+- name: "04"
+  seed: 704
+  prompt: 'Side profile close-up of {appearance}, clear view of his curly hair and forelock, dark background, rim light, {style}'
+- name: "05"
+  seed: 719
+  prompt: 'Photo of {appearance}, standing behind a small table with an open laptop on it, one hand resting on the laptop, empty shop interior behind, {style}'
+- name: "06"
+  seed: 706
+  prompt: 'Half-body of {appearance}, unrolling a large colorful interior design drawing toward the camera, small-town street, warm afternoon light, {style}'
+- name: "07"
+  seed: 707
+  prompt: 'Half-body of {appearance}, standing at a half-renovated storefront with wood panels and tools around, one hand on his messenger bag strap, {style}'
+- name: "08"
+  seed: 708
+  prompt: 'Half-body of {appearance} at night under a street lamp, holding his laptop under one arm, {style}'
+- name: "09"
+  seed: 718
+  prompt: 'Full-length photo of {appearance}, standing on a small-town street, head to toe clearly visible including his shoes, slim energetic stance, messenger bag across his shoulder, {style}'
+- name: "10"
+  seed: 710
+  prompt: 'Full-body of {appearance}, walking on a small-town street carrying a rolled-up drawing tube under his arm, {style}'
+- name: "11"
+  seed: 711
+  prompt: 'Photo of {appearance}, sitting on a stool in a bare room under renovation, laptop on his knees, smiling at camera, {style}'
+- name: "12"
+  seed: 712
+  prompt: 'Photo of {appearance}, sitting at a desk with a laptop in a small cluttered office, turning toward the camera, {style}'
+- name: "13"
+  seed: 713
+  prompt: 'Half-body of {appearance}, stepping through the doorway of a shop under renovation, one hand raised in greeting, {style}'
+- name: "14"
+  seed: 714
+  prompt: 'Photo of {appearance}, crouching next to paint buckets and tile samples in a half-renovated room, looking at the camera, {style}'
+- name: "15"
+  seed: 715
+  prompt: 'Portrait close-up of {appearance}, both hands in his jacket pockets, relaxed confident smile, plain wall, {style}'
+- name: "16"
+  seed: 716
+  prompt: 'Portrait of {appearance}, grinning broadly, small-town street blurred behind, {style}'
