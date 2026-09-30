@@ -28,6 +28,14 @@ def compose(spec):
             for p in spec["prompts"]]
 
 
+def _merge_manifest(prev, new):
+    """合并候选记录：同文件名以新记录为准（回炉重拍更新 seed/提示词），新文件追加、顺序稳定。"""
+    by_file = {m["file"]: m for m in new}
+    merged = [by_file.pop(m["file"], m) for m in prev]
+    merged += list(by_file.values())
+    return merged
+
+
 def run_set(tag, spec):
     d = BASE / tag
     d.mkdir(parents=True, exist_ok=True)
@@ -51,11 +59,7 @@ def run_set(tag, spec):
             logger.error(f"[{tag}/{name}] ERROR {e}")
     mf = d / "_manifest.json"
     prev = json.load(open(mf)) if mf.exists() else []
-    keep = {m["file"] for m in prev}
-    if not manifest:
-        manifest = prev
-    else:
-        manifest = prev + [m for m in manifest if m["file"] not in keep]
+    manifest = _merge_manifest(prev, manifest) if manifest else prev
     with open(mf, "w") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=1)
     logger.success(f"[{tag}] DONE {ok}/{len(items)}")
