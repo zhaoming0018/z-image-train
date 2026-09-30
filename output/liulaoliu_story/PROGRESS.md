@@ -1,7 +1,7 @@
 # 《刘老六传奇》全本配图 · 进度与队列（PROGRESS.md）
 
 > 总排程：`~/.hermes/plans/2026-09-29_122313-liulaoliu-illustration-lora-program.md`  
-> 更新：2026-09-30 13:05 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）｜ 🧭 scripts pathlib 化（项 22）
+> 更新：2026-09-30 13:46 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）｜ 🧭 scripts pathlib 化（项 22）｜ 🆕 ComfyUI 升 0.38 + Qwen-Image 2.1 第二工具部署（项 25）
 
 ## 章节进度
 
@@ -123,6 +123,12 @@
 24. ✅ **[完成 09-30 13:02] ch15 s2_drive 用户点名重拍 + 老六形象政策调整**
    - 「开车的场景不对」：原图正面摆拍/表情嫌弃 → 改「侧视角 + 惊恐缩身抓安全带」重拍 7 版（v4~v6），v6c 定版（无烟、构图全中）；备选全留
    - 「老六不用时刻都在抽烟」：l6liu / l6liu_new 块默认去烟（illustration.yaml + characters.md 已同步）；需要时场景内显式加回；ch16+ 生效，历史图不回改
+25. ✅ **[完成 09-30 13:46] Qwen-Image 2.1 评估实验（第二模型对比 + 参考图锁角色）**
+   - 环境：ComfyUI 0.34 → **0.38.0**（浅克隆 fetch / `checkout -f` / ensurepip / 官方源装依赖；现有 Z-Image 链回归通过、冒烟 15.7s）；Qwen-Image 2.1 int8 组件（DiT 7.3G + TE 9.4G + VAE + PE 9.5G）经 hf-mirror 部署（16G 卡顺序加载实测可行）
+   - 对比（3 场景 × 2 模型、同 prompt 同 seed、均无 LoRA）：互有胜负——Qwen 胜 ch15 车内双人主客关系；Z 胜 ch13 隔桌氛围 + ch11 三人拥抱结构（**Qwen 复杂多人易漏人**）；速度 Qwen 21~24s/张 vs Z 15~18s/张
+   - **参考图锁角色实测有效**：单张参考图把「平均脸」拉向目标（五官系统性同向修正，相似度 ~30% → ~70-80%）→ 新角色可试「免训出图」路径；**张擂为候选试点（待用户拍板）**
+   - 落档：`config/qwen21_api.json`（文生图）/ `config/qwen21_ref_api.json`（参考图版）/ `scripts/submit_prompt.py`（通用提交）/ `scripts/compare_qwen_vs_zimg.py` / `scripts/montage_compare.py`；对比图存 `output/model_compare/`；commit `e6a78bb`；经验已入 novel-chapter-illustration 技能（第二模型节）
+   - 结论：**主力继续 Z-Image + LoRA；Qwen 定位第二工具**（新角色验证 / 顽固镜头救场 / 中文文字备用）；PE 增强器未投用
 
 ## 训练接力 SOP（跨夜训练守卫/收尾通用）
 
