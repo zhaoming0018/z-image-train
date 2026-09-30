@@ -1,7 +1,7 @@
 # 《刘老六传奇》全本配图 · 进度与队列（PROGRESS.md）
 
 > 总排程：`~/.hermes/plans/2026-09-29_122313-liulaoliu-illustration-lora-program.md`  
-> 更新：2026-09-30 08:36 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **6/6 全齐**（09-30 05:38 侯/佟训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ 🚀 曹答（caoda）第 7 张 LoRA 已发射（08:27 点火·预计 ~11:30 完训；守卫已挂）
+> 更新：2026-09-30 11:40 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）
 
 ## 章节进度
 
@@ -105,8 +105,9 @@
    - 新增公共库：`zconf.py`（ROOT/CONFIG_DIR/load_yaml/load_specs——路径单源）、`comfy_lib.py`（bridge HTTP 绕代理 / 工作流+LoRA 链 / 提交-轮询-取图——3 处重复实现合并为 1）
    - 调用方全部改走公共库：`queue_lib`（render_job 委派 comfy_lib）、`gen_audition`、`gen_with_lora`、`build_dataset`、`make_ab_config`
    - 验收：① 工作流快照 / ab_parse 兼容路径 / dry-run / 配置生成**逐字节一致** ② 日志路径 s/it 与基线一致（4.05/11.1/4.05/5.68）③ 定妆 71/71 SKIP + manifest md5 未变 + compose 91 条逐字 ④ **真实渲染 E2E ×2**：gen_with_lora 18s、queue 链（3×LoRA）16.2s ⑤ py_compile 全绿、datasets 零变动
-21. 🚀 **[训练中 08:27 发射] 曹答（caoda）第 7 张 LoRA**：定妆 16 张（推荐 01-14+16，15 号淘汰）；数据集 15 张；配置 `config/train/caoda_zimage.yaml`（res768 配方）；单元 `zimage-train-caoda`（train_chain.sh 单配置）→ 预计 **~11:30 完训**；守卫已挂：单元哨兵 + cron 中段（10:03）/收尾复核（12:03）
-   - 完训收尾清单（见「训练接力 SOP」）：① 校验 `output/caoda_zimage_lora_v1/caoda_zimage_lora_v1.safetensors`（~85MB）② 拷入 `/mnt/d/minimax-h3-demo/ComfyUI/models/loras/` ③ 注册 `config/illustration.yaml`：`loras` 加 `caoda: caoda_zimage_lora_v1.safetensors`；`blocks` 加曹答完整块（= dataset 规格 appearance 文本，与 caption 同源）④ 全块冒烟 1~2 张 ⑤ 中文简报；「受影响旧镜头」：无（曹答 ch15 才首见，此前无镜头）
+21. ✅ **[完成 09-30 11:31] 曹答（caoda）第 7 张 LoRA**：2500/2500 @4.12 s/it、末 loss 0.32（rc=0）→ `output/caoda_zimage_lora_v1/caoda_zimage_lora_v1.safetensors`（85MB，+6 中间档）
+   - 收尾（已执行）：① 校验 85MB ② 拷 ComfyUI `models/loras/`（sha256 一致）③ 注册 `illustration.yaml`（loras: caoda + blocks: 曹答完整块，与 dataset 同源）④ 全块冒烟 ×2 合格（肖像 seed42 / 黑轿车场景 seed7；存档 `smoke_caoda/`）⑤ 简报已发；「受影响旧镜头」：无（ch15 才首见）
+   - 备注：**ch15 起投产**（出图带完整角色块）；下一棒候选：张擂（48 次·弧 ch15-39）
 
 ## 训练接力 SOP（跨夜训练守卫/收尾通用）
 
@@ -123,6 +124,7 @@
 - **ch2 · 富老大（fu6lao）【已评 09-29 18:15】**：`s2_boss`（富老大在背景、中年/小胡子特征弱 → **建议优先重拍**）、`s3_flatter`（中年/横肉/小胡子已命中 → 可保留、重拍可选）→ 已通知用户，待重新规划（**不自动重拍**）
 - **ch2 · 慧铭（huiming）【已评 09-29 19:40】**：`s5_cafe`（旧口径：戴眼镜+刺猬头+成色崩坏 → **建议重拍**）、`s6_drag`（戴眼镜+发型不符定版、成色尚可 → **建议重拍**；桥段=网吧"往外拉慧铭"）→ 待用户重新规划（**不自动重拍**）
 - 【09-30 05:40】侯少麟/佟御辉：**已训成**（6/6 全齐）——此前章节两人未出场，**无旧镜头需标记**；ch11 起投产
+- 【09-30 11:35】曹答：**已训成**（第 7 张）——ch15 才首见、此前无旧镜头需标记；ch15 起投产（出图带完整角色块）
 - （新 LoRA 每训成一个，在此追加对应清单并通知用户）
 - 【09-29 20:20】fu6lao/huiming 已全面投用（ch3~7 全批实战）；ch2 三镜 `s2_boss`/`s5_cafe`/`s6_drag` **随时可一键重拍**（脚本/角色块就绪）——待用户一句话
 
