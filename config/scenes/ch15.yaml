@@ -13,7 +13,7 @@ scenes:
   loras:
   - l6liu
   - caoda
-  prompt: 'Photorealistic cinematic film still: interior of a moving black luxury sedan, {caoda} sitting behind the steering wheel driving with a relaxed grin and narrowed slit eyes, one hand on the wheel and the other holding a cola bottle, {l6liu} in the passenger seat staring at him in wide-eyed panic, daylight through the windows, {style}'
+  prompt: 'Photorealistic cinematic film still: interior side-view shot inside a moving black luxury sedan, {caoda} in the driver seat seen in profile, a tall hefty young man with narrowed slit eyes, one hand on the steering wheel and the other holding a cola bottle, {l6liu} in the passenger seat shrinking back against the door in alarm, clutching his seat belt tightly, eyes wide in fright, mouth agape in panic, staring at the driver, town street sliding past the windows, daylight, {style}'
 - name: s3_greet
   seed: 483
   loras:

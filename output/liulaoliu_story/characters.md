@@ -9,7 +9,7 @@
 ### 刘老六
 - **LoRA**：`l6liu_zimage_lora_v1.safetensors` @0.9
 - **描述块（逐字复用）**：
-  `l6liu, a chubby 23-year-old Chinese street punk with a round face, short messy black hair, small squinting triangular eyes, puffy cheeks, wearing a plain white ribbed tank top, dark knee-length shorts and black flip-flops, a cigarette in his mouth, small pot belly`
+  `l6liu, a chubby 23-year-old Chinese street punk with a round face, short messy black hair, small squinting triangular eyes, puffy cheeks, wearing a plain white ribbed tank top, dark knee-length shorts and black flip-flops, small pot belly`
 
 ### 黑老头 = 老李头儿 = 李景珉（同一人，用户确认）
 - **LoRA**：`he6tou_zimage_lora_v1.safetensors` @0.9

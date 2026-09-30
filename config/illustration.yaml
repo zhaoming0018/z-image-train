@@ -22,8 +22,9 @@ loras:
   houshaolin: houshaolin_zimage_lora_v1.safetensors
   tongyuhui: tongyuhui_zimage_lora_v1.safetensors
 blocks:
-  l6liu: l6liu, a chubby 23-year-old Chinese street punk with a round face, short messy black hair, small squinting triangular eyes, puffy cheeks, wearing a plain white ribbed tank top, dark knee-length shorts and black flip-flops, a cigarette in his mouth, small pot belly
-  l6liu_new: l6liu, a chubby 23-year-old Chinese street punk with a round face, short messy black hair, small squinting triangular eyes, puffy cheeks, wearing a crisp white dress shirt, black dress pants and shiny black leather shoes, large dark sunglasses, a cigarette in his mouth, small pot belly
+# 老六默认不叼烟（2026-09-30 用户："不用时刻都在抽烟"）；个别场景需要时在该场景 prompt 里显式写 a cigarette in his mouth
+  l6liu: l6liu, a chubby 23-year-old Chinese street punk with a round face, short messy black hair, small squinting triangular eyes, puffy cheeks, wearing a plain white ribbed tank top, dark knee-length shorts and black flip-flops, small pot belly
+  l6liu_new: l6liu, a chubby 23-year-old Chinese street punk with a round face, short messy black hair, small squinting triangular eyes, puffy cheeks, wearing a crisp white dress shirt, black dress pants and shiny black leather shoes, large dark sunglasses, small pot belly
   huiming: huiming, a skinny young Chinese pretty-boy, fair face, natural curly black hair, old oversized dark suit, shabby faded style
   huiming_new: huiming, a skinny young Chinese pretty-boy, fair face, natural curly black hair, wearing a crisp white dress shirt, black dress pants and shiny black leather shoes, large dark sunglasses
   fu6lao: fu6lao, a stocky Chinese man in his forties, about 1.7m tall, heavy fleshy brutal face with jowls, two thin pencil mustache strips, dark short-sleeved shirt, smoking a cigarette held in a filter holder

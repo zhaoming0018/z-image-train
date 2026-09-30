@@ -1,7 +1,7 @@
 # 《刘老六传奇》全本配图 · 进度与队列（PROGRESS.md）
 
 > 总排程：`~/.hermes/plans/2026-09-29_122313-liulaoliu-illustration-lora-program.md`  
-> 更新：2026-09-30 12:53 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）｜ 🧭 scripts pathlib 化（项 22）
+> 更新：2026-09-30 13:05 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）｜ 🧭 scripts pathlib 化（项 22）
 
 ## 章节进度
 
@@ -120,6 +120,9 @@
    - 交付：✅ 逐章发送完成（ch11~15 五章 26 张全发）；重拍实证已沉淀进 `novel-chapter-illustration` 技能
    - 备注：张擂（ch15 首登场，48 次·弧 ch15-39）为下一棒 LoRA 候选，待用户拍板定妆
    - 验收：py_compile ×12 全绿；--help ×8（含 aitk qc_montage）OK；queuectl status/dry-run、build_dataset 幂等（15/15 SKIP）、ab_parse 单行（steps_done=2500 · steady 4.12 · wall 171.8）、make_ab_config 生成（3 命中）、qc_montage 真拼图（800x912/15 张）、gen_with_lora 真渲染 E2E（16s→1.49MB）—— 全过
+24. ✅ **[完成 09-30 13:02] ch15 s2_drive 用户点名重拍 + 老六形象政策调整**
+   - 「开车的场景不对」：原图正面摆拍/表情嫌弃 → 改「侧视角 + 惊恐缩身抓安全带」重拍 7 版（v4~v6），v6c 定版（无烟、构图全中）；备选全留
+   - 「老六不用时刻都在抽烟」：l6liu / l6liu_new 块默认去烟（illustration.yaml + characters.md 已同步）；需要时场景内显式加回；ch16+ 生效，历史图不回改
 
 ## 训练接力 SOP（跨夜训练守卫/收尾通用）
 
