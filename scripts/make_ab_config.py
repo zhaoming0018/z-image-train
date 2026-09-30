@@ -10,10 +10,10 @@ from typing import Annotated
 
 import typer
 
+from zconf import CONFIG_DIR
 from zlog import logger, setup_logging
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-BASE = os.path.join(HERE, "..", "config", "train", "l6liu_zimage.yaml")
+BASE = os.path.join(CONFIG_DIR, "train", "l6liu_zimage.yaml")
 
 app = typer.Typer(add_completion=False, help="A/B 实验配置生成器")
 

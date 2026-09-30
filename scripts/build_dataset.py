@@ -6,28 +6,17 @@
 """
 import os
 import shutil
-from glob import glob
 from typing import Annotated, Optional
 
 import typer
-import yaml
 
+from zconf import ROOT, load_specs
 from zlog import logger, setup_logging
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AUD = os.path.join(ROOT, "output/liulaoliu_story/audition")
 DST = os.path.join(ROOT, "datasets")
-SPEC_DIR = os.path.join(ROOT, "config/datasets")
 
 app = typer.Typer(add_completion=False, help="定妆候选 → 训练数据集构建（规格来自 config/datasets/*.yaml）")
-
-
-def load_specs():
-    specs = {}
-    for path in sorted(glob(os.path.join(SPEC_DIR, "*.yaml"))):
-        with open(path, encoding="utf-8") as f:
-            specs[os.path.splitext(os.path.basename(path))[0]] = yaml.safe_load(f)
-    return specs
 
 
 def build(tag, spec, force=False):
@@ -60,7 +49,7 @@ def main(
 ):
     """把定妆候选按 config/datasets/<slug>.yaml 规格拷成训练数据集（ds_<slug>_NN.png/.txt）。"""
     setup_logging()
-    specs = load_specs()
+    specs = load_specs("datasets")
     miss_total = 0
     for tag in slugs or sorted(specs):
         if tag not in specs:
