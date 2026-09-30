@@ -1,0 +1,33 @@
+# 刘老六传奇 ch15 出图场景（第十五章 内家高手：曹答登场 / 张擂装修 / 牛头马面笑场）
+# 角色：l6liu / caoda / houshaolin / tongyuhui（LoRA）+ zhanglei（文描块，待定妆）
+chapter: 15
+scenes:
+- name: s1_caoda
+  seed: 481
+  loras:
+  - l6liu
+  - caoda
+  prompt: 'Photorealistic cinematic film still: {caoda} standing on the sidewalk holding a large 2-liter plastic cola bottle, looking down at {l6liu} with a gentle expression, small job-hunting ads pasted on the wall behind, warm afternoon light, {style}'
+- name: s2_drive
+  seed: 482
+  loras:
+  - l6liu
+  - caoda
+  prompt: 'Photorealistic cinematic film still: interior of a moving black luxury sedan, {caoda} sitting behind the steering wheel driving with a relaxed grin and narrowed slit eyes, one hand on the wheel and the other holding a cola bottle, {l6liu} in the passenger seat staring at him in wide-eyed panic, daylight through the windows, {style}'
+- name: s3_greet
+  seed: 483
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {zhanglei} holding open the rear car door with one hand and shaking {l6liu}''s hand with the other, welcoming him warmly, a small messenger bag on his shoulder, street corner of a small town, warm afternoon light, {style}'
+- name: s4_survey
+  seed: 484
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {zhanglei} holding an open laptop with both hands in front of him, a small webcam clipped on top of the screen, filming the empty room like a documentary cameraman, {l6liu} watching with hands behind his back, bare empty shop interior, warm afternoon light, {style}'
+- name: s5_cola
+  seed: 485
+  loras:
+  - caoda
+  - houshaolin
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: close-up of {caoda} bursting out a spray of cola from his mouth, eyes bulging in comic shock, in front of him stand {houshaolin} wearing a glossy black spiky punk wig and {tongyuhui} with murky grey-white hair, both staring at him blankly, warm afternoon light, {style}'

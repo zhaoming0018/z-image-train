@@ -1,0 +1,38 @@
+# 刘老六传奇 ch11 出图场景（第十一章 胖瘦头陀：跑路旅馆 / 猫眼 / 收编胖瘦头陀）
+# 角色：l6liu / houshaolin / tongyuhui（全 LoRA）
+# 注：佟「七巧板彩发」为本章剧情形态，prompt 内按剧情尝试（LoRA 稳定态为灰白）
+chapter: 11
+scenes:
+- name: s1_door
+  seed: 441
+  loras:
+  - l6liu
+  - houshaolin
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: dim cheap motel corridor, two odd young men standing side by side right in front of the door, staring straight at the camera, {houshaolin} a very tall skinny young man with a receding hairline, {tongyuhui} a short stocky youth with his hair dyed in mismatched multicolored patches, cheap numbered room doors along the corridor wall, dim corridor light, {style}'
+- name: s2_brag
+  seed: 442
+  loras:
+  - l6liu
+  - houshaolin
+  prompt: 'Photorealistic cinematic film still: {houshaolin} bouncing restlessly on his feet while gesturing wildly with both hands in front of his own face, mouth wide open mid-shout, {l6liu} sitting on the edge of a motel bed rubbing his forehead in disbelief, cheap motel room, warm tungsten light, {style}'
+- name: s3_bass
+  seed: 443
+  loras:
+  - l6liu
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: {tongyuhui} standing with one hand pressed dramatically against his chest, head tilted back and mouth wide open like an opera tenor belting a long note, his stout short body in clear view, {l6liu} slumped on the bed looking exhausted, cheap motel room, warm tungsten light, {style}'
+- name: s4_money
+  seed: 444
+  loras:
+  - l6liu
+  - houshaolin
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: {l6liu} holding up a thick wad of banknotes in his raised hand, {houshaolin} and {tongyuhui} leaning in toward the money with their eyes fixed on it, greedy amazed faces, cheap motel room, warm tungsten light, {style}'
+- name: s5_hug
+  seed: 445
+  loras:
+  - l6liu
+  - houshaolin
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: {houshaolin} and {tongyuhui} each wrapping an arm around {l6liu} from both sides and squeezing him tightly, {houshaolin} crying and {tongyuhui} sniffling, {l6liu} squished in the middle with a long-suffering helpless face, comedic, cheap motel room, warm tungsten light, {style}'

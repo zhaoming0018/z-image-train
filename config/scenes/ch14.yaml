@@ -1,0 +1,29 @@
+# 刘老六传奇 ch14 出图场景（第十四章 三店总经理：上任 / 装修筹备 / 租车对峙宁飞）
+# 角色：l6liu（LoRA）+ ningfei / yantouer（文描块）
+chapter: 14
+scenes:
+- name: s1_boss
+  seed: 471
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {l6liu} standing proudly with hands on his hips in the middle of an empty bare shop interior, dusty unfinished walls and a bare light bulb overhead, smug triumphant grin, afternoon light coming from the doorway, {style}'
+- name: s2_brick
+  seed: 472
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {l6liu} squatting at the street edge talking on a phone, relaxed slouched posture, a piece of brick lying by his feet, small-town street, warm afternoon light, {style}'
+- name: s3_slam
+  seed: 473
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {ningfei} leaping up behind his office desk and slamming it furiously while pointing at {l6liu}, who sits relaxed on a sofa smoking a cigarette with a calm smile, car rental company office, afternoon light through venetian blinds, {style}'
+- name: s4_handshake
+  seed: 474
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {l6liu} and {ningfei} shaking hands over the desk, the desk clearly between them, {l6liu} smiling slyly with a cigarette in his mouth, {ningfei} gritting his teeth in a stiff forced expression, car rental company office, {style}'
+- name: s5_smirk
+  seed: 475
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: {l6liu} covering his mouth with one hand while his shoulders shake with suppressed smug laughter, standing on a street corner in front of shabby shopfronts, warm afternoon light, {style}'

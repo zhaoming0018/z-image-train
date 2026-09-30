@@ -1,0 +1,39 @@
+# 刘老六传奇 ch13 出图场景（第十三章 觐见富老大：收购站 / 皮鞋暗器 / 砂锅鸡 / 任命经理）
+# 角色：l6liu / fu6lao（LoRA）+ yantouer（文描块）
+chapter: 13
+scenes:
+- name: s1_gate
+  seed: 461
+  loras:
+  - l6liu
+  prompt: 'Photorealistic cinematic film still: seen from behind, {l6liu} walking toward the big rusty iron gate of a scrap yard, {yantouer} standing inside the gate with his arm raised high in a big wave, calling out to him, piles of scrap metal behind, warm afternoon light, {style}'
+- name: s2_shoe
+  seed: 462
+  loras:
+  - l6liu
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: {fu6lao} holding a leather shoe raised high in his hand, in a furious throwing pose with his face twisted in anger, {l6liu} ducking and shielding his head with both arms, office of a scrap yard, warm tungsten light, {style}'
+- name: s3_poster
+  seed: 463
+  loras:
+  - l6liu
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: {fu6lao} pointing furiously at a paper on his desk, mouth wide open shouting at {l6liu}, who stands on the other side of the desk with his head lowered and shoulders hunched timidly, office of a scrap yard, warm tungsten light, {style}'
+- name: s4_monitor
+  seed: 464
+  loras:
+  - l6liu
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: {l6liu} clutching a bulky old computer monitor protectively against his chest, {fu6lao} standing in front of him glaring with a furious exasperated face, comedic standoff, office of a scrap yard, warm tungsten light, {style}'
+- name: s5_pot
+  seed: 465
+  loras:
+  - l6liu
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: {yantouer} standing in the office doorway carrying a steaming clay pot with both hands, thick steam rising, in the background {fu6lao} sits behind the office desk and {l6liu} stands beside the desk looking at the pot, office of a scrap yard, warm tungsten light, {style}'
+- name: s6_manager
+  seed: 466
+  loras:
+  - l6liu
+  - fu6lao
+  prompt: 'Photorealistic cinematic film still: {fu6lao} leaning back in his chair behind the desk pointing at {l6liu}, who scratches his head with a sheepish grin, office of a scrap yard, warm tungsten light, {style}'

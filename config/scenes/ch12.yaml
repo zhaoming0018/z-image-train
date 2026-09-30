@@ -1,0 +1,37 @@
+# 刘老六传奇 ch12 出图场景（第十二章 左青龙右白虎：形象改造 / 纹身笑料 / 飞短留长）
+# 角色：l6liu / houshaolin / tongyuhui（全 LoRA）
+# 注：本章起两人为改造后形态（侯=黑朋克头套+骷髅紧身装、佟=灰白染发+墨绿喇叭裤）
+chapter: 12
+scenes:
+- name: s1_blackwhite
+  seed: 451
+  loras:
+  - l6liu
+  - houshaolin
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: {houshaolin} and {tongyuhui} standing side by side in the center showing off their absurd new looks to the camera, {houshaolin} in a tight all-black outfit with a skull print and a glossy black spiky punk wig, {tongyuhui} with murky grey-white hair wearing a dark green jacket and flared bell-bottom pants, {l6liu} standing to the side facepalming in despair, cheap motel room, warm tungsten light, {style}'
+- name: s2_leftdragon
+  seed: 452
+  loras:
+  - l6liu
+  - houshaolin
+  prompt: 'Photorealistic cinematic film still: {l6liu} leaning in to carefully examine {houshaolin}''s left upper arm, which bears a crude lively green dragon tattoo surrounded by small clouds with a tiny pavilion and miniature figures below it, {houshaolin} pointing at his own arm proudly, cheap motel room, warm tungsten light, {style}'
+- name: s3_tiger
+  seed: 453
+  loras:
+  - l6liu
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: {tongyuhui} holding out his right arm to the side with the bare forearm showing a crude tiger tattoo, {l6liu} leaning in toward the arm to look at it with a speechless expression, cheap motel room, warm tungsten light, {style}'
+- name: s4_paper
+  seed: 454
+  loras:
+  - l6liu
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: {tongyuhui} proudly handing a scrap of paper covered with four large messy Chinese characters reading "飞短留长" to {l6liu}, who stares at it with a blank exasperated face, cheap motel room, warm tungsten light, {style}'
+- name: s5_freakout
+  seed: 455
+  loras:
+  - l6liu
+  - houshaolin
+  - tongyuhui
+  prompt: 'Photorealistic cinematic film still: {l6liu} sitting on the edge of the motel bed covering his face with both hands in total despair, {houshaolin} and {tongyuhui} standing behind him looking completely clueless in their ridiculous new outfits, cheap motel room, warm tungsten light, {style}'
