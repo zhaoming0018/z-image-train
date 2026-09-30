@@ -4,8 +4,8 @@
 用法（CLI 基于 typer）:
   python3 make_ab_config.py --out ~/z-image-train/config/train/ab/ab_e1.yaml --name ab_e1_resident --steps 60 --resident
 """
-import os
 import re
+from pathlib import Path
 from typing import Annotated
 
 import typer
@@ -13,7 +13,7 @@ import typer
 from zconf import CONFIG_DIR
 from zlog import logger, setup_logging
 
-BASE = os.path.join(CONFIG_DIR, "train", "l6liu_zimage.yaml")
+BASE = CONFIG_DIR / "train" / "l6liu_zimage.yaml"
 
 app = typer.Typer(add_completion=False, help="A/B 实验配置生成器")
 
@@ -38,8 +38,7 @@ def main(
 ):
     """生成实验配置（文本替换 + 断言每处恰好命中 1 次）。"""
     setup_logging()
-    with open(os.path.abspath(BASE), encoding="utf-8") as f:
-        t = f.read()
+    t = BASE.read_text(encoding="utf-8")
 
     t = sub1(t, '  name: "l6liu_zimage_lora_v1"', f'  name: "{name}"', "name")
     t = sub1(
@@ -74,7 +73,7 @@ def main(
         t = sub1(t, "low_vram: true", "low_vram: false", "lowvram")
         t = sub1(t, "layer_offloading: true", "layer_offloading: false", "offload")
 
-    out_abs = os.path.abspath(out)
+    out_abs = Path(out).resolve()
     with open(out_abs, "w", encoding="utf-8") as f:
         f.write(t)
     logger.info(f"WROTE {out_abs}")

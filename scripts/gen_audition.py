@@ -7,7 +7,6 @@
 日志: loguru → stderr（SKIP/OK/错误/进度）。ComfyUI 调用走 comfy_lib（自动绕环境代理，无需再 unset 代理变量）。
 """
 import json
-import os
 from typing import Annotated, Optional
 
 import typer
@@ -16,8 +15,8 @@ from comfy_lib import build_workflow, render
 from zconf import CONFIG_DIR, ROOT, load_specs
 from zlog import logger, setup_logging
 
-BASE = os.path.join(ROOT, "output/liulaoliu_story/audition")
-WF_PATH = os.path.join(CONFIG_DIR, "z_image_api.json")
+BASE = ROOT / "output/liulaoliu_story/audition"
+WF_PATH = CONFIG_DIR / "z_image_api.json"
 
 app = typer.Typer(add_completion=False, help="定妆候选批量生成（幂等；规格来自 config/auditions/*.yaml）")
 
@@ -30,14 +29,14 @@ def compose(spec):
 
 
 def run_set(tag, spec):
-    d = os.path.join(BASE, tag)
-    os.makedirs(d, exist_ok=True)
+    d = BASE / tag
+    d.mkdir(parents=True, exist_ok=True)
     manifest = []
     ok = 0
     items = compose(spec)
     for name, seed, prompt in items:
-        dst = os.path.join(d, f"{tag}_{name}.png")
-        if os.path.exists(dst) and os.path.getsize(dst) > 10000:
+        dst = d / f"{tag}_{name}.png"
+        if dst.exists() and dst.stat().st_size > 10000:
             logger.info(f"[{tag}/{name}] SKIP (exists)"); ok += 1; continue
         try:
             wf = build_workflow(WF_PATH, prompt, seed)
@@ -50,8 +49,8 @@ def run_set(tag, spec):
             ok += 1
         except Exception as e:  # noqa: BLE001
             logger.error(f"[{tag}/{name}] ERROR {e}")
-    mf = os.path.join(d, "_manifest.json")
-    prev = json.load(open(mf)) if os.path.exists(mf) else []
+    mf = d / "_manifest.json"
+    prev = json.load(open(mf)) if mf.exists() else []
     keep = {m["file"] for m in prev}
     if not manifest:
         manifest = prev

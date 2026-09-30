@@ -1,7 +1,7 @@
 # 《刘老六传奇》全本配图 · 进度与队列（PROGRESS.md）
 
 > 总排程：`~/.hermes/plans/2026-09-29_122313-liulaoliu-illustration-lora-program.md`  
-> 更新：2026-09-30 11:40 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）
+> 更新：2026-09-30 12:13 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）｜ 🧭 scripts pathlib 化（项 22）
 
 ## 章节进度
 
@@ -108,6 +108,8 @@
 21. ✅ **[完成 09-30 11:31] 曹答（caoda）第 7 张 LoRA**：2500/2500 @4.12 s/it、末 loss 0.32（rc=0）→ `output/caoda_zimage_lora_v1/caoda_zimage_lora_v1.safetensors`（85MB，+6 中间档）
    - 收尾（已执行）：① 校验 85MB ② 拷 ComfyUI `models/loras/`（sha256 一致）③ 注册 `illustration.yaml`（loras: caoda + blocks: 曹答完整块，与 dataset 同源）④ 全块冒烟 ×2 合格（肖像 seed42 / 黑轿车场景 seed7；存档 `smoke_caoda/`）⑤ 简报已发；「受影响旧镜头」：无（ch15 才首见）
    - 备注：**ch15 起投产**（出图带完整角色块）；下一棒候选：张擂（48 次·弧 ch15-39）
+22. ✅ **[完成 09-30 12:12] scripts pathlib 化（os.path → pathlib，10 文件）**：zconf 的 ROOT/CONFIG_DIR 升级为 Path（路径单源）；join/exists/getsize/makedirs/listdir/splitext/basename 全改 Path 语义（`/`、`.exists()`、`.stat().st_size`、`.mkdir(parents)`、`.iterdir()`、`.stem`）；边界纪律：**进 JSON 的路径保持 str**（队列 job.out_path、render 返回 dst）、sys.path 用 str()；abspath→resolve、`~`→`Path.home()`。未动：gpu_summary/zlog（其 os. 为 os.environ，非路径）。
+   - 验收：py_compile ×12 全绿；--help ×8（含 aitk qc_montage）OK；queuectl status/dry-run、build_dataset 幂等（15/15 SKIP）、ab_parse 单行（steps_done=2500 · steady 4.12 · wall 171.8）、make_ab_config 生成（3 命中）、qc_montage 真拼图（800x912/15 张）、gen_with_lora 真渲染 E2E（16s→1.49MB）—— 全过
 
 ## 训练接力 SOP（跨夜训练守卫/收尾通用）
 

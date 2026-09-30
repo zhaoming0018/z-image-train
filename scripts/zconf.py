@@ -6,11 +6,10 @@
 用法:
     from zconf import ROOT, CONFIG_DIR, load_yaml, load_specs
 """
-import os
-from glob import glob
+from pathlib import Path
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG_DIR = os.path.join(ROOT, "config")
+ROOT = Path(__file__).resolve().parent.parent
+CONFIG_DIR = ROOT / "config"
 
 
 def load_yaml(path):
@@ -26,6 +25,6 @@ def load_yaml(path):
 def load_specs(subdir):
     """config/<subdir>/*.yaml → {slug: doc}（按文件名排序，保证稳定）。"""
     specs = {}
-    for path in sorted(glob(os.path.join(CONFIG_DIR, subdir, "*.yaml"))):
-        specs[os.path.splitext(os.path.basename(path))[0]] = load_yaml(path)
+    for path in sorted((CONFIG_DIR / subdir).glob("*.yaml")):
+        specs[path.stem] = load_yaml(path)
     return specs

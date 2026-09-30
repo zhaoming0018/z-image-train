@@ -14,8 +14,8 @@
       enqueue/status/dry-run 等结果输出保持 stdout（print）。
 """
 import json
-import os
 from enum import Enum
+from pathlib import Path
 from typing import Annotated, Optional
 
 import typer
@@ -62,7 +62,7 @@ def _worker(cfg, r, idle_exit, max_jobs):
                 continue
             idle = 0
             job = json.loads(item)
-            if not job.get("force") and os.path.exists(job["out_path"]):
+            if not job.get("force") and Path(job["out_path"]).exists():
                 Q.finish(r, item, {"job_id": job["job_id"], "status": "skipped-exists",
                                    "ts": Q.now_str(), "out": job["out_path"]})
                 logger.info(f"[skip] {job['job_id']}（已存在）")

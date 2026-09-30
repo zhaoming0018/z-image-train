@@ -4,7 +4,6 @@
 用法（CLI 基于 typer）: python3 scripts/build_dataset.py [slug ...] [--force]   （幂等：已有文件跳过；--force 覆盖）
 输出：datasets/<slug>/ds_<slug>_NN.png|.txt；caption = "<appearance>, <pose>"（短句，逗号分隔），风格对齐 l6liu/he6tou。
 """
-import os
 import shutil
 from typing import Annotated, Optional
 
@@ -13,24 +12,24 @@ import typer
 from zconf import ROOT, load_specs
 from zlog import logger, setup_logging
 
-AUD = os.path.join(ROOT, "output/liulaoliu_story/audition")
-DST = os.path.join(ROOT, "datasets")
+AUD = ROOT / "output/liulaoliu_story/audition"
+DST = ROOT / "datasets"
 
 app = typer.Typer(add_completion=False, help="定妆候选 → 训练数据集构建（规格来自 config/datasets/*.yaml）")
 
 
 def build(tag, spec, force=False):
-    d = os.path.join(DST, tag)
-    os.makedirs(d, exist_ok=True)
+    d = DST / tag
+    d.mkdir(parents=True, exist_ok=True)
     picks = spec["picks"]
     n, miss = 0, []
     for i, p in enumerate(picks, 1):
-        s = os.path.join(AUD, spec["audition_dir"], p["src"])
-        if not os.path.exists(s):
+        s = AUD / spec["audition_dir"] / p["src"]
+        if not s.exists():
             miss.append(p["src"]); continue
         base = f"ds_{tag}_{i:02d}"
-        png, txt = os.path.join(d, base + ".png"), os.path.join(d, base + ".txt")
-        if os.path.exists(png) and os.path.exists(txt) and not force:
+        png, txt = d / (base + ".png"), d / (base + ".txt")
+        if png.exists() and txt.exists() and not force:
             n += 1; continue
         shutil.copyfile(s, png)
         with open(txt, "w", encoding="utf-8") as f:

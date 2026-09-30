@@ -10,17 +10,17 @@ CLI 基于 typer（`--help` 查看选项）；stdout 仅输出上述单行（被
 诊断信息走 loguru → stderr（ZLOG_LEVEL=DEBUG 可见细节）。
 """
 import csv
-import os
 import re
 import sys
 from datetime import datetime, timedelta
+from pathlib import Path
 from typing import Annotated, Optional
 
 import numpy as np
 import typer
 from scipy.stats import linregress
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gpu_summary import gpu_summary  # 显存峰值：数据源 Prometheus
 from zlog import logger, setup_logging
 
@@ -53,9 +53,10 @@ def _elapsed_sec(s):
 
 def _read_log(log):
     """读训练日志文本（超 LOG_TAIL_BYTES 只读尾部）；文件不存在返回空串。"""
-    if not os.path.exists(log):
+    log = Path(log)
+    if not log.exists():
         return ""
-    sz = os.path.getsize(log)
+    sz = log.stat().st_size
     with open(log, "r", errors="replace") as f:
         if sz > LOG_TAIL_BYTES:
             f.seek(sz - LOG_TAIL_BYTES)
@@ -112,7 +113,7 @@ def _steady(pts):
 def _csv_pts(metrics_csv):
     """monitor 时代 metrics csv → [(datetime, step)]（旧数据回退源；不可读/无有效行 → []）。"""
     pts = []
-    if not (metrics_csv and os.path.exists(metrics_csv)):
+    if not (metrics_csv and Path(metrics_csv).exists()):
         return pts
     with open(metrics_csv, newline="") as f:
         for row in csv.DictReader(f):
@@ -135,7 +136,7 @@ def _speed_points(text, metrics_csv):
 
     返回 (pts, csv_pts)：pts 为 (epoch 秒, step)；csv_pts 为原始 (datetime, step)（供窗口回退）。
     """
-    if metrics_csv and os.path.exists(metrics_csv):
+    if metrics_csv and Path(metrics_csv).exists():
         csv_pts = _csv_pts(metrics_csv)
         pts = [(t.timestamp(), st) for t, st in csv_pts]
         logger.debug(f"steady 数据源: metrics csv（{len(pts)} 点）")

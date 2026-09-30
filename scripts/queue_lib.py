@@ -5,8 +5,8 @@
 ComfyUI 调用（请求 / 工作流拼装 / 提交-轮询-取图）统一走 comfy_lib（全仓库唯一实现）。
 """
 import json
-import os
 import time
+from pathlib import Path
 
 from comfy_lib import build_workflow, render
 from zconf import CONFIG_DIR, load_yaml
@@ -30,12 +30,12 @@ def now_str():
 # ---------- 配置 ----------
 
 def load_global():
-    return load_yaml(os.path.join(CONFIG_DIR, "illustration.yaml"))
+    return load_yaml(CONFIG_DIR / "illustration.yaml")
 
 
 def load_chapter(ch):
-    p = os.path.join(CONFIG_DIR, "scenes", f"ch{ch}.yaml")
-    if not os.path.exists(p):
+    p = CONFIG_DIR / "scenes" / f"ch{ch}.yaml"
+    if not p.exists():
         raise ConfigError(f"章节配置不存在: {p}")
     return load_yaml(p)
 
@@ -50,7 +50,7 @@ def resolve_prompt(template, blocks):
 def build_jobs(global_cfg, chapter_cfgs, only=None, suffix="", seed=None, force=False):
     """章节配置 → (待入队任务列表, 已存在跳过列表)。"""
     jobs, skipped = [], []
-    story_root = global_cfg["story_root"]
+    story_root = Path(global_cfg["story_root"])
     strength = global_cfg["render"]["strength"]
     for doc in chapter_cfgs:
         ch = doc["chapter"]
@@ -65,15 +65,14 @@ def build_jobs(global_cfg, chapter_cfgs, only=None, suffix="", seed=None, force=
                 if not fn:
                     raise ConfigError(f"LoRA 未注册: {lk}（scene ch{ch}/{name}）")
                 loras.append({"lora": fn, "strength": strength})
-            out_dir = os.path.join(story_root, f"ch{ch}")
-            out_path = os.path.join(out_dir, f"z_image_ch{ch}_{name}{suffix}.png")
+            out_path = story_root / f"ch{ch}" / f"z_image_ch{ch}_{name}{suffix}.png"
             job = {
                 "job_id": f"ch{ch}-{name}{suffix}-seed{sd}",
                 "chapter": ch, "scene": name, "seed": sd, "suffix": suffix,
                 "prompt": resolve_prompt(sc["prompt"], global_cfg["blocks"]),
-                "loras": loras, "out_path": out_path, "force": bool(force),
+                "loras": loras, "out_path": str(out_path), "force": bool(force),
             }
-            if os.path.exists(out_path) and not force:
+            if out_path.exists() and not force:
                 skipped.append(job)
             else:
                 jobs.append(job)

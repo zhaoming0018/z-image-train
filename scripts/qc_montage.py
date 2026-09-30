@@ -3,7 +3,7 @@
 """把数据集目录里的图片拼成质检用网格图（文件名标注在上方）。
 用法（CLI 基于 typer；需要 PIL → 用 aitk python 跑）: python3 qc_montage.py <图片目录> <输出png> [每行张数] [缩略图边长]
 """
-import os
+from pathlib import Path
 from typing import Annotated
 
 import typer
@@ -13,7 +13,7 @@ app = typer.Typer(add_completion=False, help="图片网格拼图（质检用）"
 
 
 def make_montage(img_dir, out_path, cols=5, thumb=512):
-    files = sorted([f for f in os.listdir(img_dir) if f.lower().endswith(".png")])
+    files = sorted(p.name for p in Path(img_dir).iterdir() if p.name.lower().endswith(".png"))
     if not files:
         print("no images")
         return
@@ -30,7 +30,7 @@ def make_montage(img_dir, out_path, cols=5, thumb=512):
     for i, fn in enumerate(files):
         r, c = divmod(i, cols)
         x, y = c * thumb, r * (thumb + label_h)
-        im = Image.open(os.path.join(img_dir, fn)).convert("RGB")
+        im = Image.open(Path(img_dir) / fn).convert("RGB")
         im.thumbnail((thumb, thumb))
         ox = x + (thumb - im.width) // 2
         oy = y + label_h + (thumb - im.height) // 2

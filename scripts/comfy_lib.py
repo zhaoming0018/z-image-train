@@ -12,11 +12,11 @@ LoRA 链节点 40+i（LoraLoaderModelOnly）、9=SaveImage。
                                        # 或 {'ok': False, 'error', 'seconds'}
 """
 import json
-import os
 import shutil
 import time
 import urllib.error
 import urllib.request
+from pathlib import Path
 
 from zlog import logger
 
@@ -92,7 +92,7 @@ def wait_result(bridge, pid, out_dir, poll_interval=2.0, poll_timeout=300.0):
             if not imgs:
                 return {"ok": False, "error": "history 无图像输出"}
             f0 = imgs[0]
-            return {"ok": True, "src": os.path.join(out_dir, f0.get("subfolder", ""), f0["filename"])}
+            return {"ok": True, "src": Path(out_dir) / f0.get("subfolder", "") / f0["filename"]}
     return {"ok": False, "error": f"轮询超时 {poll_timeout:.0f}s"}
 
 
@@ -110,9 +110,10 @@ def render(wf, dst, client_id, bridge=BRIDGE, out_dir=COMFY_OUT,
     r = wait_result(bridge, pid, out_dir, poll_interval=poll_interval, poll_timeout=poll_timeout)
     if not r["ok"]:
         return {"ok": False, "error": r["error"], "seconds": round(time.time() - t0, 1)}
-    os.makedirs(os.path.dirname(dst), exist_ok=True)
-    shutil.copyfile(r["src"], dst)
-    size = os.path.getsize(dst)
+    dst_path = Path(dst)
+    dst_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(r["src"], dst_path)
+    size = dst_path.stat().st_size
     if size <= 0:
         return {"ok": False, "error": "输出文件为空", "seconds": round(time.time() - t0, 1)}
     return {"ok": True, "dst": dst, "size": size, "seconds": round(time.time() - t0, 1), "prompt_id": pid}

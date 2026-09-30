@@ -8,7 +8,7 @@
 输出: ~/.hermes/cache/scratch/<输出名>.png
 日志: loguru → stderr（成功/失败信息）。ComfyUI 调用走 comfy_lib（自动绕环境代理）。
 """
-import os
+from pathlib import Path
 from typing import Annotated
 
 import typer
@@ -17,8 +17,8 @@ from comfy_lib import build_workflow, render
 from zconf import CONFIG_DIR
 from zlog import logger, setup_logging
 
-SCRATCH = os.path.expanduser("~/.hermes/cache/scratch")
-WF = os.path.join(CONFIG_DIR, "z_image_api.json")
+SCRATCH = Path.home() / ".hermes/cache/scratch"
+WF = CONFIG_DIR / "z_image_api.json"
 
 app = typer.Typer(add_completion=False, help="带 LoRA 的 Z-Image 出图（对比测试）")
 
@@ -44,7 +44,7 @@ def main(
     """提交工作流到 ComfyUI 桥接，等待完成并拷回 scratch。"""
     setup_logging()
     wf = build_workflow(WF, prompt, seed, parse_loras(lora_spec))
-    dst = os.path.join(SCRATCH, f"{out_name}.png")
+    dst = SCRATCH / f"{out_name}.png"
     res = render(wf, dst, "lora-test", poll_timeout=240.0)
     if not res["ok"]:
         logger.error(res["error"])
