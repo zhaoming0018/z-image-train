@@ -1,0 +1,21 @@
+# 曹答（六爷司机/保镖·可乐胖子）— 数据集构建规格（scripts/build_dataset.py 读取）
+# 拍板 2026-09-30 上午（视觉质检推荐集；用户确认后生效）；源：output/liulaoliu_story/audition/caoda/
+# 15 张（01-14 + 16）；15 号（蹲姿·短裤）视觉质检建议淘汰
+audition_dir: caoda
+appearance: "caoda, a very tall heavily-built young chinese man in his early twenties, hulking broad frame like a wall, fleshy rounded face with small narrow eyes, short black hair, plain dark jacket over a t-shirt, holding a large plastic cola bottle"
+picks:
+- {src: caoda_01.png, pose: "portrait close-up, neutral, plain wall"}
+- {src: caoda_02.png, pose: "portrait close-up, awkward friendly grin, cola bottle at shoulder"}
+- {src: caoda_03.png, pose: "portrait close-up, embarrassed expression, street"}
+- {src: caoda_04.png, pose: "three-quarter view, black sedan behind"}
+- {src: caoda_05.png, pose: "side profile close-up, dark background"}
+- {src: caoda_06.png, pose: "half body, leaning on car door, cola bottle"}
+- {src: caoda_07.png, pose: "half body, standing by black sedan, cola bottle at side"}
+- {src: caoda_08.png, pose: "half body, drinking cola, head tilted back"}
+- {src: caoda_09.png, pose: "full body, standing on small-town street"}
+- {src: caoda_10.png, pose: "full body, walking street, cola bottle in hand"}
+- {src: caoda_11.png, pose: "sitting on a stool, shabby room, cola bottle in hands"}
+- {src: caoda_12.png, pose: "car driver seat, hand on steering wheel, cola bottle"}
+- {src: caoda_13.png, pose: "half body, stepping through doorway, cola bottle at side"}
+- {src: caoda_14.png, pose: "night street lamp, holding cola bottle"}
+- {src: caoda_16.png, pose: "portrait, laughing, street"}

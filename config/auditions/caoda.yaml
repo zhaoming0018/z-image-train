@@ -1,0 +1,54 @@
+# 曹答（六爷司机/保镖·可乐胖子）定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 原文依据（第 15/16/17/19/20 章）：又高又胖跟堵墙似的 / 眼睛小（像闭眼开车，本人很在意）/ 永远抱着可乐瓶（2L）/ 20 来岁 / 东盛租赁来的司机 → 收作小弟；「超人（张擂）和史莱姆（曹答）」
+# 2026-09-30 08:2x 二轮：07/11/12/13/16 换 seed 重拍（首轮手部/构图缺陷）
+appearance: 'caoda, a very tall heavily-built young Chinese man in his early twenties, hulking broad frame like a wall, fleshy rounded face with small narrow eyes, short black hair, plain dark jacket over a t-shirt, holding a large plastic cola bottle'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 601
+  prompt: 'Portrait close-up of {appearance}, looking at camera, neutral expression, plain wall, soft window light, {style}'
+- name: "02"
+  seed: 602
+  prompt: 'Portrait close-up of {appearance}, friendly awkward grin, holding the cola bottle near his shoulder, {style}'
+- name: "03"
+  seed: 603
+  prompt: 'Portrait close-up of {appearance}, embarrassed slightly annoyed expression, street blurred behind, {style}'
+- name: "04"
+  seed: 604
+  prompt: 'Portrait of {appearance}, three-quarter view, black sedan car behind, {style}'
+- name: "05"
+  seed: 605
+  prompt: 'Side profile close-up of {appearance}, heavy jowls, dark background, rim light, {style}'
+- name: "06"
+  seed: 606
+  prompt: 'Half-body of {appearance}, leaning on a car door, holding a large cola bottle, {style}'
+- name: "07"
+  seed: 617
+  prompt: 'Half-body of {appearance}, standing next to a black sedan, holding the cola bottle at his side, {style}'
+- name: "08"
+  seed: 608
+  prompt: 'Half-body of {appearance}, drinking from a large cola bottle, head tilted back, {style}'
+- name: "09"
+  seed: 609
+  prompt: 'Full-body of {appearance}, standing on a small-town street, very tall and heavy silhouette, {style}'
+- name: "10"
+  seed: 610
+  prompt: 'Full-body of {appearance}, walking on a small-town street, bottle in hand, {style}'
+- name: "11"
+  seed: 618
+  prompt: 'Photo of {appearance}, sitting on a stool in a shabby room, holding a cola bottle with both hands, elbows on knees, {style}'
+- name: "12"
+  seed: 619
+  prompt: 'Photo of {appearance}, sitting in a car driver seat, one hand on the steering wheel, the other hand holding a cola bottle, {style}'
+- name: "13"
+  seed: 620
+  prompt: 'Half-body of {appearance}, stepping through a room doorway, holding a cola bottle at his side, {style}'
+- name: "14"
+  seed: 614
+  prompt: 'Half-body of {appearance} at night under a street lamp, holding the cola bottle, {style}'
+- name: "15"
+  seed: 615
+  prompt: 'Photo of {appearance}, crouching on a curb drinking cola, {style}'
+- name: "16"
+  seed: 621
+  prompt: 'Portrait of {appearance}, laughing openly at the camera, street blurred behind, {style}'
