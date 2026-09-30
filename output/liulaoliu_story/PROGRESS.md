@@ -1,7 +1,7 @@
 # 《刘老六传奇》全本配图 · 进度与队列（PROGRESS.md）
 
 > 总排程：`~/.hermes/plans/2026-09-29_122313-liulaoliu-illustration-lora-program.md`  
-> 更新：2026-09-30 12:48 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）｜ 🧭 scripts pathlib 化（项 22）
+> 更新：2026-09-30 12:53 ｜ 规则：每章 5~8 张；每 5 章一批交付；只做图 ｜ ⚙ 出图管线 v2 已启用：`queuectl` 队列 + `config/` 外置 + GPU 指标走 Prometheus（prometheus-api-client）+ 日志 loguru + 统计 numpy/scipy + 历史脚本已归档（见队列项 9/11/12/13/14）｜ 🗂 项目已 git 化：ai-toolkit 外部依赖、训练配置在 `config/train/`（项 15）｜ 📹 视频路线调研 → `VIDEO_OPTIONS.md`（只读，未实操；含 §3.0 三家直接对比）｜ 🧪 训练指标 = TensorBoard（项 17；`http://localhost:6006`）｜ 🎉 角色 LoRA **7/7 全齐**（侯/佟 09-30 05:38、曹答 11:31 训成）｜ 🧹 monitor_train 退役：A/B 解析直读日志（项 19）｜ 🧩 scripts 模块化：zconf/comfy_lib 公共库（项 20）｜ ✅ 曹答（caoda）收尾全过：已拷 ComfyUI + 注册 illustration.yaml + 冒烟 ×2 合格（ch15 起投产）｜ 🧭 scripts pathlib 化（项 22）
 
 ## 章节进度
 
@@ -17,11 +17,11 @@
 | 8 | 第8章 (失败) | ⏭ 跳过 | — | 正文仅 42 字存根 |
 | 9 | 第九章 仙器 | ✅ 已交付 | 6 | 全 LoRA；重拍 3 景（s1×5版 / s5×4版 / s6×2版）|
 | 10 | 第十章 揍你全家 | ✅ 已交付 | 6 | 全 LoRA + 宁飞父子（文描块无 LoRA）；重拍 4 景（s2×3 / s3×5 / s4×3 / s5×2；s3 改「意图化」演出）|
-| 11 | 第十一章 胖瘦头陀 | 🔄 交付中 | 5 | 全 LoRA（侯/佟登场）；s1 改「猫眼 POV」3 版收敛 |
-| 12 | 第十二章 左青龙右白虎 | 🔄 交付中 | 5 | 全 LoRA；中文「飞短留长」四字渲染成功 |
-| 13 | 第十三章 觐见富老大 | 🔄 交付中 | 6 | 全 LoRA + 烟头儿文描块；重拍 5 景（拍桌类改「指纸挨训」意图版） |
-| 14 | 第十四章 三店总经理 | 🔄 交付中 | 5 | 全 LoRA + 宁飞文描块；重拍 2 景 |
-| 15 | 第十五章 内家高手 | 🔄 交付中 | 5 | **曹答/张擂首登场**（张擂=文描块，待定妆；已加 zhanglei 块）；重拍 4 景 |
+| 11 | 第十一章 胖瘦头陀 | ✅ 已交付 | 5 | 全 LoRA（侯/佟登场）；s1 改「猫眼 POV」3 版收敛 |
+| 12 | 第十二章 左青龙右白虎 | ✅ 已交付 | 5 | 全 LoRA；中文「飞短留长」四字渲染成功 |
+| 13 | 第十三章 觐见富老大 | ✅ 已交付 | 6 | 全 LoRA + 烟头儿文描块；重拍 5 景（拍桌类改「指纸挨训」意图版） |
+| 14 | 第十四章 三店总经理 | ✅ 已交付 | 5 | 全 LoRA + 宁飞文描块；重拍 2 景 |
+| 15 | 第十五章 内家高手 | ✅ 已交付 | 5 | **曹答/张擂首登场**（张擂=文描块，待定妆；已加 zhanglei 块）；重拍 4 景 |
 
 ## 执行队列（滚动，由上至下）
 
@@ -113,11 +113,11 @@
    - 收尾（已执行）：① 校验 85MB ② 拷 ComfyUI `models/loras/`（sha256 一致）③ 注册 `illustration.yaml`（loras: caoda + blocks: 曹答完整块，与 dataset 同源）④ 全块冒烟 ×2 合格（肖像 seed42 / 黑轿车场景 seed7；存档 `smoke_caoda/`）⑤ 简报已发；「受影响旧镜头」：无（ch15 才首见）
    - 备注：**ch15 起投产**（出图带完整角色块）；下一棒候选：张擂（48 次·弧 ch15-39）
 22. ✅ **[完成 09-30 12:12] scripts pathlib 化（os.path → pathlib，10 文件）**：zconf 的 ROOT/CONFIG_DIR 升级为 Path（路径单源）；join/exists/getsize/makedirs/listdir/splitext/basename 全改 Path 语义（`/`、`.exists()`、`.stat().st_size`、`.mkdir(parents)`、`.iterdir()`、`.stem`）；边界纪律：**进 JSON 的路径保持 str**（队列 job.out_path、render 返回 dst）、sys.path 用 str()；abspath→resolve、`~`→`Path.home()`。未动：gpu_summary/zlog（其 os. 为 os.environ，非路径）。
-23. 🔄 **[进行中 09-30 12:16~12:47] ch11~15 批出图（26 张）· 侯/佟/曹答首次实战 + 张擂首登场**
+23. ✅ **[完成 09-30 12:16~12:53] ch11~15 批出图（26 张）· 侯/佟/曹答首次实战 + 张擂首登场**
    - 配置：`illustration.yaml` 注册 `houshaolin`/`tongyuhui` LoRA（此前漏注册）+ 新增 `zhanglei` 文描块；新建 `config/scenes/ch11~15.yaml`（26 场景，seeds 441+/451+/461+/471+/481+）
    - 出图：26 张初版 6 分钟（failed=0）→ 质检直过 9 → 重拍 v2（17 张，seeds 501+）→ 复检 4 过 → v3 收敛轮（13 张，seeds 521+）→ **三轮收敛定版 26 张**（1 张取初版最佳）
    - 定版：规范化完成（主名=定版、`_v1/_v2/_v3` 全留）；`ch11~15_contact_sheet.png` ×5；交付压缩 `_send/`（jpg q92）
-   - 交付：逐章发送（ch11 首发中）；重拍实证已沉淀进 `novel-chapter-illustration` 技能
+   - 交付：✅ 逐章发送完成（ch11~15 五章 26 张全发）；重拍实证已沉淀进 `novel-chapter-illustration` 技能
    - 备注：张擂（ch15 首登场，48 次·弧 ch15-39）为下一棒 LoRA 候选，待用户拍板定妆
    - 验收：py_compile ×12 全绿；--help ×8（含 aitk qc_montage）OK；queuectl status/dry-run、build_dataset 幂等（15/15 SKIP）、ab_parse 单行（steps_done=2500 · steady 4.12 · wall 171.8）、make_ab_config 生成（3 命中）、qc_montage 真拼图（800x912/15 张）、gen_with_lora 真渲染 E2E（16s→1.49MB）—— 全过
 
