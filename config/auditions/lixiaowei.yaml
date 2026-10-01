@@ -1,0 +1,56 @@
+# 李晓伟（北台烟草局·年轻的公务员→最年轻科长）定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 原文依据（段 17~97）：刚分进烟草局的实习生 → 打假立功后破格提拔为「北台烟草局最年轻的科长」，21 岁；
+#   白嫩的脸 / 小脸；工作时戴帽子 + 夹公文包 + 对着镜子整理风纪（制服系）；升科长后「笔挺的西装」；眉头常锁；
+#   道具：工作证、公文包、DV 摄像机、搜查令文件；认真到喜剧（“我首先代表国家感谢你”）
+# 设计取舍（原文未明写，可否决）：发型 = 利落短发；体型 = 偏瘦青年；制服 = 深藏青公务员制服 + 大檐帽（只以「帽子/风纪/工作证」为锚）
+appearance: 'lixiaowei, a slim young Chinese civil servant in his early twenties, fair delicate boyish face, short neat black hair, earnest expression, dark navy civil-service uniform jacket with a matching peaked cap'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 801
+  prompt: 'Portrait close-up of {appearance}, wearing the peaked cap, looking at camera with an earnest enthusiastic smile, plain office wall, soft window light, {style}'
+- name: "02"
+  seed: 827
+  prompt: 'Portrait close-up of {appearance}, holding his peaked cap in one hand down at his side, his short neat black hair fully visible, blushing with embarrassment, shy apologetic grin, plain office wall, {style}'
+- name: "03"
+  seed: 803
+  prompt: 'Half-body of {appearance}, standing at the tobacco bureau front desk, holding a black briefcase, upright dutiful posture, {style}'
+- name: "04"
+  seed: 804
+  prompt: 'Side profile close-up of {appearance}, clear view of his short neat hair, dark background, rim light, {style}'
+- name: "05"
+  seed: 828
+  prompt: 'Half-body of {appearance}, a small work ID badge clipped on his chest, standing at a cigarette shop counter, cold stern expression, {style}'
+- name: "06"
+  seed: 821
+  prompt: 'Photo of {appearance} standing behind a shop counter with a small DV camcorder placed on the counter in front of him, one hand resting lightly beside it, focused on its screen, {style}'
+- name: "07"
+  seed: 807
+  prompt: 'Half-body of {appearance} standing at a cigarette shop counter inspecting cigarette packs on the shelf, cold stern face, indoor shop light, {style}'
+- name: "08"
+  seed: 808
+  prompt: 'Full-length photo of {appearance}, standing on a small-town street, head to toe clearly visible including his shoes, briefcase at his side, upright posture, {style}'
+- name: "09"
+  seed: 809
+  prompt: 'Full-body of {appearance}, walking purposefully along a small-town street carrying his briefcase, morning light, {style}'
+- name: "10"
+  seed: 829
+  prompt: 'Portrait of lixiaowei, a slim young Chinese civil servant in his early twenties, fair delicate boyish face, short neat black hair, dressed in a crisp dark business suit with a white shirt, confident modest smile, office background, {style}'
+- name: "11"
+  seed: 830
+  prompt: 'Half-body of lixiaowei, a slim young Chinese civil servant in his early twenties, fair delicate boyish face, short neat black hair, dressed in a crisp dark business suit with a white shirt, sitting at a desk with stacks of documents, turning toward the camera, office light, {style}'
+- name: "12"
+  seed: 812
+  prompt: 'Photo of {appearance}, no cap, sitting at a street BBQ stall at night, raising a glass of beer in a toast, flushed cheeks, warm string lights bokeh behind, {style}'
+- name: "13"
+  seed: 813
+  prompt: 'Half-body of {appearance}, standing beside a black sedan with his briefcase, small-town street behind, daylight, {style}'
+- name: "14"
+  seed: 814
+  prompt: 'Photo of {appearance}, no cap, standing under a street lamp at night waiting, hands in his pockets, cool night tones, {style}'
+- name: "15"
+  seed: 815
+  prompt: 'Photo of {appearance}, crouching beside stacks of confiscated cigarette cartons in a storage room, looking up at the camera, {style}'
+- name: "16"
+  seed: 824
+  prompt: 'Portrait of {appearance}, holding his peaked cap under one arm, neutral earnest expression, plain wall, soft light, {style}'
