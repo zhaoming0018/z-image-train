@@ -1,0 +1,59 @@
+# 吕明（北台烟草局临时保安 → 北台分局学员警员 → 刘老六贴身保镖 → 十二魔星星主）定妆候选
+# 原文依据（段 17~80）：
+#   段17-18：烟草局门口「小保安/小吕」——胆小（吓坐地上/快哭）；被拽去信诚烟店，穿「盗版警服」被误认为警察（喜剧桥段）；
+#   段19：被北台分局吸收为正式警员（学员），成为刘老六贴身保镖——「刚挂个学员的衔就把自己当二万」「一副天降大任的德行」、正襟危坐、板书般认真；
+#   段19+：便衣探访（没穿警服）、摇头尾巴晃、欠揍相、牛B哄哄；后期十二魔星星主（安吉丽娜调教梗、魔星护卫）。
+# 设计取舍（原文未明写、可否决）：年龄 = 二十出头；体型 = 偏瘦中等个；发型 = 短寸头；制服 = 深藏蓝警服 + 大檐帽；面部基调 = 细眼偏「欠揍相」。
+# 说明：06/12 为便衣造型、14 为保安造型（段17-18 一次性可能用）——均内联不引用块，其余用 {appearance}。
+# 回炉记录（10-03 一轮）：02/03/05/06/08/09/10/12/13/15 换 seed 重写描述（摘帽类改「帽在手里」或内联去帽字符串；09/10 改构图）。
+appearance: 'luming, a lean young Chinese man in his early twenties, short buzz-cut black hair, narrow eyes, thin sharp face, wearing a dark navy Chinese police uniform jacket with shoulder epaulettes and a matching peaked cap'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 901
+  prompt: 'Portrait close-up of {appearance}, wearing the peaked cap, looking at camera with a confident cocky smirk, plain police station corridor background, soft window light, {style}'
+- name: "02"
+  seed: 927
+  prompt: 'Portrait close-up of {appearance}, holding his peaked cap down at his side in one hand, his short buzz-cut hair fully visible, upright earnest dutiful expression like a young officer on duty, plain office wall, {style}'
+- name: "03"
+  seed: 928
+  prompt: 'Portrait close-up of luming, a lean young Chinese man in his early twenties, very short buzz-cut black hair, narrow eyes, thin sharp face, wearing a dark navy police uniform jacket, chin slightly raised with a sneering cocky grin, plain grey wall, {style}'
+- name: "04"
+  seed: 904
+  prompt: 'Side profile close-up of {appearance}, wearing the uniform and cap, clear view of his short buzz-cut hair, dark background, rim light, {style}'
+- name: "05"
+  seed: 941
+  prompt: 'Half-body of {appearance}, standing upright at a police station front desk, one hand resting flat on the counter, the other hand at his side, dutiful posture, {style}'
+- name: "06"
+  seed: 930
+  prompt: 'Half-body of luming, a lean young Chinese man in his early twenties, very short buzz-cut black hair, narrow eyes, thin sharp face, wearing a dark plain-clothes jacket, standing next to a black sedan, three-quarter view, small-town street, daylight, {style}'
+- name: "07"
+  seed: 907
+  prompt: 'Full-length photo of {appearance}, standing straight on a small-town street, head to toe clearly visible including his shoes, {style}'
+- name: "08"
+  seed: 942
+  prompt: 'Wide full-length photo of {appearance}, taking a step on a small-town street, the complete figure in frame with both feet and shoes on the ground fully visible, soft morning light, {style}'
+- name: "09"
+  seed: 943
+  prompt: 'Photo of {appearance}, sitting bolt upright at a street BBQ stall at night, framed close from across the table so only his upper body above the table is visible, back straight, serious dutiful face, beer glasses and skewers on the table in the foreground, warm string lights bokeh behind, {style}'
+- name: "10"
+  seed: 933
+  prompt: 'Interior side-view shot of {appearance}, sitting in the driver seat of a car, both hands holding the steering wheel, turning his head to look over his shoulder at the camera, {style}'
+- name: "11"
+  seed: 911
+  prompt: 'Half-body of {appearance}, standing in a dim office with cold light, stern serious expression, plain dark background, {style}'
+- name: "12"
+  seed: 934
+  prompt: 'Photo of luming, a lean young Chinese man in his early twenties, very short buzz-cut black hair, narrow eyes, thin sharp face, in a dark casual jacket, standing under a street lamp at night, looking at the camera, cool night tones, {style}'
+- name: "13"
+  seed: 944
+  prompt: 'Half-body of {appearance}, standing with both hands in his trouser pockets, three-quarter view, neutral expression, plain wall, soft light, {style}'
+- name: "14"
+  seed: 914
+  prompt: 'Half-body of luming, a lean young Chinese man in his early twenties, short buzz-cut black hair, plain blue security guard uniform shirt and a dark cap, standing at the glass entrance of an office building, nervous apologetic expression, {style}'
+- name: "15"
+  seed: 936
+  prompt: 'Portrait close-up of luming, a lean young Chinese man in his early twenties, very short buzz-cut black hair, narrow eyes, thin sharp face, wearing a dark navy police uniform jacket, slight skeptical frown, plain light-grey wall, {style}'
+- name: "16"
+  seed: 916
+  prompt: 'Portrait close-up of {appearance}, wearing the peaked cap, calm neutral expression, three-quarter angle view, soft light, {style}'
