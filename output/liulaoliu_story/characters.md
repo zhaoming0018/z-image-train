@@ -1,6 +1,6 @@
 # 《刘老六传奇》角色库（characters.md）
 
-> 更新：2026-10-03 13:20（v3.1：吕明定妆候选 16 张已出，待拍板；复核三件套 = 李晓伟/吕明/孟小燕） ｜ LoRA 目录：ComfyUI `models/loras/`（源：`~/z-image-train/output/<角色>_zimage_lora_v1/`）  ｜ 已训成：l6liu / he6tou / fu6lao / huiming / houshaolin / tongyuhui / caoda
+> 更新：2026-10-03 13:22（v3.2：吕明、孟小燕定妆候选 16 张均已出，待拍板；复核三件套候选备齐） ｜ LoRA 目录：ComfyUI `models/loras/`（源：`~/z-image-train/output/<角色>_zimage_lora_v1/`）  ｜ 已训成：l6liu / he6tou / fu6lao / huiming / houshaolin / tongyuhui / caoda
 > 出图 prompt 规则：**角色块（LoRA 名 + 全描述）＋ 场景动作 ＋ house style**；未训角色用**独立充分文字块**（防同脸）。  
 > 定妆候选存档：`output/liulaoliu_story/audition/<slug>/`（生成脚本 `scripts/gen_audition.py`）
 
@@ -97,9 +97,18 @@
 - **定妆候选**：16 张已出（10-03；`audition/luming/`，拼图 `luming_sheet.png`；两轮回炉）→ **待用户拍板**（推荐主锚 02/11/15，16 帽装备用；侧脸 04；全身 07；场景 09/10；便衣 06）
 - **弧段/窗口**：**角色首见段 17（别名「小吕/小保安」）**——ch16-20 批未渲染 → 零欠账窗口开放；名字首见段 19、末段 80
 
+### 孟小燕（阳西电子技术员 → 读心术修炼者；10-01 复核漏网补入）· ⏳ 定妆候选已出
+- **身份/弧**：阳西电子技术员（段26 接风宴登场）→ 六爷阵营技术担当（美林动漫游戏机调试）→ 后期获功法「读心术」（体育场修炼桥段）；与曾十一（师哥）互动；对老六记仇又仗义
+- **外观（原文）**：20 来岁、「长相一般」但**嘴角两旁两个小钩子式上翘微笑**（标志特征）；白皙小手；「穿着整洁的小白衬衫」；瘦；只喝果汁
+- **English 块（候选稿，未注册）**：
+  `mengxiaoyan, a slim young Chinese woman in her early twenties, fair skin, ordinary girl-next-door face, both mouth corners distinctively upturned in little hook-like curves, shoulder-length black hair, wearing a crisp white shirt`
+- **设计取舍（原文未明写、可否决）**：发型 = 齐肩黑发；体型 = 纤细；年龄 = 20~22；日常装 = 白衬衫+深色长裤；便服一张（牛仔外套）；后期修炼装束未设计
+- **定妆候选**：16 张已出（10-03；`audition/mengxiaoyan/`，拼图 `mengxiaoyan_sheet.png`；两轮回炉）→ **待用户拍板**（推荐主锚 02/01/12、侧脸 04、全身 07/08、回眸 11、场景 06/09/15）
+- **弧段/窗口**：首见段 26（ch26-30 批未渲染 → 零欠账窗口开放）、末段 85（全书约 72 次）
+
 ## ⚪ 二批候选
 
-**孟小燕**（72/20 章，首 26→85；阳西电子技术员）｜**烟头儿**（富老大心腹跟班，157/38 章，首 4；常驻可后补）｜马王爷（星君，第 22 章标题）｜安吉丽娜（星君）｜辰君（星君•黑帮头目）｜大金牙｜**宁飞**（早期反派打手，85/18 章，首 3）；（太上老君待核：本人 or 药童冒名）
+**烟头儿**（富老大心腹跟班，157/38 章，首 4；常驻可后补）｜马王爷（星君，第 22 章标题）｜安吉丽娜（星君）｜辰君（星君•黑帮头目）｜大金牙｜**宁飞**（早期反派打手，85/18 章，首 3）；（太上老君待核：本人 or 药童冒名）
 
 ## 🎭 龙套（文字块，不上 LoRA）
 

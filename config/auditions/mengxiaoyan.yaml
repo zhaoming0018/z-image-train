@@ -1,0 +1,57 @@
+# 孟小燕（阳西电子技术员 → 六爷阵营技术担当 → 读心术修炼者）定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 原文依据（段 26~）：妙龄少女（20 来岁）/「长相一般」，但嘴角两旁有两个小钩子一样、始终弯弯上翘的微笑（让人看得神迷）——全书反复强调的标志特征；
+#   白皙的小手；「穿着整洁的小白衬衫」；瘦（曾十一：「肋骨能露出几根」→ 六根）；只喝果汁；记仇冷淡（勾勾消失）与仗义热心（推转盘/挡菜盘）两面；
+#   场景：接风宴、鼎辉宾馆房门/走廊/电梯、美林动漫调试游戏机、大排档（提及）、后期体育场修炼（读心术）+ 贤惠擦脸。
+# 设计取舍（原文未明写、可否决）：发型 = 齐肩黑发；体型 = 纤细；年龄 = 20~22；日常装 = 白衬衫 + 深色长裤（技术员）；便服一张（牛仔外套）。
+#   后期「读心术」能力与修炼期装束暂不入块（需要时场景内加）。16 姿势、seeds 1001+；回炉轮次见各格 seed 注释（1030+/1050+ 为回炉）。
+appearance: 'mengxiaoyan, a slim young Chinese woman in her early twenties, fair skin, ordinary girl-next-door face, both mouth corners distinctively upturned in little hook-like curves, shoulder-length black hair, wearing a crisp white shirt'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 1051
+  prompt: 'Portrait close-up of {appearance}, a cheerful bright smile, looking directly at the camera, smooth clear skin, plain office wall, soft window light, {style}'
+- name: "02"
+  seed: 1002
+  prompt: 'Portrait close-up of {appearance}, neutral polite expression, mouth corners only faintly upturned, plain office wall, soft light, {style}'
+- name: "03"
+  seed: 1033
+  prompt: 'A single-frame three-quarter portrait of {appearance}, a sly amused grin, one eyebrow slightly raised, dark background, {style}'
+- name: "04"
+  seed: 1004
+  prompt: 'Side profile close-up of {appearance}, clear view of her face and shoulder-length hair, dark background, rim light, {style}'
+- name: "05"
+  seed: 1005
+  prompt: 'Half-body of {appearance}, standing in a hotel corridor, arms relaxed at her sides, polite smile, warm indoor light, {style}'
+- name: "06"
+  seed: 1036
+  prompt: 'Half-body of {appearance}, at an electronics workbench with a small screwdriver placed on the bench in front of her, one hand resting lightly on the bench top beside it, focused expression, cool workshop light, {style}'
+- name: "07"
+  seed: 1057
+  prompt: 'Wide full-length street photo of {appearance}, her whole body from head to shoes clearly within the frame with space around her, standing on a small-town street, white shirt and dark trousers, daylight, {style}'
+- name: "08"
+  seed: 1058
+  prompt: 'Wide full-length photo of {appearance}, caught mid-walk on a small-town street, whole body head to toe visible with ground under her shoes, white shirt and dark trousers, morning light, {style}'
+- name: "09"
+  seed: 1059
+  prompt: 'Photo of {appearance}, sitting at a restaurant table seen from the chest up, only her upper body above the table edge, a glass of juice on the table in the foreground, polite smile, warm restaurant light, {style}'
+- name: "10"
+  seed: 1010
+  prompt: 'Photo of {appearance}, standing under a street lamp at night, hands in her pockets, cool night tones, {style}'
+- name: "11"
+  seed: 1041
+  prompt: 'Photo of {appearance}, seen from behind at a three-quarter angle, looking back over her shoulder at the camera with a sly playful grin, blurred hotel corridor behind, {style}'
+- name: "12"
+  seed: 1012
+  prompt: 'Portrait of {appearance}, laughing happily with her head turned three-quarter, hair softly swaying, plain wall, {style}'
+- name: "13"
+  seed: 1043
+  prompt: 'Half-body of {appearance}, standing with a slight head tilt, curious attentive expression, plain grey wall, soft light, {style}'
+- name: "14"
+  seed: 1060
+  prompt: 'Wide full-length photo of {appearance}, off-duty in a light-wash denim jacket over her white shirt and jeans, whole body head to toe in frame, standing on a small-town street, daylight, {style}'
+- name: "15"
+  seed: 1045
+  prompt: 'Photo of {appearance}, crouching low in front of an arcade game machine, both hands resting on her knees, looking up at the camera with a satisfied smile, arcade hall light, {style}'
+- name: "16"
+  seed: 1046
+  prompt: 'Portrait close-up of {appearance}, cold flat expression, her mouth corners pressed straight with a slight frown, plain wall, {style}'
