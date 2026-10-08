@@ -1,0 +1,63 @@
+# 马王爷（天庭下凡星君，宿体＝辰君）定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 原文依据（段41~235）：
+#   宿体=辰君：北台头号黑帮头目 / 北台矿山（矿王）——十四岁出道、十五岁双刀砍遍二中街、十七上山抢矿、十八身价过百万；
+#   喜欢打拳；「一见到辰君那张脸我立刻全身心的投入到恐惧之中」「扭着头…一脸波澜不惊」——不怒自威的凶相。
+#   段49 起被天庭星君「马王爷」附身（一躯两身份）：「这货不是辰君」喜剧核心——咆哮（有木有！！！）、饿货讨饭、
+#   扭捏、配合瞪眼吓二宝；天庭规矩封印了原主记忆；段53「马王爷的第三只眼」（额中裂缝射玄光→第三只眼梗）；
+#   后续长期随队（69 章至末段）。宿体与星君共用同一肉身 → 一套定妆覆盖两名（原计划「辰君」候选可并入本条）。
+# 设计取舍（原文未明写、可否决）：年龄 = 三十五六；体型 = 高大魁梧（拳手/矿老板底子）；发型 = 黑色短背头；
+#   着装 = 黑色外套 + 深色衬衫（默认便装）；面部基调 = 不怒自威。「眉间旧疤 / 金戒指」等标识原文无据，未入库（需要可补）。
+# 姿势分工：宿体硬照 = 01/04/05/07/08/15/16；星君喜剧表演 = 02/03/09/10/11/12；场景 = 06（ATM 初见）/14（第三只眼，特殊镜头）。
+# 回炉 R1（10-08）：01/02/03/09/10/11/12/14 → seeds 1131~1138（脸型一致性 / 着装 / 姿势修正）。
+# 回炉记录（10-08）：R1 8 格(1131~1138) / R2 7 格(1151~1157) / R3 2 格(1171~1172)；终版 = 01/10/12 取 r2、02/03/09/11 取 r1、14 取 r3；全部备份在 mawangye_bak/。
+appearance: 'mawangye, a tall powerfully built Chinese man in his mid-thirties, muscular broad-shouldered frame like an underground boxing boss, short black hair slicked back, thick dark eyebrows, narrow piercing eyes, a hard menacing face, wearing a black jacket over a dark shirt'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 1151
+  prompt: 'Portrait close-up of {appearance}, stern inscrutable face looking straight at the camera, cold confident authority, his black jacket zipped closed over a dark shirt, plain dark warehouse wall background, moody side light, {style}'
+- name: "02"
+  seed: 1132
+  prompt: 'Portrait close-up of {appearance}, silly happy grin with a wide open cheerful smile and bright eyes, completely relaxed goofy expression, plain warm wall, soft light, {style}'
+- name: "03"
+  seed: 1133
+  prompt: 'Portrait close-up of {appearance}, childish pouting scowl mid-shout, brow furrowed, mouth open complaining, plain wall, {style}'
+- name: "04"
+  seed: 1104
+  prompt: 'Side profile close-up of {appearance}, clear view of his face outline and slicked-back short hair, dark background, rim light, {style}'
+- name: "05"
+  seed: 1105
+  prompt: 'Half-body of {appearance}, standing beside a worn heavy punching bag in a shabby underground gym, both hands wrapped in boxing hand wraps held up in a loose guard, {style}'
+- name: "06"
+  seed: 1106
+  prompt: 'Half-body of {appearance}, standing in front of an ATM on a dark street at midnight, staring at the machine with a puzzled blank face, cold city night light, {style}'
+- name: "07"
+  seed: 1107
+  prompt: 'Wide full-length photo of {appearance}, standing at the edge of a small open-pit mine outside a northern town, whole body head to toe clearly visible including his shoes, blurred mine machinery in the background, overcast daylight, {style}'
+- name: "08"
+  seed: 1108
+  prompt: 'Wide full-length photo of {appearance}, walking with a confident swagger down a small-town street, whole body head to toe within the frame with ground under his shoes, {style}'
+- name: "09"
+  seed: 1134
+  prompt: 'Photo of {appearance}, sitting at a small table in a shabby noodle shop seen from the chest up, leaning greedily over a big steaming bowl of noodles, looking down at the bowl, chopsticks in one hand, only his upper body above the table edge visible, warm tungsten light, {style}'
+- name: "10"
+  seed: 1155
+  prompt: 'Half-body of {appearance}, head tilted slightly forward glaring fiercely with wide intimidating eyes at someone off camera, fully dressed in his black jacket closed over a dark shirt, dark interior, harsh dramatic light, {style}'
+- name: "11"
+  seed: 1136
+  prompt: 'Photo of {appearance}, reclining deep into an old leather couch, leaning far back with one ankle crossed over the other knee, lazy satisfied expression, fully dressed in his black jacket and dark shirt, shabby old room, warm tungsten light, {style}'
+- name: "12"
+  seed: 1156
+  prompt: 'Half-body of {appearance}, both hands in his pockets, a sheepish embarrassed smile, looking slightly down, plain wall, soft light, {style}'
+- name: "13"
+  seed: 1113
+  prompt: 'Half-body of {appearance}, standing with both hands in his trouser pockets, three-quarter view, calm stern face, plain grey wall, {style}'
+- name: "14"
+  seed: 1172
+  prompt: 'Portrait close-up of {appearance}, a faint glowing vertical slit of light opening at the center of his forehead like a vertical third eye, pale mystical glow on his face, his black jacket zipped closed over a dark shirt, dark background, {style}'
+- name: "15"
+  seed: 1115
+  prompt: 'Portrait close-up of {appearance}, calm serious expression, three-quarter angle, cinematic side light, plain dark background, {style}'
+- name: "16"
+  seed: 1116
+  prompt: 'Half-body of {appearance}, sitting behind a large wooden desk in a dim back office, leaning back in his chair with one hand resting flat on the desk, boss posture, faint haze in the air, {style}'

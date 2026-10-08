@@ -1,6 +1,6 @@
 # 《刘老六传奇》角色库（characters.md）
 
-> 更新：2026-10-03 13:22（v3.2：吕明、孟小燕定妆候选 16 张均已出，待拍板；复核三件套候选备齐） ｜ LoRA 目录：ComfyUI `models/loras/`（源：`~/z-image-train/output/<角色>_zimage_lora_v1/`）  ｜ 已训成：l6liu / he6tou / fu6lao / huiming / houshaolin / tongyuhui / caoda
+> 更新：2026-10-08 18:35（v3.3：补完中断班次——烟头儿、马王爷（含辰君）定妆候选 16×2 已出，待拍板；六名候选备齐） ｜ LoRA 目录：ComfyUI `models/loras/`（源：`~/z-image-train/output/<角色>_zimage_lora_v1/`）  ｜ 已训成：l6liu / he6tou / fu6lao / huiming / houshaolin / tongyuhui / caoda
 > 出图 prompt 规则：**角色块（LoRA 名 + 全描述）＋ 场景动作 ＋ house style**；未训角色用**独立充分文字块**（防同脸）。  
 > 定妆候选存档：`output/liulaoliu_story/audition/<slug>/`（生成脚本 `scripts/gen_audition.py`）
 
@@ -61,7 +61,7 @@
 
 > ⚠️ **搭档纪律**：侯少麟 + 佟御辉是六爷最早的俩「直系小弟」，几乎总同框 → **同批定妆/训练**（已执行）；同框戏双 LoRA 出场，盯防互相外溢（必要时降强度 / 前后景分离）。
 
-## 🟢 二批（已启动）：曹答 ✅ · 张擂 ⏳ · 李晓伟 ⏳ · 吕明 ⏳
+## 🟢 二批（已启动）：曹答 ✅ · 张擂 ⏳ · 李晓伟 ⏳ · 吕明 ⏳ · 孟小燕 ⏳ · 烟头儿 ⏳ · 马王爷 ⏳
 
 ### 曹答（六爷的司机兼小弟·可乐胖子；第 7 张 LoRA）· ✅ 已训成
 - **昵称**：史莱姆（与张擂「超人」并列）；东盛租赁司机 → 收作小弟·保镖
@@ -106,9 +106,25 @@
 - **定妆候选**：16 张已出（10-03；`audition/mengxiaoyan/`，拼图 `mengxiaoyan_sheet.png`；两轮回炉）→ **待用户拍板**（推荐主锚 02/01/12、侧脸 04、全身 07/08、回眸 11、场景 06/09/15）
 - **弧段/窗口**：首见段 26（ch26-30 批未渲染 → 零欠账窗口开放）、末段 85（全书约 72 次）
 
+### 烟头儿（富老大心腹跟班·看门力工 → 富强集团亲信；10-08 补班）· ⏳ 定妆候选已出
+- **身份**：外号来历＝富老大落魄时分过半根烟、一直带在身边（滴水之恩）；收购站看门喊人、端砂锅送饭、跟富老大跑外买设备；「有一膀子力气」
+- **外观（原文 段 4~237，157 次 / 38 章）**：壮实汉子；延续既有文描块定版：三十出头 / 短黑发 / 朴实厚道脸 / 深色工作服（burly 强化）
+- **English 块（候选稿，未注册）**：
+  `yantouer, a sturdy broad-shouldered Chinese man in his early thirties, short black hair, simple honest face, plain dark work clothes`
+- **定妆候选**：16 张已出（10-08；`audition/yantouer/`，拼图 `yantouer_sheet.png`；回炉 1 格：09 手-锅把粘连）→ **待用户拍板**（推荐主锚 01/02/16、侧脸 04、场景 08/09/10）
+- **弧段/窗口**：首见段 4；常驻（原「可后补」，本次提前完成）；受影响旧镜头 = ch13 `s1_gate`/`s5_pot`（拍板后评估）
+
+### 马王爷（天庭星君 · 宿体＝辰君；10-08 补班）· ⏳ 定妆候选已出
+- **一躯两身份**：宿体辰君 = 北台头号黑帮头目/矿王（十四岁出道、十七上山抢矿；打拳；不怒自威）→ 段 49 起被星君「马王爷」附身（咆哮「有木有！！！」、饿货讨饭、第三只眼）；**一套定妆覆盖两名**（原「辰君」候选并入）
+- **外观（原文 段 41~235）**：三十五六 / 高大魁梧（拳手底子）/ 黑色短背头 / 浓眉窄眼 / 黑外套+深色衬衫（设计取舍，可否决）
+- **English 块（候选稿，未注册）**：
+  `mawangye, a tall powerfully built Chinese man in his mid-thirties, muscular broad-shouldered frame like an underground boxing boss, short black hair slicked back, thick dark eyebrows, narrow piercing eyes, a hard menacing face, wearing a black jacket over a dark shirt`
+- **定妆候选**：16 张已出（10-08；`audition/mawangye/`，拼图 `mawangye_sheet.png`；三轮回炉 17 格次）→ **待用户拍板**（推荐主锚 13/16/15、场景 14/06、喜剧 02/03/11；02/03/09/12 面相偏成熟 40±，可否决）
+- **弧段/窗口**：辰君名首见段 41、马王爷附身段 49；已渲染 ch1~15 内无戏份 → **无旧镜头**
+
 ## ⚪ 二批候选
 
-**烟头儿**（富老大心腹跟班，157/38 章，首 4；常驻可后补）｜马王爷（星君，第 22 章标题）｜安吉丽娜（星君）｜辰君（星君•黑帮头目）｜大金牙｜**宁飞**（早期反派打手，85/18 章，首 3）；（太上老君待核：本人 or 药童冒名）
+**安吉丽娜**（星君）｜大金牙｜**宁飞**（早期反派打手，85/18 章，首 3）；（太上老君待核：本人 or 药童冒名）
 
 ## 🎭 龙套（文字块，不上 LoRA）
 

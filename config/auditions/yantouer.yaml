@@ -1,0 +1,59 @@
+# 烟头儿（富老大心腹跟班·力工 → 富强集团亲信）定妆候选（scripts/gen_audition.py 读取；集合名 = 文件名）
+# 原文依据（段 4~237，总 157 次 / 覆盖 38 章 / 首见段 4）：
+#   段4：「壮实汉子」开门让老六进屋；外号来历 = 富老大落魄时分过半根烟，一直带在身边（「滴水之恩涌泉相报」）；
+#   段565+：收购站大铁门（看门喊人）；段584+：端砂锅/送饭送水（亲信杂务）；段606+：「有一膀子力气」的力工，
+#   跟富老大跑外买设备；段1720：电话里托起哭腔（重情义）；多处与老六逗贫（「烟头儿看我吓够呛他倒是乐了」）。
+# 设计取舍（延续既有文描块 yantouer 定版，未改人设；仅补 burly 强化「壮实」）：年龄 = 三十出头；
+#   造型 = 短黑发 + 朴实厚道脸 + 深色工作服（力工）；冬装厚外套 / 集团走廊为可选变体（原文未明写、可否决）。
+# 16 姿势、seeds 1101+；回炉 R1（10-08）：09 → seed 1131（手部-锅把粘连修正）。
+appearance: 'yantouer, a sturdy broad-shouldered Chinese man in his early thirties, short black hair, simple honest face, plain dark work clothes'
+style: 'photorealistic photo, film grain, 35mm'
+prompts:
+- name: "01"
+  seed: 1101
+  prompt: 'Portrait close-up of {appearance}, neutral honest expression, looking directly at the camera, plain grey wall, soft window light, {style}'
+- name: "02"
+  seed: 1102
+  prompt: 'Portrait close-up of {appearance}, a warm simple grin, looking at the camera, plain grey wall, soft light, {style}'
+- name: "03"
+  seed: 1103
+  prompt: 'A single-frame three-quarter portrait of {appearance}, laughing heartily with head slightly tilted back, dark background, {style}'
+- name: "04"
+  seed: 1104
+  prompt: 'Side profile close-up of {appearance}, clear view of his face and short hair, dark background, rim light, {style}'
+- name: "05"
+  seed: 1105
+  prompt: 'Portrait of {appearance}, serious stern expression with slightly furrowed brows, arms crossed in front of his chest, plain grey wall, soft light, {style}'
+- name: "06"
+  seed: 1106
+  prompt: 'Wide full-length photo of {appearance}, his whole body from head to shoes clearly within the frame with space around him, standing upright in a scrap yard, piles of scrap metal behind, daylight, {style}'
+- name: "07"
+  seed: 1107
+  prompt: 'Wide full-length photo of {appearance}, caught mid-walk on a small-town street, whole body head to toe visible with ground under his shoes, morning light, {style}'
+- name: "08"
+  seed: 1108
+  prompt: 'Photo of {appearance}, standing inside the big rusty iron gate of a scrap yard, one arm raised high in a big wave, calling out to someone, piles of scrap metal behind, warm afternoon light, {style}'
+- name: "09"
+  seed: 1131
+  prompt: 'Photo of {appearance}, standing in the office doorway of a scrap yard, holding a steaming clay pot with both hands, fingers firmly wrapped around the pot, thick steam rising, warm tungsten light, {style}'
+- name: "10"
+  seed: 1110
+  prompt: 'Half-body photo of {appearance}, holding a mobile phone to his ear, slightly worried anxious expression, indoor office background, warm tungsten light, {style}'
+- name: "11"
+  seed: 1111
+  prompt: 'Photo of {appearance}, sitting on a wooden stool in a scrap yard courtyard, forearms resting on his knees, relaxed, daylight, {style}'
+- name: "12"
+  seed: 1112
+  prompt: 'Interior side-view shot of a van, {appearance} sitting in the passenger seat, seen from the side, turning his head toward the camera, daylight through the windows, {style}'
+- name: "13"
+  seed: 1113
+  prompt: 'Photo of {appearance}, standing under a street lamp at night, hands in his pockets, cool night tones, {style}'
+- name: "14"
+  seed: 1114
+  prompt: 'Wide full-length photo of {appearance}, wearing a dark padded winter jacket over his work clothes, whole body head to toe in frame, standing on a small-town street in winter, grey daylight, {style}'
+- name: "15"
+  seed: 1115
+  prompt: 'Photo of {appearance}, standing beside a pile of scrap metal with both hands on his hips, sturdy stance, scrap yard background, afternoon light, {style}'
+- name: "16"
+  seed: 1116
+  prompt: 'Photo of {appearance}, standing in a bright modern office hallway of a small-town company building, plain dark jacket over work clothes, clean walls, daylight, {style}'
