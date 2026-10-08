@@ -204,6 +204,14 @@
 - （新 LoRA 每训成一个，在此追加对应清单并通知用户）
 - 【09-29 20:20】fu6lao/huiming 已全面投用（ch3~7 全批实战）；ch2 三镜 `s2_boss`/`s5_cafe`/`s6_drag` **随时可一键重拍**（脚本/角色块就绪）——待用户一句话
 
+## 动漫管线转向（2026-10-08 · 用户拍板）
+
+- **LoRA 线停用**：不再建数据集、不再开训；6 个定妆候选（张擂/李晓伟/吕明/孟小燕/烟头儿/马王爷）留档即可，路径 A/B 拍板作废
+- **cron 批跑已全部删除**（工作日班 + 周末班；勿重建）
+- **画风 = 动漫**（弃写实）：Qwen-Image 2.1 新管线 = 四视角人物卡（参考图）→ 参考图锁人 → 章节图；配方/坑见技能 `novel-chapter-illustration` 的「动漫管线」节 + `references/anime-character-cards.md`
+- **样片已交付待确认**：老六动漫卡（19:08，9/10）+ 第一章第一镜 s1_strut 动漫重制（19:28，8/10）——确认后铺全部人物卡 + 章节逐镜重做（量级上千张，先第一章全 5 镜）
+- 相关资产：`output/liulaoliu_story/sheets/`（卡试验 v1-v9 全档 + final）；脚本 `scripts/anime_trial.py`、`scripts/anime_ch1_s1.py`
+
 ## 规则
 
 - 单卡纪律：**训练与出图绝不并发**；出图前 `nvidia-smi` 查空闲；**训练窗口（unit `zimage-train-*` active）= 出图任务一律推迟**，cron 只需汇报状态
