@@ -38,10 +38,12 @@ SHOTS = [
      "「这不光是买卖，是出头上位的机会！刘老六，你啥时候成为北台第一？就在今天！！！」; "
      "only one young man, no other people; the flat simple anime background stays unchanged; smooth limited "
      "TV-anime animation"),
-    ("e04_block", 504, "anime_ch1_s2_block.png",
+    ("e04_block", 527, "anime_ch1_s2_block.png",
      "anime style 2D animation, cel-shaded: the elderly fortune-teller raises his dark hand to block the way; "
      "the chubby young man snaps in Chinese: 「干什么？」; the old man cackles: 「小朋友，你今天有挂，恩……六爷是吧？」; "
-     "the young man replies smugly: 「什么六爷，江湖上的朋友给面子。」; exactly two people, no duplicates; "
+     "the young man replies smugly: 「什么六爷，江湖上的朋友给面子。」; after that, the old man retracts his hand and "
+     "rubs both hands together with a grin, tiny dark mud crumbs flaking off his dirty fingers and falling down; "
+     "the young man grimaces in disgust; exactly two people, no duplicates; "
      "the flat simple anime street background stays unchanged; smooth limited TV-anime animation"),
     ("e05_booth", 505, "anime_ch1full_n3_booth.png",
      "anime style 2D animation, cel-shaded: the chubby young man walks up to the shabby fortune-teller booth and "
@@ -65,7 +67,7 @@ SHOTS = [
      "together with a sly grin, and probes in Chinese: 「吭~那个……听说六爷擅打老头儿？！」; "
      "only one old man in the scene; the flat simple anime background stays unchanged; smooth limited "
      "TV-anime animation"),
-    ("e09_smash", 525, "anime_ch1full_n5_smash.png",
+    ("e09_smash", 528, "anime_ch1full_n5_smash.png",
      "anime style 2D animation, cel-shaded: the young man does not laugh, does not giggle, no laughing sounds; "
      "he speaks ONLY the exact quoted Chinese line, word for word, no extra words, no other language; "
      "the chubby young man suddenly explodes — he flings the bamboo "
@@ -77,9 +79,9 @@ SHOTS = [
      "clamp and says calmly in Chinese: 「不可动怒啊~」; the chubby young man pulls back desperately shouting: "
      "「松开！！你特么给我松开！！」; exactly two people, no duplicates; the flat simple anime background stays "
      "unchanged; smooth limited TV-anime animation"),
-    ("e11_palm", 511, "anime_ch1full_n7_palm.png",
-     "anime style 2D animation, cel-shaded: the elderly fortune-teller holds the young man's open palm and draws "
-     "lines on it with one dirty finger, chanting mysteriously in Chinese: 「掌中多筋包，不抓鞭子就抓刀…"
+    ("e11_palm", 529, "anime_ch1full_n7_palm.png",
+     "anime style 2D animation, cel-shaded: the elderly fortune-teller holds the young man's open palm firmly and draws "
+     "lines ON THE YOUNG MAN'S PALM with one dirty finger — the drawing happens on the young man's hand, never on his own hand — chanting mysteriously in Chinese: 「掌中多筋包，不抓鞭子就抓刀…"
      "命理有黑痣，逆天违伦方得势……」; the young man stares at him, unease growing; exactly two people, "
      "no duplicates; the flat simple anime background stays unchanged; smooth limited TV-anime animation"),
     ("e12_virgin", 523, "anime_ch1full_n8_flushed.png",
@@ -88,13 +90,16 @@ SHOTS = [
      "「精气聚成团，六爷原来是处男……」; the chubby young man's face breaks into a layer of cold sweat, "
      "eyes wide in disbelief; only one face on screen; the flat simple anime background stays unchanged; "
      "smooth limited TV-anime animation"),
-    ("e13_wetbed", 513, "anime_ch1full_n8_flushed.png",
-     "anime style 2D animation, cel-shaded: the old fortune-teller's voice goes on in Chinese: "
+    ("e13_wetbed", 532, "anime_ch1full_n8_flushed.png",
+     "anime style 2D animation, cel-shaded: a tight portrait close-up of the chubby young man's sweaty face from "
+     "start to end — absolutely no other character of any kind appears on screen, no old man, no taoist, no monk, "
+     "only the young man's face; the old fortune-teller's voice is heard off-screen in Chinese: "
      "「童子线挺长，十八左右还尿床……」; the chubby young man snaps, sweating, shouting: 「你给我松开听到没？！」; "
      "only one face on screen; the flat simple anime background stays unchanged; smooth limited TV-anime animation"),
-    ("e14_piles", 524, "anime_ch1_s5_stool.png",
+    ("e14_piles", 531, "anime_ch1full_e14_empty.png",
      "anime style 2D animation, cel-shaded: the characters speak ONLY the exact quoted Chinese lines, word for "
-     "word, no improvised extra words; the old fortune-teller chants with fingers pinched in Chinese: "
+     "word, no improvised extra words; the young man stands EMPTY-HANDED, fists clenched at his sides, nothing in "
+     "his hands; the old fortune-teller chants with fingers pinched in Chinese: "
      "「掌气起寒霜，六爷有痔疮，掌峰似坚壁，你大便很吃力啊。」; the chubby young man freezes, face contorted "
      "with rage; exactly two people, no duplicates; the flat simple anime background stays unchanged; "
      "smooth limited TV-anime animation"),
