@@ -46,15 +46,16 @@ SHOTS = [
      "anime style 2D animation, cel-shaded: " + ONLY +
      "close-up of the chubby young man clenching his jaw in fury, low angle: he takes a breath and speaks in "
      "Chinese: 「兄弟，出头的机会终于来了——能不能闯出个名堂，就看今天！」; only one person in the whole scene; " + TALE),
-    ("s06_stairs", 806, "anime_ch3src_s06_stairs.png",
-     "anime style 2D animation, cel-shaded: " + ONLY +
-     "the chubby young man charges up the old staircase, taking the steps two at a time, dust kicking up; no "
-     "dialogue, only heavy footsteps and faint fighting noises from above; only one person in the whole scene; " + TALE),
-    ("s07_room", 807, "anime_ch3src_s07_room.png",
+    ("s06_stairs", 876, "anime_ch3src_s06_stairs.png",
+     "anime style 2D animation, cel-shaded: the chubby young man charges up the old staircase, taking the steps "
+     "two at a time, dust kicking up; absolutely no speech, no voices, no talking at all — only heavy footsteps "
+     "and faint muffled thuds from above; only one person in the whole scene; " + TALE),
+    ("s07_room", 857, "anime_ch3src_s07_room.png",
      "anime style 2D animation, cel-shaded: " + ONLY +
      "the wrecked private room in a wide shot: the bleeding boss defiantly at the round table, the bald fat man "
-     "with the watermelon knife leering; crashing and glass sounds; the bald man sneers in Chinese: 「老富，你还真"
-     "不给面子啊？」; two clear people, background silhouettes only; " + TALE),
+     "with the watermelon knife leering; quiet tense room tone only, no action, no fighting; nobody ever enters "
+     "or moves through the frame, the camera stays on these two the whole time; the bald man sneers in Chinese: "
+     "「老富，你还真不给面子啊？」; exactly two people, never anyone else; " + TALE),
     ("s08_youtou", 808, "anime_ch3src_s08_youtou.png",
      "anime style 2D animation, cel-shaded: " + ONLY +
      "the bald fat boss glares and raps the table with the flat of his knife, snarling in Chinese: 「你嫂子敬你酒你"
@@ -64,14 +65,16 @@ SHOTS = [
      "the bloody boss sits bolt upright, pointing fiercely, roaring in Chinese: 「我糖尿病你也不是不知道！油头，"
      "你今天不就是想灭我威风吗——有种就让我富强以后站不起来，不然我非拆了你这间破庙！！」; "
      "only one clear person; " + TALE),
-    ("s10_bottle", 810, "anime_ch3src_s10_bottle.png",
+    ("s10_bottle", 890, "anime_ch3src_s10_bottle.png",
+     "anime style 2D animation, cel-shaded: THE single most important moment — the green beer bottle BREAKS "
+     "APART on the boss's head: the bottle snaps in two, the top half flies away and countless green glass shards "
+     "spray through the air like fireworks; the boss's jowly face with the pencil mustache stays clearly visible, "
+     "slumping forward; no dialogue, only the crash of breaking glass; exactly two people; " + TALE),
+    ("s11_shout", 861, "anime_ch3src_s11_shout.png",
      "anime style 2D animation, cel-shaded: " + ONLY +
-     "the thug's beer bottle smashes down on the boss's head with a loud CRACK — the boss slumps forward onto the "
-     "table; no dialogue, only the crack of glass and gasps; exactly two people; " + TALE),
-    ("s11_shout", 811, "anime_ch3src_s11_shout.png",
-     "anime style 2D animation, cel-shaded: " + ONLY +
-     "the chubby young man bursts through the door brandishing a green bottle and bellows in Chinese: 「都他妈给我"
-     "住手！！！」; dramatic low angle; only one person in the whole scene; " + TALE),
+     "the chubby young man KICKS the door open and bursts through it brandishing a green bottle high, bellowing in "
+     "Chinese: 「都他妈给我住手！！！」; door slamming open, dramatic low angle; only one person in the whole scene; "
+     + TALE),
     ("s12_feige", 812, "anime_ch3src_s12_feige.png",
      "anime style 2D animation, cel-shaded: " + ONLY +
      "the lean thug in the black leather jacket leaps onto the tabletop and sneers down in Chinese: 「他娘的刘老六，"
@@ -84,27 +87,27 @@ SHOTS = [
      "anime style 2D animation, cel-shaded: " + ONLY +
      "the skinny young man in the shabby suit lunges from behind and kicks the lean thug hard in the stomach with a "
      "cry: 「我草！！」; the thug doubles over with a scream; dynamic action; exactly two people, no duplicates; " + TALE),
-    ("s15_laofu2", 815, "anime_ch3src_s15_laofu2.png",
+    ("s15_laofu2", 865, "anime_ch3src_s15_laofu2.png",
      "anime style 2D animation, cel-shaded: " + ONLY +
      "the bloody boss, propped on the table, suddenly yells at the chubby young man in Chinese: 「看毛呢！！！你最"
-     "拿手的不就是打老头儿嘛？！」; he points at the surrounding old guests; background silhouettes only; " + TALE),
-    ("s16_melee", 816, "anime_ch3src_s16_melee.png",
+     "拿手的不就是打老头儿嘛？！」; he points at the surrounding old guests — ALL of the guests are completely "
+     "dark faceless blurry silhouettes, no facial features, never detailed, no plates or food appear; " + TALE),
+    ("s16_melee", 866, "anime_ch3src_s16_melee.png",
      "anime style 2D animation, cel-shaded: " + ONLY +
-     "the brawl: the chubby young man smashes his bottle on the thug's head and kicks him under the table; then "
-     "the bald fat man swings a wild punch — the young man ducks and lands an uppercut on his double chin knocking "
-     "him down; no dialogue, heavy impact sounds and shouting; exactly two clear people at a time; " + TALE),
-    ("s17_fist", 817, "anime_ch3test_fist.png",
+     "the brawl in one single continuous action: the chubby young man smashes his green bottle on the thug's head, "
+     "then ducks and lands an uppercut on the bald fat man knocking him down; heavy impact sounds and shouting; "
+     "the same restaurant background stays unchanged the whole time; exactly two people visible at a time; " + TALE),
+    ("s17_fist", 867, "anime_ch3test_fist.png",
      "anime style 2D animation, cel-shaded: " + ONLY +
-     "the young man smashes his fist straight down onto the incoming watermelon knife — the blade bends and flies "
-     "out of the bald man's hand with a loud metal clang; then slow push-in: the bald boss stares dumbfounded, the "
-     "young man looks stunned at his own fist; camera shake at the impact; no dialogue, metal clang and gasps "
-     "only; exactly two people, no duplicates; " + TALE),
-    ("s18_wall", 818, "anime_ch3src_s18_wall.png",
-     "anime style 2D animation, cel-shaded: " + ONLY +
-     "BOOM — the young man's left fist smashes clean through the wall: a huge hole bursts open, brick rubble "
-     "explodes, white steam from the bathhouse next door billows in, a woman's shriek rings out; everyone else "
-     "already fled; no dialogue, only the massive impact boom, rubble clatter and steam hiss; "
-     "only one clear person; " + TALE),
+     "the young man smashes his fist straight down onto the incoming watermelon knife — the bent blade FLIES OUT "
+     "of the bald man's hand, spinning away; the bald boss freezes in wide-eyed shock, jaw dropped; then the young "
+     "man looks stunned at his own fist; camera shake at the impact; no dialogue, metal clang and gasps only; "
+     "exactly two people, no duplicates; " + TALE),
+    ("s18_wall", 878, "anime_ch3src_s18_wall.png",
+     "anime style 2D animation, cel-shaded: BOOM — the young man's left fist smashes clean through the wall: a "
+     "huge hole bursts open, brick rubble explodes, white steam from the bathhouse next door billows in; everyone "
+     "else already fled; absolutely no speech, no voices at all — only the massive impact boom, rubble clatter "
+     "and steam hiss; only one clear person; " + TALE),
     ("s19_hand", 819, "anime_ch3src_s19_hand.png",
      "anime style 2D animation, cel-shaded: " + ONLY +
      "the chubby young man stares at his own left fist, wide-eyed, then hurries to shove it into his trouser "
